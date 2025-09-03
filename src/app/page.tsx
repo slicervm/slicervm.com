@@ -14,7 +14,7 @@ export default function Home() {
             className="mx-auto mb-4"
             priority
           />
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">SlicerVM.com</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2" style={{ fontFamily: "Courier New" }}>SlicerVM.com</h2>
           <p className="text-xl md:text-2xl text-gray-700">
             Create your own cloud with lightweight microVMs.
           </p>

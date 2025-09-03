@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SlicerVM - your own microVM cloud",
   description: "Create your own cloud with lightweight microVMs. Perfect for learning, experimentation, and production workloads.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

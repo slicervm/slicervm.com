@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
-  ...(process.env.NODE_ENV === 'production' && {
+  // Only apply basePath when deploying to GitHub Pages
+  ...(process.env.GITHUB_PAGES === 'true' && {
     basePath: '/slicervm.com',
   }),
   images: {

@@ -50,6 +50,11 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
+        env:
+          # Prevent GitHub Pages from adding basePath
+          NEXT_PUBLIC_BASE_PATH: ""
+          # Ensure we're building for custom domain
+          GITHUB_PAGES_CUSTOM_DOMAIN: "slicervm.com"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

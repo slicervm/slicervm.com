@@ -29,6 +29,40 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy on GitHub Pages
+
+This project is configured for deployment to GitHub Pages with a custom domain.
+
+### Automated Deployment
+
+The site automatically deploys to GitHub Pages when you push to the `main` branch via GitHub Actions.
+
+### Manual Deployment
+
+You can also deploy manually using one of these methods:
+
+#### Method 1: Using the deploy script (recommended)
+```bash
+npm run deploy:fast
+```
+
+#### Method 2: Using npm script
+```bash
+npm run deploy
+```
+
+#### Method 3: Manual steps
+```bash
+npm run build
+npx gh-pages -d out --dotfiles
+```
+
+### Custom Domain
+
+The site is configured to use `slicervm.com` as the custom domain. Make sure to:
+1. Point your domain's DNS to GitHub Pages
+2. Add `slicervm.com` to your GitHub repository's Pages settings
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

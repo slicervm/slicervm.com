@@ -27,7 +27,7 @@ export default function Navigation() {
             <Link 
               href="/pricing" 
               className={`text-gray-700 hover:text-indigo-600 px-2 py-1 rounded-md text-sm font-medium transition duration-300 ${
-                pathname === '/pricing' ? 'text-indigo-600 border-b-2 border-indigo-600' : ''
+                pathname.startsWith('/pricing') ? 'text-indigo-600 border-b-2 border-indigo-600' : ''
               }`}
             >
               Pricing

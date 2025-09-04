@@ -1,4 +1,11 @@
+'use client';
+
+import { useState } from 'react';
+import CheckoutModal from '../../components/CheckoutModal';
+
 export default function Pricing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +65,7 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 block text-center"
             >
-              Pay Now
+              Start Sponsoring
             </a>
           </div>
 
@@ -107,14 +114,12 @@ export default function Pricing() {
               </li>
             </ul>
             
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 block text-center"
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
             >
-              Contact Sales
-            </a>
+              Purchase Seats
+            </button>
           </div>
 
           {/* Enterprise Tier */}
@@ -161,15 +166,17 @@ export default function Pricing() {
 
         {/* Additional Information */}
         <div className="text-center mt-16">
-          <p className="text-gray-600 mb-4">
-            All plans include access to the SlicerVM platform and community resources.
+          <p className="text-gray-600 mb-6">
+            Got questions for us about Slicer before purchasing?
           </p>
-          <p className="text-sm text-gray-500">
-            Questions about pricing? 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484" className="text-indigo-600 hover:text-indigo-700 ml-1">
-              Contact our team
-            </a>
-          </p>
+          <a 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300"
+          >
+            Talk to Sales
+          </a>
         </div>
 
         {/* Footer */}
@@ -177,6 +184,12 @@ export default function Pricing() {
           <p>© 2025 <a href="https://openfaas.com" className="hover:text-indigo-600">OpenFaaS Ltd</a>. Made with ❤️ for the self-hosted community.</p>
         </footer>
       </div>
+
+      {/* Checkout Modal */}
+      <CheckoutModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 }

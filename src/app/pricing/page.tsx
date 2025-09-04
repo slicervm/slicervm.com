@@ -73,7 +73,7 @@ export default function Pricing() {
           <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-indigo-600 hover:shadow-xl transition duration-300 relative">
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
               <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                Most Popular
+                Self-Service Option
               </span>
             </div>
             

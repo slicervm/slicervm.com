@@ -39,7 +39,7 @@ export default function Home() {
               <li>• Launch large Kubernetes clusters in less than a minute</li>
               <li>• Reproduce customer support cases, and introduce chaos testing</li>
               <li>• Run background jobs, code workspaces, and AI agents via API</li>
-              <li>• Build and run customer code, with secure isolation</li>
+              <li>• Accelerate your own platform's roadmap - build and run customer code, with secure isolation</li>
               <li>• Run GPU-powered AI and LLM workloads</li>
             </ul>
           </div>

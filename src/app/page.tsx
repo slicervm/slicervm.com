@@ -35,9 +35,10 @@ export default function Home() {
             </p>
             <h2 className="text-lg font-semibold text-indigo-600 mb-4">Slicer at work</h2>
             <ul className="text-gray-600 space-y-2">
+              <li>• Run AI agents in a secure sandbox with minimal overhead</li>
               <li>• Launch large Kubernetes clusters in less than a minute</li>
               <li>• Reproduce customer support cases, and introduce chaos testing</li>
-              <li>• Run background jobs, code workspaces, and isolated AI agents via API</li>
+              <li>• Run background jobs, code workspaces, and AI agents via API</li>
               <li>• Build and run customer code, with secure isolation</li>
               <li>• Run GPU-powered AI and LLM workloads</li>
             </ul>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState,Link } from 'react';
 import CheckoutModal from '../../components/CheckoutModal';
 
 export default function Pricing() {
@@ -55,7 +55,7 @@ export default function Pricing() {
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Support & Collaboration via Discord</span>
+                <span className="text-gray-700">Support &amp; Collaboration via Discord</span>
               </li>
             </ul>
             
@@ -86,32 +86,33 @@ export default function Pricing() {
             <ul className="space-y-4 mb-8">
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Launch microVMs for short-lived or long-lived use-cases</span>
+                <span className="text-gray-700">Run servers, containers, and Kubernetes in microVMs</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Supported Kernel and Operating System: Ubuntu LTS</span>
+                <span className="text-gray-700">Run ephemeral jobs in microVMs via REST API</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Run one-shot tasks via API</span>
+                <span className="text-gray-700">Customise microVMs via userdata or a custom Docker image</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Mount GPUs into microVMs for AI agents and LLMs</span>
+                <span className="text-gray-700">Supported Operating Systems: Ubuntu LTS - x86_64 and arm64</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Each developer requires a seat</span>
+                <span className="text-gray-700">Mount GPUs into microVMs for AI/LLMs</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Plus an additional seat for any deployments of Slicer for shared use</span>
+                <span className="text-gray-700"><a style={{ textDecoration: "underline" }} href="https://actuated.com/blog/bringing-firecracker-to-jenkins">Jenkins plugin</a> for ephemeral build slaves</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
                 <span className="text-gray-700">Support via email - business hours</span>
               </li>
+
             </ul>
             
             <button 
@@ -137,11 +138,11 @@ export default function Pricing() {
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Pay by invoice - USD ACH or SWIFT in GBP</span>
+                <span className="text-gray-700">Pay annually by invoice - USD ACH or SWIFT in GBP</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Priority support within 1 business day</span>
+                <span className="text-gray-700">Additional Operating Systems: RHEL-like (Rocky Linux)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
@@ -149,7 +150,7 @@ export default function Pricing() {
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Additional supported images i.e. RHEL-like Operating Systems</span>
+                <span className="text-gray-700">Priority support within 1 business day</span>
               </li>
             </ul>
             

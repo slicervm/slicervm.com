@@ -1,5 +1,6 @@
 'use client';
 
+import { Underdog } from 'next/font/google';
 import { useState } from 'react';
 
 interface CheckoutModalProps {
@@ -75,18 +76,18 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
               </h3>
               <div className="mt-2">
                 <p className="text-sm text-gray-500 mt-5">
-                  Deploy SlicerVM for commercial and/or business use.
+                  Deploy SlicerVM for commercial, business, and internal use.
                 </p>
                 <ul>
                 <li className="text-sm text-gray-500 mt-5 list-disc list-inside">
-                Each developer requires a seat.
+                Each developer that runs Slicer requires a seat.
                 </li>
                 <li className="text-sm text-gray-500 list-disc list-inside">
-                    Plus an additional seat for each shared, production or internal deployments.
+                Each deployment to a company server requires a seat (production and non-production).
                 </li>
                 </ul>
                 <p className="text-sm text-gray-500 mt-5">
-                    Contact us via the form to order via invoice.
+                    Contact us via the <a style={{ textDecoration: "underline" }} href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform">form</a> to order via invoice or to ask questions.
                 </p>
               </div>
             </div>

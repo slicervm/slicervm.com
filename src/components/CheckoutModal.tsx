@@ -1,6 +1,5 @@
 'use client';
 
-import { Underdog } from 'next/font/google';
 import { useState } from 'react';
 
 interface CheckoutModalProps {

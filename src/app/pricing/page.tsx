@@ -1,6 +1,6 @@
 'use client';
 
-import { useState,Link } from 'react';
+import { useState } from 'react';
 import CheckoutModal from '../../components/CheckoutModal';
 
 export default function Pricing() {

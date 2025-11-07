@@ -39,19 +39,19 @@ export default function Pricing() {
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
+                <span className="text-gray-700">Fastest and most reliable way to learn and run microVMs</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-indigo-600 mr-3">✓</span>
+                <span className="text-gray-700">Deploy almost anywhere i.e. WSL, RPi 5, N100, mini PCs, rackmount servers, Hetzner, etc</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-indigo-600 mr-3">✓</span>
                 <span className="text-gray-700">Unlimited Slicer installations for personal use only</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Deploy almost anywhere i.e. WSL, RPi 5, N100, Hetzner, etc</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">K3sup Pro included for free</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Experiment with and learn microVMs</span>
+                <span className="text-gray-700">K3sup Pro &amp; OpenFaaS Edge included for free</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3">✓</span>

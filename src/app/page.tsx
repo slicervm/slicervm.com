@@ -33,7 +33,7 @@ export default function Home() {
             <p className="text-gray-600 mb-6">
               Join like-minded self-hosted and home-labbers on our Discord server.
             </p>
-            <h2 className="text-lg font-semibold text-indigo-600 mb-4">Slicer at work</h2>
+            <h2 className="text-lg font-semibold text-indigo-600 mb-4">At work: Deploy Firecracker microVMs via YAML or API</h2>
             <ul className="text-gray-600 space-y-2">
               <li>• Run AI agents in a secure sandbox with minimal overhead</li>
               <li>• Launch large Kubernetes clusters in less than a minute</li>

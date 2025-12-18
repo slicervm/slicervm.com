@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -11,23 +11,31 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 py-1">
         <div className="flex justify-between items-center h-10">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-gray-800" style={{ fontFamily: "Courier New" }}>
+            <Link
+              href="/"
+              className="text-2xl font-bold text-gray-800"
+              style={{ fontFamily: "Courier New" }}
+            >
               SlicerVM
             </Link>
           </div>
           <div className="flex space-x-8">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className={`text-gray-700 hover:text-indigo-600 px-2 py-1 rounded-md text-sm font-medium transition duration-300 ${
-                pathname === '/' ? 'text-indigo-600 border-b-2 border-indigo-600' : ''
+                pathname === "/"
+                  ? "text-indigo-600 border-b-2 border-indigo-600"
+                  : ""
               }`}
             >
               Home
             </Link>
-            <Link 
-              href="/pricing" 
+            <Link
+              href="/pricing"
               className={`text-gray-700 hover:text-indigo-600 px-2 py-1 rounded-md text-sm font-medium transition duration-300 ${
-                pathname.startsWith('/pricing') ? 'text-indigo-600 border-b-2 border-indigo-600' : ''
+                pathname.startsWith("/pricing")
+                  ? "text-indigo-600 border-b-2 border-indigo-600"
+                  : ""
               }`}
             >
               Pricing

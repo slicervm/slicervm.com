@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -42,7 +42,6 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-            
             {/* Close button */}
             <div className="absolute top-0 right-0 pt-4 pr-4">
               <button
@@ -70,7 +69,10 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
 
             {/* Modal content */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900" id="modal-title">
+              <h3
+                className="text-lg font-semibold text-gray-900"
+                id="modal-title"
+              >
                 SlicerVM Pro (commercial use)
               </h3>
               <div className="mt-2">
@@ -78,15 +80,23 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                   Deploy SlicerVM for commercial, business, and internal use.
                 </p>
                 <ul>
-                <li className="text-sm text-gray-500 mt-5 list-disc list-inside">
-                Each developer that runs Slicer requires a seat.
-                </li>
-                <li className="text-sm text-gray-500 list-disc list-inside">
-                Each deployment to a company server requires a seat (production and non-production).
-                </li>
+                  <li className="text-sm text-gray-500 mt-5 list-disc list-inside">
+                    Each developer that runs Slicer requires a seat.
+                  </li>
+                  <li className="text-sm text-gray-500 list-disc list-inside">
+                    Each deployment to a company server requires a seat
+                    (production and non-production).
+                  </li>
                 </ul>
                 <p className="text-sm text-gray-500 mt-5">
-                    Contact us via the <a style={{ textDecoration: "underline" }} href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform">form</a> to order via invoice or to ask questions.
+                  Contact us via the{" "}
+                  <a
+                    style={{ textDecoration: "underline" }}
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform"
+                  >
+                    form
+                  </a>{" "}
+                  to order via invoice or to ask questions.
                 </p>
               </div>
             </div>
@@ -94,7 +104,10 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
             {/* Form */}
             <form onSubmit={handleSubmit} className="mt-4 space-y-4">
               <div className="flex items-center">
-                <label htmlFor="quantity" className="text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="quantity"
+                  className="text-sm font-medium text-gray-700"
+                >
                   Number of seats
                 </label>
                 <input
@@ -102,14 +115,18 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                   name="quantity"
                   type="number"
                   value={quantity}
-                  onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                  onChange={(e) =>
+                    setQuantity(Math.max(1, parseInt(e.target.value) || 1))
+                  }
                   min="1"
                   className="mt-1 ml-3 px-2 py-1 w-16 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-gray-900 font-medium"
                 />
               </div>
 
               <div className="text-sm text-gray-600 bg-gray-50 p-3 rounded-md">
-                <p className="font-medium">Total: ${(quantity * 250).toLocaleString()}/month</p>
+                <p className="font-medium">
+                  Total: ${(quantity * 250).toLocaleString()}/month
+                </p>
                 <p className="text-xs mt-1">$250 per seat per month</p>
               </div>
 

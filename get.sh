@@ -35,7 +35,6 @@ touch ~/.actuated/LICENSE
 # Use arkade to extract the agent from its OCI container image
 arkade oci install ghcr.io/openfaasltd/actuated-agent:latest --path ./agent
 chmod +x ./agent/agent*
-sudo mv ./agent/agent* /usr/local/bin/
 )
 
 (

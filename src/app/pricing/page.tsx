@@ -2,241 +2,275 @@
 
 import { useState } from "react";
 import CheckoutModal from "../../components/CheckoutModal";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Check, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="border-b border-border/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+        <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
+        <div className="relative mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold tracking-tight text-balance mb-4">
             Choose Your Plan
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground text-pretty">
             Whether you&apos;re learning microVMs at home or scaling production
             workloads, we have a plan that fits your needs.
           </p>
         </div>
+      </section>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* Pricing Cards */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Hobbyist Tier */}
-          <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-200 hover:shadow-xl transition duration-300">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Hobbyist
-              </h3>
-              <div className="text-4xl font-bold text-indigo-600 mb-2">$25</div>
-              <div className="text-gray-500">per month</div>
-            </div>
+          <Card className="border-border/50">
+            <CardHeader>
+              <CardTitle className="text-center text-2xl">Hobbyist</CardTitle>
+              <CardDescription className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">$25</div>
+                <div className="text-muted-foreground">per month</div>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Pay monthly via GitHub.com using GitHub Sponsors
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Fastest and most reliable way to learn and run microVMs
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Deploy almost anywhere i.e. WSL, RPi 5, N100, mini PCs,
+                    rackmount servers, Hetzner, etc
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Unlimited Slicer installations for personal use only
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    K3sup Pro &amp; OpenFaaS Edge included for free
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Support &amp; Collaboration via Discord
+                  </span>
+                </li>
+              </ul>
 
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Pay monthly via GitHub.com using GitHub Sponsors
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Fastest and most reliable way to learn and run microVMs
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Deploy almost anywhere i.e. WSL, RPi 5, N100, mini PCs,
-                  rackmount servers, Hetzner, etc
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Unlimited Slicer installations for personal use only
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  K3sup Pro &amp; OpenFaaS Edge included for free
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Support &amp; Collaboration via Discord
-                </span>
-              </li>
-            </ul>
-
-            <a
-              href="https://github.com/sponsors/alexellis"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 block text-center"
-            >
-              Start Sponsoring
-            </a>
-          </div>
+              <Button className="w-full font-mono" size="lg" asChild>
+                <Link
+                  href="https://github.com/sponsors/alexellis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Start Sponsoring
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
 
           {/* Pro Tier */}
-          <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-indigo-600 hover:shadow-xl transition duration-300 relative">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+          <Card className="border-primary/50 relative">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <Badge className="bg-primary text-primary-foreground font-mono">
                 Self-Service Option
-              </span>
+              </Badge>
             </div>
 
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
-              <div className="text-4xl font-bold text-indigo-600 mb-2">
-                $250
-              </div>
-              <div className="text-gray-500">per month per seat</div>
-            </div>
+            <CardHeader>
+              <CardTitle className="text-center text-2xl">Pro</CardTitle>
+              <CardDescription className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">$250</div>
+                <div className="text-muted-foreground">per month per seat</div>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Run servers, containers, and Kubernetes in microVMs
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Run ephemeral jobs in microVMs via REST API
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Customise microVMs via userdata or a custom Docker image
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Supported Operating Systems: Ubuntu LTS - x86_64 and arm64
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Mount GPUs into microVMs for AI/LLMs
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <Link
+                      href="https://actuated.com/blog/bringing-firecracker-to-jenkins"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Jenkins plugin
+                    </Link>{" "}
+                    for ephemeral build slaves
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Support via email - business hours
+                  </span>
+                </li>
+              </ul>
 
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Run servers, containers, and Kubernetes in microVMs
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Run ephemeral jobs in microVMs via REST API
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Customise microVMs via userdata or a custom Docker image
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Supported Operating Systems: Ubuntu LTS - x86_64 and arm64
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Mount GPUs into microVMs for AI/LLMs
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  <a
-                    style={{ textDecoration: "underline" }}
-                    href="https://actuated.com/blog/bringing-firecracker-to-jenkins"
-                  >
-                    Jenkins plugin
-                  </a>{" "}
-                  for ephemeral build slaves
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Support via email - business hours
-                </span>
-              </li>
-            </ul>
-
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
-            >
-              Purchase Seats
-            </button>
-          </div>
+              <Button
+                className="w-full font-mono cursor-pointer"
+                size="lg"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Purchase Seats
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
 
           {/* Enterprise Tier */}
-          <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-200 hover:shadow-xl transition duration-300">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Enterprise
-              </h3>
-              <div className="text-4xl font-bold text-gray-500 mb-2">
-                Custom
-              </div>
-              <div className="">&nbsp;</div>
-            </div>
+          <Card className="border-border/50">
+            <CardHeader>
+              <CardTitle className="text-center text-2xl">Enterprise</CardTitle>
+              <CardDescription className="text-center">
+                <div className="text-4xl font-bold text-muted-foreground mb-2">
+                  Custom
+                </div>
+                <div className="text-muted-foreground">&nbsp;</div>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Pricing that scales with your needs
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Pay annually by invoice - USD ACH or SWIFT in GBP
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Additional Operating Systems: RHEL-like (Rocky Linux)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">Private Slack channel</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Priority support within 1 business day
+                  </span>
+                </li>
+              </ul>
 
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Pricing that scales with your needs
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Pay annually by invoice - USD ACH or SWIFT in GBP
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Additional Operating Systems: RHEL-like (Rocky Linux)
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">Private Slack channel</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-indigo-600 mr-3">✓</span>
-                <span className="text-gray-700">
-                  Priority support within 1 business day
-                </span>
-              </li>
-            </ul>
+              <Button
+                variant="outline"
+                className="w-full font-mono"
+                size="lg"
+                asChild
+              >
+                <Link
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contact Us
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
-            <a
+      {/* Additional Information */}
+      <section className="border-t border-border/50 bg-muted/30">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-4">
+            Got questions about{" "}
+            <span className="text-primary font-mono">Slicer</span> before
+            purchasing?
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            Our team is here to help you find the right plan for your needs.
+          </p>
+          <Button size="lg" variant="outline" className="font-mono" asChild>
+            <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-3 px-6 rounded-lg transition duration-300 border border-gray-300 block text-center"
             >
-              Contact Us
-            </a>
-          </div>
+              Talk to Sales
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
+      </section>
 
-        {/* Additional Information */}
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-6">
-            Got questions for us about Slicer before purchasing?
-          </p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300"
-          >
-            Talk to Sales
-          </a>
-        </div>
-
-        {/* Footer */}
-        <footer className="mt-16 text-center text-gray-500 text-sm">
-          <p>
-            © 2025{" "}
-            <a href="https://openfaas.com" className="hover:text-indigo-600">
-              OpenFaaS Ltd
-            </a>
-            . Made with ❤️ for the self-hosted community.
-          </p>
-        </footer>
-      </div>
+      {/* Footer */}
+      <Footer />
 
       {/* Checkout Modal */}
       <CheckoutModal

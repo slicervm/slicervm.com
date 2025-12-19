@@ -1,22 +1,16 @@
+import type React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/lib/config";
 import "./globals.css";
-import Navigation from "../components/Navigation";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const _geist = Geist({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SlicerVM - your own microVM cloud",
-  description:
-    "Create your own cloud with lightweight microVMs. Perfect for learning, experimentation, and production workloads.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
@@ -29,12 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navigation />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`font-sans antialiased`}>
+        <ThemeProvider defaultTheme="system" storageKey="slicervm-theme">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

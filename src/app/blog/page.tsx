@@ -1,11 +1,16 @@
 import { Metadata } from "next";
-import BlogCard from "../../components/blog/BlogCard";
-import { getAllBlogPosts } from "../../lib/blog";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, User, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { getAllBlogPosts } from "@/lib/blog";
+import { SITE_NAME } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Blog - SlicerVM",
-  description:
-    "Latest news, tutorials, and insights about microVMs, Firecracker, and cloud infrastructure.",
+  title: `Blog - ${SITE_NAME}`,
+  description: "The latest news, tutorials, case-studies, and announcements.",
 };
 
 export default async function BlogPage() {
@@ -18,30 +23,92 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="border-b border-border/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+        <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
+        <div className="relative mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold tracking-tight text-balance mb-4">
             SlicerVM Blog
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground text-pretty">
             The latest news, tutorials, case-studies, and announcements.
           </p>
         </div>
-        {/* All Blog Posts */}
-        <section>
-          <div className="space-y-4">
-            {blogPosts.length > 0 ? (
-              blogPosts.map((post) => <BlogCard key={post.slug} post={post} />)
-            ) : (
-              <div className="text-center text-gray-500 py-12">
-                <p>No blog posts found.</p>
-              </div>
-            )}
-          </div>
-        </section>
-      </div>
+      </section>
+
+      {/* Blog Posts */}
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="space-y-8">
+          {blogPosts.map((post, i) => (
+            <Link key={i} href={`/blog/${post.slug}`} className="block group">
+              <Card className="border-border/50 bg-card hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all">
+                <CardContent className="p-8">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags.slice(0, 3).map((tag, j) => (
+                      <Badge
+                        key={j}
+                        variant="secondary"
+                        className="bg-primary/10 text-primary border border-primary/20 font-mono text-xs"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                    {post.tags.length > 3 && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-muted text-muted-foreground border-0 font-mono text-xs"
+                      >
+                        +{post.tags.length - 3} more
+                      </Badge>
+                    )}
+                  </div>
+
+                  <h2 className="text-2xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h2>
+
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1.5">
+                      <User className="h-4 w-4" />
+                      <span>
+                        {Array.isArray(post.authors)
+                          ? post.authors[0]
+                          : post.authors}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="h-4 w-4" />
+                      <span>
+                        {" "}
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
+                    </div>
+                    <div className="ml-auto flex items-center gap-1.5 text-primary font-medium font-mono">
+                      <span>Read more</span>
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

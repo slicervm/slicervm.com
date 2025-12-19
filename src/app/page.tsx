@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -76,14 +77,12 @@ export default function Home() {
           >
             📚 View Documentation
           </a>
-          <a
-            href="https://blog.alexellis.io/slicer-bare-metal-preview/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/blog/slicer-2025-wrapup/"
             className="bg-white hover:bg-gray-50 text-indigo-600 font-semibold py-3 px-8 rounded-lg shadow-lg border border-indigo-200 transition duration-300 transform hover:scale-105"
           >
-            📰 Read the Blog Post
-          </a>
+            📰 Read the 2025 wrap-up
+          </Link>
         </div>
 
         {/* Footer */}

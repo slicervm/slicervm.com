@@ -15,11 +15,13 @@ Running a home lab does not have to be complex or expensive. To prove that, and 
 
 ![Intel NUC](/images/nuc.jpeg)
 
-Han from the Slicer team also joined me part way through the stream where we talked a bit about Slicer and its use-cases.
+[Han](https://x.com/welteki) from the Slicer team also joined me part way through the stream where we talked a bit about Slicer and its use-cases.
 
 We install Ubuntu Server, which for many of you will be a familiar experience. So why show it in detail?
 
 For one, because we want to show you the whole experience, from picking the hardware, to booting the OS, to installing Slicer and running a microVM with Firecracker.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QILuFrqtEUw?si=ZcG9f_cyB5zUIL0f&amp;start=95" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Here's the breakdown of the stream:
 
@@ -38,9 +40,10 @@ Here's the breakdown of the stream:
 
 Watch the [recording from the live stream](https://www.youtube.com/watch?v=QILuFrqtEUw&t=95s):
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QILuFrqtEUw?si=ZcG9f_cyB5zUIL0f&amp;start=95" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 ## Other hardware for Slicer Home Edition
+
+![Intel NUC opened up](/images/nuc-upgrade.jpg)
+> Intel NUC opened up to add a spare NVMe drive
 
 If you don't have an old Intel NUC hanging around, just about any hardware you can buy on eBay will do the job. If it can run Linux, and supports KVM, that's all you need.
 

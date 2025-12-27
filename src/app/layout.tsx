@@ -5,7 +5,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/lib/config";
 import "./globals.css";
 
+// Fonts are loaded for Next.js optimization even if not directly used in className
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _geist = Geist({ subsets: ["latin"] });
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

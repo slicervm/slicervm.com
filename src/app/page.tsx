@@ -20,6 +20,7 @@ import {
   Layers,
   Video,
   HelpCircle,
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -42,7 +43,7 @@ function EducationalVideosSection() {
         
         <div className="max-w-4xl mx-auto">
           {/* Tabs */}
-          <div className="flex gap-2 mb-6 border-b border-border">
+          <div className="flex flex-wrap gap-2 mb-6 border-b border-border">
             <button
               onClick={() => setActiveTab(0)}
               className={`px-6 py-3 font-medium text-sm transition-colors relative ${
@@ -51,7 +52,7 @@ function EducationalVideosSection() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              1/2 Firecracker Fundamentals
+              1/3 Firecracker Fundamentals
             </button>
             <button
               onClick={() => setActiveTab(1)}
@@ -61,7 +62,17 @@ function EducationalVideosSection() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              2/2 Face-off: containers vs microVMs
+              2/3 Face-off: containers vs microVMs
+            </button>
+            <button
+              onClick={() => setActiveTab(2)}
+              className={`px-6 py-3 font-medium text-sm transition-colors relative ${
+                activeTab === 2
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              3/3 Customer support & test environments
             </button>
           </div>
 
@@ -82,7 +93,7 @@ function EducationalVideosSection() {
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-2">
                       <Video className="h-4 w-4 text-primary" />
-                      <h3 className="font-semibold text-lg">What's Firecracker or a microVM?</h3>
+                      <h3 className="font-semibold text-lg">What&apos;s Firecracker or a microVM?</h3>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Learn about Firecracker microVMs and how they differ from traditional VMs and containers.
@@ -112,6 +123,28 @@ function EducationalVideosSection() {
                   </div>
                 </>
               )}
+              {activeTab === 2 && (
+                <>
+                  <div className="relative aspect-video bg-muted">
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src="https://www.youtube.com/embed/XCBJ0XNqpWE"
+                      title="Quicker customer support & low-cost test environments"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Video className="h-4 w-4 text-primary" />
+                      <h3 className="font-semibold text-lg">Quicker customer support & low-cost test environments</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      See how we use Slicer to slice up bare-metal for customer support and development workflows.
+                    </p>
+                  </div>
+                </>
+              )}
             </CardContent>
           </Card>
         </div>
@@ -136,8 +169,7 @@ export default function HomePage() {
                 Firecracker for humans.
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground text-pretty mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Boot microVMs in 1-2s - for homelabs, API-driven tasks, and
-                production workloads.
+                Boot headless Linux microVMs in 1-2s - for production services, API-driven agents, background jobs, AI agents, and more.
               </p>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Button size="lg" className="font-mono" asChild>
@@ -158,27 +190,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Educational Popout Section */}
-      <EducationalVideosSection />
-
       {/* At Home Section */}
       <section className="border-b border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-6">
+              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-4">
                 <Home className="h-4 w-4" />
                 Slicer at Home
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
                 The fastest way to learn & experiment with Firecracker
               </h2>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-8">
-                Transform your N100, Raspberry Pi, or home server into a
-                powerful lab. Experiment with microVMs, Kubernetes, and AI
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                Transform your mini PC, Raspberry Pi, or home server into a
+                powerful private cloud. Experiment with microVMs, Kubernetes, and AI
                 agents in an isolated environment that just works.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
                   <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
                     <Zap className="h-4 w-4 text-primary" />
@@ -303,29 +332,38 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
               </Card>
             </div>
           </div>
+          
+          {/* Discord Callout */}
+          <div className="mt-8 pt-4 border-t border-border/50">
+            <div className="flex items-left justify-left gap-1 text-sm text-muted-foreground">
+              <MessageCircle className="h-4 w-4" />
+                <span>Run </span><span className="font-mono">slicer activate</span><span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers.
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* At Work Section */}
       <section>
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-6">
+              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-4">
                 <Globe className="h-4 w-4" />
                   Slicer for Work
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
                 Deploy Firecracker microVMs via{" "}
                 <span className="font-mono">YAML</span> or{" "}
                 <span className="font-mono">API</span>
               </h2>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-8">
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
                 Production-ready infrastructure for modern workloads.
                 Declarative configs, powerful APIs, and instant scaling for
                 everything from AI agents to Kubernetes clusters.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
                   <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
                     <Code className="h-4 w-4 text-primary" />
@@ -453,6 +491,9 @@ $ slicer vm exec vm-1 opencode \\
           </div>
         </div>
       </section>
+
+      {/* Educational Popout Section */}
+      <EducationalVideosSection />
 
       <Footer />
     </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -15,8 +18,107 @@ import {
   DollarSign,
   Code,
   Layers,
+  Video,
+  HelpCircle,
 } from "lucide-react";
 import Link from "next/link";
+
+function EducationalVideosSection() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  return (
+    <section className="relative border-b border-border/50 bg-gradient-to-br from-primary/5 via-background to-primary/5">
+      <div className="absolute inset-0 bg-grid-slate-900/[0.02] dark:bg-grid-slate-400/[0.03] bg-[size:32px_32px]" />
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full border-2 border-primary/30 bg-primary/10 px-6 py-2 text-sm font-semibold text-primary mb-4">
+            <HelpCircle className="h-4 w-4" />
+            New to microVMs?
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-balance mb-3">
+            Not sure what a microVM is? How do they stack up against containers and Kubernetes?
+          </h2>
+        </div>
+        
+        <div className="max-w-4xl mx-auto">
+          {/* Tabs */}
+          <div className="flex gap-2 mb-6 border-b border-border">
+            <button
+              onClick={() => setActiveTab(0)}
+              className={`px-6 py-3 font-medium text-sm transition-colors relative ${
+                activeTab === 0
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              1/2 Firecracker Fundamentals
+            </button>
+            <button
+              onClick={() => setActiveTab(1)}
+              className={`px-6 py-3 font-medium text-sm transition-colors relative ${
+                activeTab === 1
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              2/2 Face-off: containers vs microVMs
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          <Card className="overflow-hidden border-2 border-primary/20 bg-card shadow-lg shadow-primary/5">
+            <CardContent className="p-0">
+              {activeTab === 0 && (
+                <>
+                  <div className="relative aspect-video bg-muted">
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src="https://www.youtube.com/embed/CYCsa5e2vqg?start=38"
+                      title="What's Firecracker or a microVM?"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Video className="h-4 w-4 text-primary" />
+                      <h3 className="font-semibold text-lg">What's Firecracker or a microVM?</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Learn about Firecracker microVMs and how they differ from traditional VMs and containers.
+                    </p>
+                  </div>
+                </>
+              )}
+              {activeTab === 1 && (
+                <>
+                  <div className="relative aspect-video bg-muted">
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src="https://www.youtube.com/embed/pTQ_jVYhAoc?start=2"
+                      title="Face-off: microVMs vs. containers"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Video className="h-4 w-4 text-primary" />
+                      <h3 className="font-semibold text-lg">Face-off: microVMs vs. containers</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      A detailed comparison between microVMs and containers to help you choose the right technology.
+                    </p>
+                  </div>
+                </>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -56,6 +158,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Educational Popout Section */}
+      <EducationalVideosSection />
+
       {/* At Home Section */}
       <section className="border-b border-border/50 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:py-20 sm:px-6 lg:px-8">
@@ -63,7 +168,7 @@ export default function HomePage() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-6">
                 <Home className="h-4 w-4" />
-                At Home
+                Slicer at Home
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-4">
                 The fastest way to learn & experiment with Firecracker
@@ -82,7 +187,7 @@ export default function HomePage() {
                     <h3 className="font-semibold mb-1">Lightning Fast</h3>
                     <p className="text-sm text-muted-foreground">
                       Slicer makes VMs as easy to use as containers and
-                      you&apos;ll be up and running in no time.
+                      you&apos;ll be up and running in no time compared to Proxmox, VirtualBox, or QEMU.
                     </p>
                   </div>
                 </div>
@@ -109,7 +214,7 @@ export default function HomePage() {
                       All-inclusive package
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Get access to Slicer,{" "}
+                      Get unlimited access to Slicer,{" "}
                       <a
                         href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro"
                         target="_blank"
@@ -127,7 +232,7 @@ export default function HomePage() {
                       >
                         OpenFaaS Edge
                       </a>{" "}
-                      in a single affordable package.
+                      in a single monthly subscription.
                     </p>
                   </div>
                 </div>
@@ -140,7 +245,7 @@ export default function HomePage() {
                       Home lab or bare-metal cloud
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Run on your{" "}
+                      Run applications, databases, and other services on your{" "}
                       <a
                         href="https://blog.alexellis.io/n100-mini-computer/"
                         target="_blank"
@@ -208,7 +313,7 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
             <div>
               <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-6">
                 <Globe className="h-4 w-4" />
-                At Work
+                  Slicer for Work
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-4">
                 Deploy Firecracker microVMs via{" "}

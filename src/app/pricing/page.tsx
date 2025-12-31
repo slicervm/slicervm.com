@@ -67,8 +67,8 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Deploy almost anywhere i.e. WSL, RPi 5, N100, mini PCs,
-                    rackmount servers, Hetzner, etc
+                    Deploy almost anywhere i.e. WSL, RPi 5, NUCs, <a href="https://blog.alexellis.io/slicer-bare-metal-preview/" className="underline underline-offset-2 hover:text-primary">N100</a>, mini PCs,
+                    racked servers, <a href="https://www.hetzner.com/dedicated-rootserver/matrix-ax/" className="underline underline-offset-2 hover:text-primary">Hetzner bare-metal</a>, etc
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -80,7 +80,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    K3sup Pro &amp; OpenFaaS Edge included for free
+                    <a href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro" className="underline underline-offset-2 hover:text-primary">K3sup Pro</a> &amp; <a href="https://github.com/openfaas/faasd?tab=readme-ov-file" className="underline underline-offset-2 hover:text-primary">OpenFaaS Edge</a> included for free
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -124,13 +124,13 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run servers, containers, and Kubernetes in microVMs
+                    Run systemd-based Linux microVMs for: servers, containers, and <a href="https://docs.slicervm.com/examples/autoscaling-k3s/" className="underline underline-offset-2 hover:text-primary">autoscaling Kubernetes</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run ephemeral jobs in microVMs via REST API
+                    Run ephemeral jobs in microVMs via <a href="https://docs.slicervm.com/reference/api/" className="underline underline-offset-2 hover:text-primary">REST API</a> or <a className="underline underline-offset-2 hover:text-primary" href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/">Go SDK</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -154,7 +154,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Mount GPUs into microVMs for AI/LLMs
+                    <a href="https://docs.slicervm.com/reference/vfio/" className="underline underline-offset-2 hover:text-primary">Mount GPUs</a> into microVMs for AI/LLMs
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -216,7 +216,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Additional Operating Systems: RHEL-like (Rocky Linux)
+                    Operating Systems: Ubuntu LTS, RHEL-like (Rocky Linux), and other custom images as required.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -268,7 +268,7 @@ export default function Pricing() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Talk to Sales
+              Talk to Our Team
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

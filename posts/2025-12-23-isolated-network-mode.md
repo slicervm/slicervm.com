@@ -37,6 +37,7 @@ Pros:
 * microVMs cannot communicate with each other
 * microVMs cannot communicate with the host system
 * microVMs cannot communicate with the rest of the LAN
+* Works with "allow" or "drop" rules (iptables) for individual IPs or CIDR blocks
 
 Cons:
 
@@ -61,6 +62,8 @@ config:
         drop: ["192.168.1.0/24"]
 ```
 
+> The above blocks access to the LAN network `192.168.1.0/24` for all microVMs in the `agents` hostgroup, and allows access to every other IP address.
+
 The range of `169.254.100.0/22` gives 256 usable IP address blocks (each containing a `/30` subnet). The first IP is for the network, the second is for the gateway, the third is for the microVM, and the fourth is for broadcast. It's also possible to use a `/23` subnet, which gives half the amount of usable IP addresses (128 blocks).
 
 The `drop` list contains CIDR blocks that should be blocked for all microVMs in this hostgroup. In the example above, all microVMs will have all traffic to the standard LAN network `192.168.1.0/24` dropped before it has a chance to leave the private network namespace.
@@ -80,6 +83,36 @@ config:
 ```
 
 And so on.
+
+You can also switch to a whitelist mode, by setting `allow` instead of `drop`.
+
+```yaml
+config:
+  host_groups:
+    - name: agents
+      network:
+        mode: "isolated"
+        range: "169.254.100.0/22"
+        allow: ["192.168.1.0/24"]
+```
+
+> The above allows for access to the LAN only, and nothing else.
+
+And if you combine allow, and drop, any allow rules run first, then the drops after that, and anything that doesn't match any of the allow rules is allowed:
+
+
+```yaml
+config:
+  host_groups:
+    - name: agents
+      network:
+        mode: "isolated"
+        range: "169.254.100.0/22"
+        allow: ["192.168.1.0/24"]
+        drop: ["10.0.0.0/8"]
+```
+
+> The above would drop any access to `10.0.0.0/8` (private network), but allow access to `192.168.1.0/24` (local LAN), and allow access to every other IP address.
 
 Then just launch your slicer daemon with the new config file.
 

@@ -136,13 +136,19 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
+                    Built-in guest agent for native: cp, exec, shell, metrics, and port-forwarding.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
                     Customise microVMs via userdata or a custom Docker image
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Supported Operating Systems: Ubuntu LTS - x86_64 and arm64
+                    Supported Operating Systems: Ubuntu LTS (x86_64 and arm64) and Rocky 9 (x86_64)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

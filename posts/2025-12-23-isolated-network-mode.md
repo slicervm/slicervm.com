@@ -50,6 +50,8 @@ On Ubuntu server hosts, the `systemd-networking` service will often break veth I
 
 What does the YAML look like?
 
+The easiest way to try out Isolated Network Mode is to use the `slicer vm new` command, which will create a new YAML file for you, just pass in the `--net=isolated` flag. And optionally, specify a number of `--allow` and `--drop` flags, with IPs or CIDR blocks.
+
 Instead of the standard bridge configuration, you'll write something like this:
 
 ```yaml

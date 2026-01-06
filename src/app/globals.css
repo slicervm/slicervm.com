@@ -149,3 +149,51 @@
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 #f1f5f9;
 }
+
+@layer components {
+  /* Override Tailwind Typography defaults for better text readability */
+  .prose p,
+  .prose li {
+    color: var(--foreground) !important;
+    opacity: 1 !important;
+  }
+
+  /* Ensure proper monospace font rendering for ASCII art */
+  /* Use a guaranteed monospace font stack for proper character alignment */
+  .prose pre {
+    font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Consolas", "Monaco", "Lucida Console", monospace !important;
+    font-variant-ligatures: none !important;
+    font-feature-settings: normal !important;
+    letter-spacing: 0 !important;
+    tab-size: 2 !important;
+    white-space: pre !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Set default readable color for code blocks (for unhighlighted code like ASCII art) */
+  /* Syntax-highlighted spans will override this with their inline styles */
+  .prose pre code {
+    font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Consolas", "Monaco", "Lucida Console", monospace !important;
+    font-variant-ligatures: none !important;
+    font-feature-settings: normal !important;
+    letter-spacing: 0 !important;
+    white-space: pre !important;
+    color: var(--foreground) !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    display: block !important;
+  }
+
+  /* Ensure all nested elements use monospace for proper alignment */
+  .prose pre code *,
+  .prose pre code span {
+    font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Consolas", "Monaco", "Lucida Console", monospace !important;
+    font-variant-ligatures: none !important;
+    font-feature-settings: normal !important;
+    letter-spacing: 0 !important;
+    white-space: pre !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+}

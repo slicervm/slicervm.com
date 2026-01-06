@@ -158,11 +158,53 @@ The document has moved
 ![Raspberry Pi connected to the N100](/content/images/2026-01-router-firewall/n100-vfio-rpi.png)
 > Raspberry Pi accessing the Internet via the router/firewall microVM.
 
+### Firewalling off LAN1
+
+You can define additional iptables rules to further lock down any hosts on LAN2. For instance, you may want to block access to your main LAN (`192.168.1.0/24`) while still allowing Internet access and access to the router itself.
+
+To firewall off `192.168.1.0/24` so that LAN2 only has access to the Internet and the microVM router, add this iptables rule to your userdata script **before** the existing FORWARD ACCEPT rules. Since iptables evaluates rules in order, the DROP rule must come before the ACCEPT rule:
+
+```bash
+# Block access to LAN1 network (192.168.1.0/24) from LAN2
+# IMPORTANT: This must be inserted BEFORE the existing ACCEPT rules
+# The -I flag inserts at position 1 (beginning of chain), so it's evaluated first
+iptables -I FORWARD -i "${LAN_IF}" -d 192.168.1.0/24 -j DROP
+```
+
+Here's what the full table ends up looking like on the microVM:
+
+```bash
+root@router-1:~# iptables -L -n -v
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    2   654 ACCEPT     udp  --  ens7   *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+    2   134 ACCEPT     udp  --  ens7   *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+    0     0 ACCEPT     tcp  --  ens7   *       0.0.0.0/0            0.0.0.0/0            tcp dpt:53
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  ens7   *       0.0.0.0/0            192.168.1.0/24      
+    8   608 ACCEPT     all  --  ens7   eth0    10.88.0.0/24         0.0.0.0/0           
+    8   608 ACCEPT     all  --  eth0   ens7    0.0.0.0/0            10.88.0.0/24         ctstate RELATED,ESTABLISHED
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+root@router-1:~#
+```
+
+The existing rules already handle:
+- Access to the router itself (INPUT rules allow DNS/DHCP on `${LAN_IF}`)
+- Established connections back from Internet (the existing FORWARD rule with `ESTABLISHED,RELATED`)
+
+This setup creates a Demilitarized Zone (DMZ) where devices on LAN2 can:
+- Access the Internet (via NAT masquerade through `${WAN_IF}` which connects to LAN1)
+- Access the router/firewall microVM itself (10.88.0.1) for DNS and DHCP
+- **Not** access any devices on LAN1 (`192.168.1.0/24`)
+
+This is ideal for running servers, CI runners, and other services exposed to the Internet through tunnels such as [Inlets](https://inlets.dev).
+
 ## Wrapping Up
 
 You've now created a lightweight Linux router/firewall which physically isolates LAN2 from LAN1. LAN2 has its own IP range (`10.88.0.0/24`) and all devices must pass through the microVM to access the Internet or LAN1.
 
-You can define additional iptables rules to further lock down any hosts on LAN2, for instance, they may only be allowed to access the Internet, but nothing at all on LAN1. That kind of setup would carve out a part of your network as a Demilitarized Zone (DMZ) ideal for running servers, CI runners, and other services exposed to the Internet through tunnels such as [Inlets](https://inlets.dev).
-
 The full example with complete userdata scripts and configuration is available in the [Slicer documentation](https://docs.slicervm.com/examples/router-firewall).
-

@@ -229,8 +229,8 @@ export default function HomePage() {
                       Playgrounds on-demand
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Learn and experiment with new software whilst keeping your
-                      own machine immaculate.
+                      Learn and experiment in microVMs with new software whilst keeping your
+                      own machine pristine.
                     </p>
                   </div>
                 </div>
@@ -293,6 +293,37 @@ export default function HomePage() {
                         bare-metal cloud
                       </a>{" "}
                       at a fraction of the cost of AWS.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Shield className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Router/firewall & ad blocker
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Build a{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/router-firewall/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Linux router/firewall
+                      </a>
+                      {" "}appliance or run an{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/pihole-adblock/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        ad blocker
+                      </a>
+                      . Use standard Linux tools you already know.
                     </p>
                   </div>
                 </div>

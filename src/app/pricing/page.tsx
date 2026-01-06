@@ -67,8 +67,14 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Deploy almost anywhere i.e. WSL, RPi 5, NUCs, <a href="https://blog.alexellis.io/slicer-bare-metal-preview/" className="underline underline-offset-2 hover:text-primary">N100</a>, mini PCs,
+                    Deploy almost anywhere i.e. WSL, RPi 4/5, NUCs, <a href="https://blog.alexellis.io/slicer-bare-metal-preview/" className="underline underline-offset-2 hover:text-primary">N100</a>, mini PCs,
                     racked servers, <a href="https://www.hetzner.com/dedicated-rootserver/matrix-ax/" className="underline underline-offset-2 hover:text-primary">Hetzner bare-metal</a>, etc
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Run a lightweight <a href="https://docs.slicervm.com/examples/router-firewall/" className="underline underline-offset-2 hover:text-primary">Linux firewall/router</a> that you can actually understand and customise.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

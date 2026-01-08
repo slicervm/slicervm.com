@@ -21,7 +21,6 @@ import {
   Video,
   HelpCircle,
   MessageCircle,
-  Twitter,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -86,7 +85,7 @@ function EducationalVideosSection() {
                     <iframe
                       className="absolute inset-0 w-full h-full"
                       src="https://www.youtube.com/embed/CYCsa5e2vqg?start=38"
-                      title="What's Firecracker or a microVM?"
+                      title="What&apos;s Firecracker or a microVM?"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
                     />
@@ -562,10 +561,10 @@ $ slicer vm exec vm-1 opencode \\
             <Card className="border-primary/20 bg-card shadow-lg shadow-primary/5">
               <CardContent className="p-3 sm:p-6">
                 <h3 className="font-semibold mb-4 text-foreground">
-                You're not just buying software – you're skipping months of painful low-level integration work
+                You&apos;re not just buying software – you&apos;re skipping months of painful low-level integration work
                 </h3>
                 <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                  Slicer turns <a href="https://firecracker-microvm.github.io/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">the very raw Firecracker technology</a> into a production-ready product that's as easy to use as containers or AWS EC2.
+                  Slicer turns <a href="https://firecracker-microvm.github.io/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">the very raw Firecracker technology</a> into a production-ready product that&apos;s as easy to use as containers or AWS EC2.
                 </p>
                   <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
                   Included in the package: supported Kernels and base images, a REST API, powerful guest agent, Go SDK, and built-in firewall support.
@@ -577,7 +576,7 @@ $ slicer vm exec vm-1 opencode \\
                   </h3>
                   <div className="text-sm text-muted-foreground">
                     <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                      Slicer's code has been used to run <a className="underline underline-offset-2 hover:text-primary" href="https://actuated.com/blog/millions-of-cncf-minutes">millions of GitHub Actions CI jobs for CNCF and various other LinuxFoundation projects</a>.</p>
+                      Slicer&apos;s code has been used to run <a className="underline underline-offset-2 hover:text-primary" href="https://actuated.com/blog/millions-of-cncf-minutes">millions of GitHub Actions CI jobs for CNCF and various other LinuxFoundation projects</a>.</p>
                     <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
                       Since 2022 our team at OpenFaaS Ltd has used Slicer every day to set up labs for product development, <a href="https://www.openfaas.com/blog/large-scale-functions/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">load-testing</a>, and for delivering fast customer support. 
                       </p>

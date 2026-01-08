@@ -55,13 +55,7 @@ export async function generateMetadata({
       authors: post.authors,
       tags: post.tags,
       ...(post.image && { images: [post.image] }),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description,
-      ...(post.image && { images: [post.image] }),
-    },
+    }
   };
 }
 

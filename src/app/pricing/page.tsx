@@ -262,11 +262,10 @@ export default function Pricing() {
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold tracking-tight mb-4">
             Got questions about{" "}
-            <span className="text-primary font-mono">Slicer</span> before
-            purchasing?
+            <span className="text-primary font-mono">Slicer</span>?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Our team is here to help you find the right plan for your needs.
+           Book a call with our team to get your questions answered.
           </p>
           <Button size="lg" variant="outline" className="font-mono" asChild>
             <Link

@@ -7,6 +7,18 @@ export function Footer() {
             © 2025 OpenFaaS Ltd. Made by the team behind OpenFaaS, Inlets, K3sup
             and Actuated.
           </p>
+          <p className="font-mono mt-2 pt-2 border-t border-border/50">
+            <span>Follow </span>
+            <a
+              href="https://slicervm.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+            >
+              @slicervm on X (Twitter)
+            </a>
+            <span> for updates.</span>
+          </p>
         </div>
       </div>
     </footer>

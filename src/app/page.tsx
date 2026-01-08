@@ -21,6 +21,7 @@ import {
   Video,
   HelpCircle,
   MessageCircle,
+  Twitter,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -36,8 +37,8 @@ function EducationalVideosSection() {
             <HelpCircle className="h-4 w-4" />
             New to microVMs?
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-balance mb-3">
-            Not sure what a microVM is? How do they stack up against containers and Kubernetes?
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+            microVMs explained in 3 videos
           </h2>
         </div>
         
@@ -62,7 +63,7 @@ function EducationalVideosSection() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              2/3 Face-off: containers vs microVMs
+              2/3 Face-off: containers vs. microVMs
             </button>
             <button
               onClick={() => setActiveTab(2)}
@@ -162,7 +163,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-border/50">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
         <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
-        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-4 sm:py-12 lg:px-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="text-center lg:text-left lg:order-1">
               <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-6xl mb-4">
@@ -193,7 +194,7 @@ export default function HomePage() {
       {/* At Home Section */}
       <section className="border-b border-border/50 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-4">
                 <Home className="h-4 w-4" />
@@ -366,10 +367,12 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
           
           {/* Discord Callout */}
           <div className="mt-8 pt-4 border-t border-border/50">
-            <div className="flex items-left justify-left gap-1 text-sm text-muted-foreground">
-              <MessageCircle className="h-4 w-4" />
+            <div className="flex flex-col sm:flex-row items-left justify-left gap-4 text-sm text-muted-foreground">
+              <div className="flex items-left justify-left gap-1">
+                <MessageCircle className="h-4 w-4" />
                 <span>Run </span><span className="font-mono">slicer activate</span><span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers.
-              </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -475,7 +478,7 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Simulate real-world K8s
+                      Autoscaling Kubernetes nodes
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       Reliably reproduce{" "}
@@ -489,6 +492,30 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                       </a>{" "}
                       with cluster autoscaler. Build and test large scale
                       Kubernetes clusters quickly.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Code className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Ephemeral Jenkins CI runners
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Spin up isolated CI/CD runners on-demand. Each build runs
+                      in a fresh microVM with kernel-level isolation, then
+                      tears down automatically when done.{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/jenkins/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Learn more
+                      </a>
+                      .
                     </p>
                   </div>
                 </div>
@@ -523,8 +550,74 @@ $ slicer vm exec vm-1 opencode \\
         </div>
       </section>
 
+      {/* Value Prop Section */}
+      <section className="border-b border-border/50 bg-muted/30">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+                End-to-End Firecracker in your own product within a few hours
+              </h2>
+            </div>
+            <Card className="border-primary/20 bg-card shadow-lg shadow-primary/5">
+              <CardContent className="p-3 sm:p-6">
+                <h3 className="font-semibold mb-4 text-foreground">
+                You're not just buying software – you're skipping months of painful low-level integration work
+                </h3>
+                <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
+                  Slicer turns <a href="https://firecracker-microvm.github.io/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">the very raw Firecracker technology</a> into a production-ready product that's as easy to use as containers or AWS EC2.
+                </p>
+                  <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
+                  Included in the package: supported Kernels and base images, a REST API, powerful guest agent, Go SDK, and built-in firewall support.
+                </p>
+
+                <div className="mt-3 pt-3 border-t border-border/50">
+                  <h3 className="font-semibold mb-2 text-foreground">
+                    Slicer microVMs: Battle-tested in production
+                  </h3>
+                  <div className="text-sm text-muted-foreground">
+                    <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
+                      Slicer's code has been used to run <a className="underline underline-offset-2 hover:text-primary" href="https://actuated.com/blog/millions-of-cncf-minutes">millions of GitHub Actions CI jobs for CNCF and various other LinuxFoundation projects</a>.</p>
+                    <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
+                      Since 2022 our team at OpenFaaS Ltd has used Slicer every day to set up labs for product development, <a href="https://www.openfaas.com/blog/large-scale-functions/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">load-testing</a>, and for delivering fast customer support. 
+                      </p>
+                      <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
+                      Our own long-term production workloads from Kubernetes clusters, to <a className="underline underline-offset-2 hover:text-primary" href="https://blog.alexellis.io/ai-code-review-bot/">our crucial code review bot</a>, to APIs all run on bare-metal powered by Slicer.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Educational Popout Section */}
       <EducationalVideosSection />
+
+
+      {/* Additional Information */}
+      <section className="border-t border-border/50 bg-muted/30">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-4">
+            Got questions about{" "}
+            <span className="text-primary font-mono">Slicer</span>?
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            Book a call with our team to get your questions answered.
+          </p>
+          <Button size="lg" variant="outline" className="font-mono" asChild>
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Talk to Our Team
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
 
       <Footer />
     </div>

@@ -94,7 +94,7 @@ fi
 export CNI_VERSION="v1.8.0"
 export CONTAINERD_VERSION="1.7.25"
 export ARCH=$(uname -p)
-export FIRECRACKER_VER="1.7.0"
+export FIRECRACKER_VER="1.14.0"
 export TC_TAP_VERSION="2024-02-14-1230"
 export DEBIAN_FRONTEND=noninteractive
 

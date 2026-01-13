@@ -206,7 +206,8 @@ install_pkgs() {
         e2fsck-static \
         bridge-utils \
         iptables \
-        pciutils
+        pciutils \
+        netcat
 }
 
 install_cni() {
@@ -580,13 +581,13 @@ install_containerd() {
 }
 
 install_fwd() {
-    /sbin/sysctl -w net.ipv4.conf.all.forwarding=1
-    echo "net.ipv4.conf.all.forwarding=1" | tee -a /etc/sysctl.conf
+    cat <<'EOF' | sudo tee /etc/sysctl.d/99-slicer.conf
+net.ipv4.ip_forward = 1
+net.ipv4.conf.all.forwarding = 1
+EOF
 
-    # Add specific after user on Ubuntu 25.x had an issue with VMs not
-    # reaching out via bridge.
-    /sbin/sysctl -w net.ipv4.ip_forward=1
-    echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+    sudo sysctl --system
+    sudo sysctl net.ipv4.ip_forward
 }
 
 configure_network_management() {

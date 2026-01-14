@@ -153,6 +153,10 @@ This can confirm things such as the exact moment the built-in Slicer guest agent
 
 In this instance, we see that at ~ 235ms your workload could already be executing or being copied into in the microVM via `slicer vm exec`.
 
+Watch a demo of the test case being run on the AMD Ryzen 9:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FO3M55FkIJg?si=RQqhR6vXq43XMEO3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Wrapping up 
 
 ### Why does Firecracker advertise a 125ms boot time?

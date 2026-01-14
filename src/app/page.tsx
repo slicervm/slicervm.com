@@ -169,7 +169,7 @@ export default function HomePage() {
                 Firecracker for humans.
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground text-pretty mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Boot headless Linux microVMs in 1-2s - for production services, API-driven agents, background jobs, AI agents, and more.
+                Boot headless Linux microVMs in <span className="font-mono">&lt;1s</span> - for production services, API-driven VMs, background jobs, AI agents, and more.
               </p>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Button size="lg" className="font-mono" asChild>

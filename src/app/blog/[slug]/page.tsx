@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, ArrowLeft } from "lucide-react";
+import { Calendar, User, ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SITE_URL, SITE_NAME } from "@/lib/config";
@@ -175,6 +175,29 @@ export default async function BlogPostPage({ params }: PageProps) {
           </Button>
         </footer>
       </article>
+
+      {/* Additional Information */}
+      <section className="border-t border-border/50 bg-muted/30">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold tracking-tight mb-4">
+            Got questions about{" "}
+            <span className="text-primary font-mono">Slicer</span>?
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            Book a call with our team to get your questions answered.
+          </p>
+          <Button size="lg" variant="outline" className="font-mono" asChild>
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Talk to Our Team
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
 
       {/* Footer */}
       <Footer />

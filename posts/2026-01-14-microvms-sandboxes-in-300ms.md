@@ -15,7 +15,7 @@ Modern automation increasingly relies on short-lived workloads: CI jobs, preview
 How fast can you get a fully isolated Linux server that's safe for untrusted code?
 
 * Containers were designed for long-running services. Virtual machines were designed to live for hours or days.
-* AWS EC2 instances can often take 30s up to 60s to provision depending on the OS and instance type, whilst other cloud providers like DigitalOcean or GCP can be between 30-60 seconds. Typically, we've seen AWS EKS customers report autoscaled EKS instances appear in a Ready state within 1-2 minutes.
+* AWS EC2 instances can often take 15-20s to provision depending on the OS and instance type, whilst other cloud providers like DigitalOcean or GCP can be between 30-60 seconds. Typically, we've seen AWS EKS customers report autoscaled EKS instances appear in a Ready state within 1-2 minutes.
 * Kubernetes is designed for long-lived stateless workloads, and isn't optimised for immediate execution of dynamic code.
 
 When your workload runs for seconds or minutes, traditional cloud VMs, Kubernetes, and containers all start to work against you.

@@ -197,6 +197,14 @@ check_kvm() {
 install_pkgs() {
     echo "Installing required OS packages"
 
+    local os_id=""
+    local netcat_pkg="netcat"
+
+    os_id=$(grep '^ID=' /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"')
+    if [ -n "$os_id" ] && [ "$os_id" = "debian" ]; then
+        netcat_pkg="netcat-openbsd"
+    fi
+
     apt update -qy \
     && apt install -qy \
         --no-install-recommends \
@@ -207,7 +215,7 @@ install_pkgs() {
         bridge-utils \
         iptables \
         pciutils \
-        netcat
+        $netcat_pkg
 }
 
 install_cni() {

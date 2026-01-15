@@ -206,8 +206,7 @@ install_pkgs() {
         e2fsck-static \
         bridge-utils \
         iptables \
-        pciutils \
-        netcat
+        pciutils
 }
 
 install_cni() {

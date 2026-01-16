@@ -60,7 +60,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Fastest and most reliable way to learn and run microVMs
+                    Fastest and best supported way to experiment with microVMs
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -73,19 +73,19 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run a lightweight <a href="https://docs.slicervm.com/examples/router-firewall/" className="underline underline-offset-2 hover:text-primary">Linux firewall/router</a> that you can actually understand and customise, or run an <a href="https://docs.slicervm.com/examples/pihole-adblock/" className="underline underline-offset-2 hover:text-primary">ad blocker</a>.
+                    Run lightweight appliances: <a href="https://docs.slicervm.com/examples/router-firewall/" className="underline underline-offset-2 hover:text-primary">Linux firewall/router</a> that you can actually understand and customise, or an <a href="https://docs.slicervm.com/examples/pihole-adblock/" className="underline underline-offset-2 hover:text-primary">ad blocker</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Learn Kubernetes with realistic labs that are quick and easy to set up with <a href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro" className="underline underline-offset-2 hover:text-primary">K3sup Pro</a>
+                    Learn Kubernetes at your own pace or shortcut the process with <a href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro" className="underline underline-offset-2 hover:text-primary">K3sup Pro</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Build your own serverless functions with <a href="https://github.com/openfaas/faasd?tab=readme-ov-file" className="underline underline-offset-2 hover:text-primary">OpenFaaS Edge</a>
+                    Build your own serverless functions and cron triggers with <a href="https://github.com/openfaas/faasd?tab=readme-ov-file" className="underline underline-offset-2 hover:text-primary">OpenFaaS Edge</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

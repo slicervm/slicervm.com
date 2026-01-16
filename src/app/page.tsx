@@ -10,148 +10,15 @@ import {
   ArrowRight,
   Zap,
   Server,
-  Globe,
-  Home,
   Play,
   Shield,
-  Package,
   DollarSign,
   Code,
   Layers,
-  Video,
-  HelpCircle,
-  MessageCircle,
+  Package,
+  Gpu,
 } from "lucide-react";
 import Link from "next/link";
-
-function EducationalVideosSection() {
-  const [activeTab, setActiveTab] = useState(0);
-
-  return (
-    <section className="relative border-b border-border/50 bg-gradient-to-br from-primary/5 via-background to-primary/5">
-      <div className="absolute inset-0 bg-grid-slate-900/[0.02] dark:bg-grid-slate-400/[0.03] bg-[size:32px_32px]" />
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full border-2 border-primary/30 bg-primary/10 px-6 py-2 text-sm font-semibold text-primary mb-4">
-            <HelpCircle className="h-4 w-4" />
-            New to microVMs?
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-            microVMs explained in 3 videos
-          </h2>
-        </div>
-        
-        <div className="max-w-4xl mx-auto">
-          {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 border-b border-border">
-            <button
-              onClick={() => setActiveTab(0)}
-              className={`px-6 py-3 font-medium text-sm transition-colors relative ${
-                activeTab === 0
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              1/3 Firecracker Fundamentals
-            </button>
-            <button
-              onClick={() => setActiveTab(1)}
-              className={`px-6 py-3 font-medium text-sm transition-colors relative ${
-                activeTab === 1
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              2/3 Face-off: containers vs. microVMs
-            </button>
-            <button
-              onClick={() => setActiveTab(2)}
-              className={`px-6 py-3 font-medium text-sm transition-colors relative ${
-                activeTab === 2
-                  ? "text-primary border-b-2 border-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              3/3 Customer support & test environments
-            </button>
-          </div>
-
-          {/* Tab Content */}
-          <Card className="overflow-hidden border-2 border-primary/20 bg-card shadow-lg shadow-primary/5">
-            <CardContent className="p-0">
-              {activeTab === 0 && (
-                <>
-                  <div className="relative aspect-video bg-muted">
-                    <iframe
-                      className="absolute inset-0 w-full h-full"
-                      src="https://www.youtube.com/embed/CYCsa5e2vqg?start=38"
-                      title="What&apos;s Firecracker or a microVM?"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Video className="h-4 w-4 text-primary" />
-                      <h3 className="font-semibold text-lg">What&apos;s Firecracker or a microVM?</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Learn about Firecracker microVMs and how they differ from traditional VMs and containers.
-                    </p>
-                  </div>
-                </>
-              )}
-              {activeTab === 1 && (
-                <>
-                  <div className="relative aspect-video bg-muted">
-                    <iframe
-                      className="absolute inset-0 w-full h-full"
-                      src="https://www.youtube.com/embed/pTQ_jVYhAoc?start=2"
-                      title="Face-off: microVMs vs. containers"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Video className="h-4 w-4 text-primary" />
-                      <h3 className="font-semibold text-lg">Face-off: microVMs vs. containers</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      A detailed comparison between microVMs and containers to help you choose the right technology.
-                    </p>
-                  </div>
-                </>
-              )}
-              {activeTab === 2 && (
-                <>
-                  <div className="relative aspect-video bg-muted">
-                    <iframe
-                      className="absolute inset-0 w-full h-full"
-                      src="https://www.youtube.com/embed/XCBJ0XNqpWE"
-                      title="Quicker customer support & low-cost test environments"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Video className="h-4 w-4 text-primary" />
-                      <h3 className="font-semibold text-lg">Quicker customer support & low-cost test environments</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      See how we use Slicer to slice up bare-metal for customer support and development workflows.
-                    </p>
-                  </div>
-                </>
-              )}
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -168,9 +35,20 @@ export default function HomePage() {
               <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-6xl mb-4">
                 Firecracker for humans.
               </h1>
-              <p className="text-base sm:text-lg text-muted-foreground text-pretty mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Boot headless Linux microVMs in <span className="font-mono">&lt;1s</span> - for production services, API-driven VMs, background jobs, AI agents, and more.
+              <p className="text-base sm:text-xl text-muted-foreground text-pretty mb-4 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
+                Boot Linux microVMs in <span className="font-mono">&lt;1s</span> - for sandboxes and services.
               </p>
+              <div className="flex flex-row items-center gap-2 sm:gap-4 mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0 flex-wrap justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/5 px-2 sm:px-3 py-1.5 sm:py-2">
+                  <span className="text-xs font-mono font-medium text-primary">Sandboxes</span>
+                  <span className="text-xs text-muted-foreground hidden sm:inline">Linux machines via API</span>
+                </div>
+                <span className="text-muted-foreground text-sm">+</span>
+                <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/5 px-2 sm:px-3 py-1.5 sm:py-2">
+                  <span className="text-xs font-mono font-medium text-primary">Services</span>
+                  <span className="text-xs text-muted-foreground hidden sm:inline">Datacenter on a diet</span>
+                </div>
+              </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Button size="lg" className="font-mono" asChild>
                   <Link href="/blog/slicer-2025-wrapup/">
@@ -190,24 +68,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* At Work Section */}
-      <section>
+      {/* Slicer Sandboxes Section */}
+      <section className="border-b border-border/50 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-4">
-                <Globe className="h-4 w-4" />
-                  Slicer for Work
+              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-lg font-mono font-medium text-primary mb-4">
+                <Code className="h-4 w-4" />
+                Slicer Sandboxes
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                Deploy Firecracker microVMs via{" "}
-                <span className="font-mono">YAML</span> or{" "}
-                <span className="font-mono">API</span>
+                API-driven microVMs for automation in{" "}
+                <span className="font-mono">~300ms</span>
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Production-ready infrastructure for modern workloads.
-                Declarative configs, powerful APIs, and instant scaling for
-                everything from AI agents to Kubernetes clusters.
+                Build and run untrusted code, background jobs, preview environments, autoscaling infrastructure, and sandboxes.<br />
+                Run untrusted code with the ease of containers, but a full guest Kernel, OS and systemd.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -215,7 +91,7 @@ export default function HomePage() {
                     <Code className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">API Automation</h3>
+                    <h3 className="font-semibold mb-1">Linux on demand</h3>
                     <p className="text-sm text-muted-foreground">
                       Run background jobs, code workspaces, bots, and AI agents
                       via{" "}
@@ -236,16 +112,213 @@ export default function HomePage() {
                       >
                         Go SDK
                       </a>
-                      . Share{" "}
+                      .
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Shield className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Share secrets securely from the host</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Securely inject{" "}
                       <a
                         href="https://docs.slicervm.com/reference/secrets/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        secrets
+                        secrets and credentials
                       </a>{" "}
-                      securely from the host.
+                      into microVMs from the host.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Code className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Slicer Agent - API for Linux</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Program Linux systems with slicer's guest agent for{" "}
+                      <a
+                        href="https://docs.slicervm.com/reference/api/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        cp, exec, shell, metrics, and port-forwarding.
+                      </a>
+                      .
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Gpu className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      PCI passthrough for GPUs, TPUs, and NICs
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      <a href="https://docs.slicervm.com/reference/vfio/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors">Mount PCI devices</a>{" "}
+                       like GPUs, TPUs, and NICs into microVMs for hardware acceleration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-border/50">
+                <h3 className="text-lg font-semibold mb-4">Examples of code sandboxes:</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4">
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                      <Code className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        AI Agents and code sandboxes
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Run automated bots for code reviews, notifications, and integrations. See our{" "}
+                        <a
+                          href="https://blog.alexellis.io/ai-code-review-bot/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                        >
+                         code review bot built with opencode
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                      <Code className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        Convert videos with ffmpeg
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        microVMs are better suited for processing large media files.{" "}
+                        <a
+                          href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                        >
+                          See example
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                      <Code className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        Ephemeral Jenkins CI runners
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Spins up isolated CI/CD runners on-demand with a fully isolated guest Kernel.{" "}
+                        <a
+                          href="https://docs.slicervm.com/examples/jenkins/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                        >
+                          Learn more
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                      <Layers className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        Self-hosted Kubernetes with node autoscaling
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Launch Kubernetes nodes via API with{" "}
+                        <a
+                          href="https://docs.slicervm.com/examples/autoscaling-k3s/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                        >
+                          node scaling and termination
+                        </a>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative hidden sm:block">
+              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
+                <CardContent className="p-6">
+                  <pre className="overflow-x-auto text-sm font-mono">
+                    <code>
+                      <span className="text-muted-foreground">
+                        # Run headless workloads just like containers<br />
+                        # - from the CLI, or from code.
+                      </span>
+                      <br />
+                      {`
+$ slicer vm new \\
+    --userdata-file setup_opencode.sh
+$ slicer vm cp ./pr.tgz vm-1:/home/ubuntu/
+$ slicer vm exec vm-1 \\
+    -- tar -xcf /home/ubuntu/pr.tgz
+$ slicer vm exec vm-1 opencode \\
+    -m "Review this code and quit when done" \\
+    >> /tmp/REVIEW.md
+$ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
+`}
+                    </code>
+                  </pre>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slicer Services Section */}
+      <section>
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-lg font-mono font-medium text-primary mb-4">
+                <Server className="h-4 w-4" />
+                  Slicer Services
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+                Customer support for AI & cloud native products
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                Reproduce customer issues in seconds, not hours. Spin up test environments on cost-effective bare-metal instead of expensive cloud instances.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Zap className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Fast issue reproductions</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Boot up a fresh environment to reproduce bugs and ship fixes in minutes, not hours.
                     </p>
                   </div>
                 </div>
@@ -265,174 +338,7 @@ export default function HomePage() {
                       >
                         Debian- or RHEL-like OS
                       </a>{" "}
-                      for customer support and product testing.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Shield className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Kernel-level isolation
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      microVMs with the ease of containers, but a full guest
-                      Kernel, OS and systemd. Run untrusted code, customer
-                      workloads, or AI agents safely.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Layers className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Autoscaling Kubernetes nodes
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Support customers: one of the fastest ways to <a href="https://docs.slicervm.com/examples/ha-k3s/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors">spin up Kubernetes</a> clusters{" "}
-                      <a
-                        href="https://docs.slicervm.com/examples/autoscaling-k3s/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        with node scaling and termination
-                      </a>{" "}.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Code className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Ephemeral Jenkins CI runners
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Spin up isolated CI/CD runners on-demand. Each build runs
-                      in a fresh microVM with kernel-level isolation, then
-                      tears down automatically when done.{" "}
-                      <a
-                        href="https://docs.slicervm.com/examples/jenkins/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        Learn more
-                      </a>
-                      .
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative hidden sm:block">
-              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
-                <CardContent className="p-6">
-                  <pre className="overflow-x-auto text-sm font-mono">
-                    <code>
-                      <span className="text-muted-foreground">
-                        # Run headless tasks and workloads <br /># like
-                        containers
-                      </span>
-                      <br />
-                      {`
-$ slicer vm new \\
-    --userdata-file setup_opencode.sh
-$ slicer vm cp ./pr.tgz vm-1:/home/ubuntu/
-$ slicer vm exec vm-1 \\
-    -- tar -xcf /home/ubuntu/pr.tgz
-$ slicer vm exec vm-1 opencode \\
-    -m "Review this code and quit when done" \\
-    >> REVIEW.md
-`}
-                    </code>
-                  </pre>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* At Home Section */}
-      <section className="border-b border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-4 lg:grid-cols-2 lg:gap-10 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-mono font-medium text-primary mb-4">
-                <Home className="h-4 w-4" />
-                Slicer at Home
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                The fastest way to learn & experiment with Firecracker
-              </h2>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Transform your mini PC, Raspberry Pi, or home server into a
-                powerful private cloud. Experiment with microVMs, Kubernetes, and AI
-                agents in an isolated environment that just works.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Zap className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Lightning Fast</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Slicer makes VMs as easy to use as containers and
-                      you&apos;ll be up and running in no time compared to Proxmox, VirtualBox, or QEMU.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Play className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Playgrounds on-demand
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Learn and experiment in microVMs with new software whilst keeping your
-                      own machine pristine.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Package className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      All-inclusive package
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Get unlimited access to Slicer,{" "}
-                      <a
-                        href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        K3sup Pro
-                      </a>{" "}
-                      &{" "}
-                      <a
-                        href="https://github.com/openfaas/faasd?tab=readme-ov-file"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        OpenFaaS Edge
-                      </a>{" "}
-                      in a single monthly subscription.
+                      that matches your customer&apos;s production environment.
                     </p>
                   </div>
                 </div>
@@ -442,59 +348,41 @@ $ slicer vm exec vm-1 opencode \\
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Home lab or bare-metal cloud
+                      Cost-effective bare-metal
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Run applications, databases, and other services on your{" "}
-                      <a
-                        href="https://blog.alexellis.io/n100-mini-computer/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        own hardware
-                      </a>{" "}
-                      or{" "}
+                      Run on your own{" "}
                       <a
                         href="https://www.hetzner.com/dedicated-rootserver"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        bare-metal cloud
+                        bare-metal hardware
                       </a>{" "}
-                      at a fraction of the cost of AWS.
+                      at a fraction of cloud costs. No more unhinged cloud spend for test environments.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Shield className="h-4 w-4 text-primary" />
+                    <Layers className="h-4 w-4 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Router/firewall & ad blocker
+                      Disposable Kubernetes clusters
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Build a{" "}
+                      One of the fastest ways to{" "}
                       <a
-                        href="https://docs.slicervm.com/examples/router-firewall/"
+                        href="https://docs.slicervm.com/examples/ha-k3s/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        Linux router/firewall
-                      </a>
-                      {" "}appliance or run an{" "}
-                      <a
-                        href="https://docs.slicervm.com/examples/pihole-adblock/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        ad blocker
-                      </a>
-                      . Use standard Linux tools you already know.
+                        spin up HA Kubernetes clusters
+                      </a>{" "}
+                      for customer support and testing environments.
                     </p>
                   </div>
                 </div>
@@ -534,65 +422,236 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
               </Card>
             </div>
           </div>
-          
-          {/* Discord Callout */}
-          <div className="mt-8 pt-4 border-t border-border/50">
-            <div className="flex flex-col sm:flex-row items-left justify-left gap-4 text-sm text-muted-foreground">
-              <div className="flex items-left justify-left gap-1">
-                <MessageCircle className="h-4 w-4" />
-                <span>Run </span><span className="font-mono">slicer activate</span><span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers.
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Value Prop Section */}
+      {/* Why microVMs over datacenter solutions */}
       <section className="border-b border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-6">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-4">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                End-to-End Firecracker in your own product within a few hours
+                Why microVMs over datacenter-style solutions?
               </h2>
-            </div>
-            <Card className="border-primary/20 bg-card shadow-lg shadow-primary/5">
-              <CardContent className="p-3 sm:p-6">
-                <h3 className="font-semibold mb-4 text-foreground">
-                You&apos;re not just buying software – you&apos;re skipping months of painful low-level integration work
-                </h3>
-                <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                  Slicer turns <a href="https://firecracker-microvm.github.io/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">the very raw Firecracker technology</a> into a production-ready product that&apos;s as easy to use as containers or AWS EC2.
-                </p>
-                  <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                  Included in the package: supported Kernels and base images, a REST API, powerful guest agent, Go SDK, and built-in firewall support.
-                </p>
-
-                <div className="mt-3 pt-3 border-t border-border/50">
-                  <h3 className="font-semibold mb-2 text-foreground">
-                    Slicer microVMs: Battle-tested in production
-                  </h3>
-                  <div className="text-sm text-muted-foreground">
-                    <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                      Slicer&apos;s code has been used to run <a className="underline underline-offset-2 hover:text-primary" href="https://actuated.com/blog/millions-of-cncf-minutes">millions of GitHub Actions CI jobs for CNCF and various other LinuxFoundation projects</a>.</p>
-                    <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                      Since 2022 our team at OpenFaaS Ltd has used Slicer every day to set up labs for product development, <a href="https://www.openfaas.com/blog/large-scale-functions/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary">load-testing</a>, and for delivering fast customer support. 
-                      </p>
-                      <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
-                      Our own long-term production workloads from Kubernetes clusters, to <a className="underline underline-offset-2 hover:text-primary" href="https://blog.alexellis.io/ai-code-review-bot/">our crucial code review bot</a>, to APIs all run on bare-metal powered by Slicer.
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                Lightning fast, easy to use, and built for modern workloads — without the datacenter overhead of Proxmox, kubevirt, or ESXi.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Zap className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Quicker to set up and maintain</h3>
+                    <p className="text-sm text-muted-foreground">
+                      No ISO, just install to Ubuntu LTS. Run your first a VM in single-digit minutes.
                     </p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Play className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">API-first automation</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Deploy via declarative YAML configs, {" "}
+                      <a
+                        href="https://docs.slicervm.com/reference/api/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        REST API
+                      </a>{" "}
+                      , or{" "}
+                      <a
+                        href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Go SDK
+                      </a>
+
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Code className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Container-like simplicity</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Instant disk cloning, fast boot, full OS, and systemd. Customise the OS with Docker or a userdata script.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Layers className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">No expensive SANs needed</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Fast, local{" "}
+                      <a
+                        href="https://docs.slicervm.com/reference/storage/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        ZFS support
+                      </a>{" "}
+                      with snapshots and clones. Run on local NVMe or SSDs — no network storage required.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Server className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Portable - from edge, to cloud</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Runs anywhere you can install Linux. From on-premises servers, to edge devices, to bare-metal cloud, to a homelab.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Code className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Better utilization</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Lightweight microVMs use fewer resources than traditional VMs. Run more workloads on the same hardware with better performance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative hidden sm:block">
+              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
+                <CardContent className="p-6">
+                  <pre className="overflow-x-auto text-sm font-mono">
+                    <code>
+                      <span className="text-muted-foreground">
+                        # Simple, fast, automated setup<br />
+                        # Install directly to existing Ubuntu LTS installations
+                        </span>
+                      <br />
+                      {`
+$ curl -SLs https://get.slicervm.com | sudo -E bash
+$ slicer --help
+`}
+                    </code>
+                  </pre>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Educational Popout Section */}
-      <EducationalVideosSection />
+      {/* Lightweight hosting and customer appliances */}
+      <section>
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+                Lightweight hosting and customer appliances
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                Run appliances and multi-tenant hosting for customers, without the additional overhead of Kubernetes or traditional hypervisors. Use your own hardware, or ship a VM to your customers to run with Slicer.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Layers className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Native ZFS snapshots</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Built-in backup support with{" "}
+                      <a
+                        href="https://docs.slicervm.com/reference/storage/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        ZFS snapshots
+                      </a>
+                      . Instant backups and restores without additional backup infrastructure.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Server className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Managed services</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Host Prometheus, Postgres, or other services for customers. Create a full system with a hard boundary that&apos;s easier to secure than Kubernetes or containers.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Package className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Appliances</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Package apps and appliances as OCI images, or supply custom userdata scripts to run on boot.
+                      Slicer is self-contained, easy to deploy, and maintain.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Shield className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Multi-tenant hosting</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Build and host untrusted code for customers with network and compute isolation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative hidden sm:block">
+              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
+                <CardContent className="p-6">
+                  <pre className="overflow-x-auto text-sm font-mono">
+                    <code>
+                      <span className="text-muted-foreground">
+                        # As simple as delivering a userdata-script or a <br />
+                        prebuilt image to your customer.
+                      </span>
+                      <br />
+                      {`
+$ slicer new monitoring --count=1 \\
+   --userdata-file ./install-prometheus.sh \\
+   > appliance.yaml
+$ slicer up ./appliance.yaml
 
+$ slicer new --image \\
+  123456789012.dkr.ecr.us-east-1.amazonaws.com/app:v1.0.0 \\
+  > appliance.yaml
+$ slicer up ./appliance.yaml
+`}
+                    </code>
+                  </pre>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Additional Information */}
       <section className="border-t border-border/50 bg-muted/30">

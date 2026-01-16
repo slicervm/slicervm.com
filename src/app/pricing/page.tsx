@@ -13,7 +13,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function Pricing() {
@@ -32,8 +32,7 @@ export default function Pricing() {
             Choose Your Plan
           </h1>
           <p className="text-lg text-muted-foreground text-pretty">
-            Whether you&apos;re learning microVMs at home or scaling production
-            workloads, we have a plan that fits your needs.
+            Run Slicer at home, for commercial hosting, or find out about our enterprise solutions.
           </p>
         </div>
       </section>
@@ -41,10 +40,10 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Hobbyist Tier */}
+          {/* Home Edition Tier */}
           <Card className="border-border/50">
             <CardHeader>
-              <CardTitle className="text-center text-2xl">Hobbyist</CardTitle>
+              <CardTitle className="text-center text-2xl">Home Edition</CardTitle>
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$25</div>
                 <div className="text-muted-foreground">per month</div>
@@ -55,7 +54,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Pay monthly via GitHub.com using GitHub Sponsors
+                    Unlimited Slicer installations for personal use only
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -74,25 +73,25 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run a lightweight <a href="https://docs.slicervm.com/examples/router-firewall/" className="underline underline-offset-2 hover:text-primary">Linux firewall/router</a> that you can actually understand and customise.
+                    Run a lightweight <a href="https://docs.slicervm.com/examples/router-firewall/" className="underline underline-offset-2 hover:text-primary">Linux firewall/router</a> that you can actually understand and customise, or run an <a href="https://docs.slicervm.com/examples/pihole-adblock/" className="underline underline-offset-2 hover:text-primary">ad blocker</a>.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Unlimited Slicer installations for personal use only
+                    Learn Kubernetes with realistic labs that are quick and easy to set up with <a href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro" className="underline underline-offset-2 hover:text-primary">K3sup Pro</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    <a href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro" className="underline underline-offset-2 hover:text-primary">K3sup Pro</a> &amp; <a href="https://github.com/openfaas/faasd?tab=readme-ov-file" className="underline underline-offset-2 hover:text-primary">OpenFaaS Edge</a> included for free
+                    Build your own serverless functions with <a href="https://github.com/openfaas/faasd?tab=readme-ov-file" className="underline underline-offset-2 hover:text-primary">OpenFaaS Edge</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Support &amp; Collaboration via Discord
+                    Run <span className="font-mono">slicer activate</span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers
                   </span>
                 </li>
               </ul>
@@ -103,7 +102,7 @@ export default function Pricing() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Start Sponsoring
+                  Pay via GitHub Sponsors
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -114,12 +113,12 @@ export default function Pricing() {
           <Card className="border-primary/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <Badge className="bg-primary text-primary-foreground font-mono">
-                Self-Service Option
+                Use Slicer for work
               </Badge>
             </div>
 
             <CardHeader>
-              <CardTitle className="text-center text-2xl">Pro</CardTitle>
+              <CardTitle className="text-center text-2xl">Pro Tier</CardTitle>
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$250</div>
                 <div className="text-muted-foreground">per month per seat</div>
@@ -130,19 +129,19 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run systemd-based Linux microVMs for: servers, containers, and <a href="https://docs.slicervm.com/examples/autoscaling-k3s/" className="underline underline-offset-2 hover:text-primary">autoscaling Kubernetes</a>
+                    Services: Run systemd-based Linux microVMs for: servers, containers, and <a href="https://docs.slicervm.com/examples/autoscaling-k3s/" className="underline underline-offset-2 hover:text-primary">autoscaling Kubernetes</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run ephemeral jobs in microVMs via <a href="https://docs.slicervm.com/reference/api/" className="underline underline-offset-2 hover:text-primary">REST API</a> or <a className="underline underline-offset-2 hover:text-primary" href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/">Go SDK</a>
+                    Sandboxes: Run ephemeral jobs in microVMs via <a href="https://docs.slicervm.com/reference/api/" className="underline underline-offset-2 hover:text-primary">REST API</a> or <a className="underline underline-offset-2 hover:text-primary" href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/">Go SDK</a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Built-in guest agent for native: cp, exec, shell, metrics, and port-forwarding.
+                    Built-in guest agent for native: <a href="https://docs.slicervm.com/tasks/execute-commands/" className="underline underline-offset-2 hover:text-primary">cp, exec, shell, metrics, and port-forwarding</a>.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

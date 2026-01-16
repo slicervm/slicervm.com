@@ -35,10 +35,10 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-mono">
-            SlicerVM <span className="text-primary">Pro</span>
+            SlicerVM <span className="text-primary">Pro Tier</span>
           </DialogTitle>
           <DialogDescription>
-            Deploy SlicerVM for commercial, business, and internal use.
+            Deploy SlicerVM for commercial hosting, business, and internal use.
           </DialogDescription>
         </DialogHeader>
 

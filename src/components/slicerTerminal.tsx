@@ -19,7 +19,7 @@ const userPrompt = (
 
 const rootPrompt = (
   <>
-    <span className="text-red-700 font-bold">root@agent-1</span>
+    <span className="text-red-700 font-bold">root@agents-1</span>
     <span className="text-slate-900">:</span>
     <span className="text-primary font-bold">/root</span>
     <span className="text-slate-900">#</span>
@@ -30,27 +30,21 @@ const terminalSequence = [
   {
     type: "command",
     prompt: userPrompt,
-    text: "slicer new agent > agent.yaml",
+    text: "slicer new agents > agents.yaml",
     delay: 200,
   },
   {
     type: "command",
     prompt: userPrompt,
-    text: "slicer up ./agent.yaml",
+    text: "sudo -E slicer up ./agents.yaml",
     delay: 300,
-  },
-  {
-    type: "command",
-    prompt: userPrompt,
-    text: "sudo -E slicer up ./agent.yaml",
-    delay: 200,
   },
   {
     type: "output",
     text: `
 Slicer licensed to: Alex Ellis (Home Edition - personal use only) expires: 7 days       Version: 0.1.31-0e117e15fba4672388c50b58013eee5d87cfea5d
 
-2025/12/23 09:31:40 Creating network pool for host group agent with gateway 192.168.137.1/24 (192.168.137.0 192.168.137.0/24)
+2025/12/23 09:31:40 Creating network pool for host group agents with gateway 192.168.137.1/24 (192.168.137.0 192.168.137.0/24)
 
 Add a route to VMs:
 
@@ -67,15 +61,15 @@ Add a route to VMs:
   },
   {
     type: "output",
-    text: `2025/12/23 09:31:55 Launching: agent-1  4GB     2 vCPU
+    text: `2025/12/23 09:31:55 Launching: agents-1  4GB     2 vCPU
 2025/12/23 09:31:55 Creating tap device: agent1
-2025/12/23 09:31:55 Preparing disk image: agent-1.img
+2025/12/23 09:31:55 Preparing disk image: agents-1.img
 `,
     delay: 300,
   },
   {
     type: "output",
-    text: `2025/12/23 09:32:02 [agent-1] Launched
+    text: `2025/12/23 09:32:02 [agents-1] Launched
 2025/12/23 09:32:02 SSH bridge listening on 0.0.0.0:2222
 API listening on: 127.0.0.1:8080
 2025/12/23 09:32:02 Starting VM health monitor
@@ -84,7 +78,7 @@ API listening on: 127.0.0.1:8080
   },
   {
     type: "output",
-    text: `2025/12/23 09:32:02 [agent-1] Launching with: 4.295GB RAM 2 CPUs, import keys:
+    text: `2025/12/23 09:32:02 [agents-1] Launching with: 4.295GB RAM 2 CPUs, import keys:
 2025/12/23 09:32:02 Serial Over SSH (SOS): loaded 1 key(s)
 `,
     delay: 80,
@@ -101,11 +95,11 @@ API listening on: 127.0.0.1:8080
   },
   {
     type: "output",
-    text: `2025/12/23 09:32:02 [agent-1] Using disk image: agent-1.img
-2025/12/23 09:32:02 [agent-1] RAM MB: 4096, CPUs: 2
-2025/12/23 09:32:02 [agent-1] Logging to: /var/log/slicer/agent-1.txt
-2025/12/23 09:32:02 [agent-1] Started
-2025/12/23 09:32:02 [agent-1] IP: 192.168.137.2
+    text: `2025/12/23 09:32:02 [agents-1] Using disk image: agents-1.img
+2025/12/23 09:32:02 [agents-1] RAM MB: 4096, CPUs: 2
+2025/12/23 09:32:02 [agents-1] Logging to: /var/log/slicer/agents-1.txt
+2025/12/23 09:32:02 [agents-1] Started
+2025/12/23 09:32:02 [agents-1] IP: 192.168.137.2
 
 `,
     delay: 300,
@@ -121,7 +115,7 @@ API listening on: 127.0.0.1:8080
     text: `
 HOSTNAME         IP              CREATED              TAGS
 --------         --              -------              -----
-agent-1          192.168.137.2   2025-12-23 09:32:02
+agents-1          192.168.137.2   2025-12-23 09:32:02
 `,
     delay: 300,
   },
@@ -134,7 +128,7 @@ agent-1          192.168.137.2   2025-12-23 09:32:02
   {
     type: "output",
     text: `
-Connecting to VM: agent-1
+Connecting to VM: agents-1
 Connected! Press Ctrl+] to exit.
 Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.10.240 x86_64)
 

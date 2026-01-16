@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -143,7 +142,7 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-semibold mb-1">Slicer Agent - API for Linux</h3>
                     <p className="text-sm text-muted-foreground">
-                      Program Linux systems with slicer's guest agent for{" "}
+                      Program Linux systems with slicer&apos;s guest agent for{" "}
                       <a
                         href="https://docs.slicervm.com/reference/api/"
                         target="_blank"

@@ -243,3 +243,56 @@ I would really like local models to work both for simple workflows driven from b
 Your mileage may vary, but for me, and my investment in hardware, I'm struggling to get useful results at this stage.
 
 I should also caveat this as saying, an NVidia DGX Spark, or a top-spec Mac Mini (both significant investments) may generate better results with a larger model, or a bigger context window. That's one of the reasons I've included all the detailed I used, so you can test these steps out for yourself, and report back.
+
+### Update on GLM-4.7 Flash
+
+I did actually get GLM-4.7 Flash to work with Ollama, and it was much simpler (as expected) than using dev versions of vllm, or llama.cpp, and building it from source.
+
+A 64k context window was calling for 82GB of VRAM, 32k called for 50GB of VRAM (still too much to fit in 2x 24GB), then finally a 24k context window just about loaded with only a couple of GB of VRAM left over per card.
+
+The model did perform seem smarter, and quicker, however the small context window may have meant that Claude didn't hear me say "Write a Go program", or didn't understand that it was as task for it to perform. Instead it worked out the basic pricing and printed it in an ASCII table, and forgot about the quantities in the prompt.
+
+Even when prompted and reminded, it claimed to have no prior knowledge. So this is perhaps where a DGX Spark or top-spec Mac Mini would shine. It'd generate code slower, but could at least have a reasonable context window.
+
+```
+● Let me read the full HTML and then create a Go program to parse it for prices.                        
+                                                                                                        
+● Read(.claude/projects/-home-ubuntu/00a9af67-39a3-4c12-ba10-897c5426cfa5/tool-results/call_0d0r8ebc.txt
+      )                                                                                                 
+  ⎿  Read 1 line                                                                                        
+                                                                                                        
+● This is a screenshot of the SlicerVM pricing page. Here's a summary of what I see:                    
+                                                                                                        
+  Pricing Tiers:                                                                                        
+  ┌──────────────┬─────────────────────┬───────────────────────────────────────┐                        
+  │     Tier     │        Price        │              Target Use               │                        
+  ├──────────────┼─────────────────────┼───────────────────────────────────────┤                        
+  │ Home Edition │ $25/month           │ Personal use, homelab experimentation │                        
+  ├──────────────┼─────────────────────┼───────────────────────────────────────┤                        
+  │ Pro Tier     │ $250/month per seat │ Commercial workloads, production      │                        
+  ├──────────────┼─────────────────────┼───────────────────────────────────────┤                        
+  │ Enterprise   │ Custom              │ Scalable pricing for enterprises      │                        
+  └──────────────┴─────────────────────┴───────────────────────────────────────┘                        
+  Key Features Highlighted:                                                                             
+                                                                                                        
+  - Home Edition ($25): Unlimited personal installations, runs on WSL, RPi, N100, mini PCs, servers,    
+  Hetzner bare-metal, etc. Includes features like Linux firewalls, ad blockers, K3sup Pro, and OpenFaaS 
+  Edge.                                                                                                 
+  - Pro Tier ($250/seat): Includes systemd-based Linux microVMs, REST API/Go SDK for sandboxes, built-in
+   guest agent (cp, exec, shell, metrics, port-forwarding), GPU support, Jenkins plugin, and email      
+  support.                                                                                              
+  - Enterprise: Custom pricing, annual invoicing (USD ACH/SWIFT), support for custom OS images, private 
+  Slack channel, and priority support (1 business day).                                                 
+                                                                                                        
+  The page also has options to talk to their team for enterprise inquiries.                             
+                                                                                                        
+✻ Crunched for 5m 37s                                                                                   
+                                                                                                        
+❯ Pricing looks right. I asked you to write a Go program, where is it?                                  
+                                                                                                        
+● I don't see any prior context in our conversation where you asked me to write a Go program. In this   
+  current session, I only responded to your screenshot of the SlicerVM pricing page.                    
+                                                                                                        
+  Could you clarify what Go program you're referring to? If it's in the current directory, I can help   
+  locate it.                                                                                                      
+```

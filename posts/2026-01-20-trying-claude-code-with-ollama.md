@@ -26,13 +26,21 @@ On one machine, loaded up with 2x Nvidia Founders Edition 3090 GPUs, I ran slice
 
 I edited `/etc/systemd/system/ollama.service` once more to extend the default context window to 64k tokens, it may have been possible to push this higher.
 
-> Changing the context window doesn't necessarily mean the model can use it, or that it will improve performance.
-
 ```
 [Service]
 Environment="OLLAMA_CONTEXT_SIZE=64000"
 Environment="OLLAMA_HOST=0.0.0.0:11434"
 ```
+
+If you are trying these steps, and the model really seems brain-dead, it's probably because you're using the default context window of about 2048 tokens.
+
+A context window of 2048 tokens (or thereabouts) does not provide enough space for the base prompt from Claude, any tool definitions provided, your prompt, and the context of the conversation. Bear in mind that increasing the context window will increase the amount of memory required to run the model, and there's a chance it won't improve performance at all beyond a certain point. Qwen3 Coder 30B supports a massive context window of up to 256k tokens.
+
+[![The extended context window in Ollama](/content/images/2026-01-claude-ollama/context-dual-cards.jpeg)](/content/images/2026-01-claude-ollama/context-dual-cards.jpeg)
+
+In this case, we can see that the model is being balanced and run across both GPUs simultaneously.
+
+Since I'd heard positive things about [Qwen3-Coder 30B](https://ollama.com/library/qwen3-coder) as a local coding model, I decided to give it a try.
 
 I then ran `ollama pull qwen3-coder:30b` which seemed to fit fine taking up about half of each of the 3090's 24GB of VRAM.
 
@@ -219,9 +227,9 @@ Here's what Claude Code looks like, with the final results of the Go program on 
 
 See [more screenshots](https://x.com/alexellisuk/status/2013639243579425198?s=20) on Twitter/X.
 
-Overall, it was an interesting experiment. I set out with very low expectations, on the positive side, Claude Code talked to Ollama, and Qwen Coder produced some code. It was clumsy, slow, and required detailed prompting including implementation to make something work, even then it couldn't be one-shotted. I have to caveat this by saying that both opencode, and Claude Code work really well with cloud-hosted State Of the Art (SOTA) models like Claude Sonnet/Opus and similar.
+Overall, it was an interesting experiment. I set out with very low expectations, on the positive side, Claude Code talked to Ollama, and Qwen3-Coder produced some code. It was clumsy, slow, and required detailed prompting including implementation to make something work, even then it couldn't be one-shotted. I have to caveat this by saying that both opencode, and Claude Code work really well with cloud-hosted State Of the Art (SOTA) models like Claude Sonnet/Opus and similar.
 
-I've seen individuals post on Reddit about how they drive Qwen Coder daily for all their needs. It makes me wonder what their needs are, and what kinds of results they are actually getting. This, and past experiments with opencode make me wonder whether these models can be used agentically for anything of value. Cloud-hosted models, even ones which are less popular like Grok Coder Fast 1 set the bar extremely high in comparison.
+I've seen individuals post on Reddit about how they drive Qwen3-Coder daily for all their needs. It makes me wonder what their needs are, and what kinds of results they are actually getting. This, and past experiments with opencode make me wonder whether these models can be used agentically for anything of value. Cloud-hosted models, even ones which are less popular like Grok Coder Fast 1 set the bar extremely high in comparison.
 
 So whilst these models may be tenuous for agentic use-cases, they may be better suited to simple one-shotted tasks without much external context. Consider tasks such as: text generation, summarisation, and classification. These kinds of workflows would be valuable when called from a web application, a backend API, or serverless functions with [OpenFaaS](https://www.openfaas.com/).
 

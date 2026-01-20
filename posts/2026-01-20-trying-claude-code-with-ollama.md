@@ -296,3 +296,47 @@ Even when prompted and reminded, it claimed to have no prior knowledge. So this 
   Could you clarify what Go program you're referring to? If it's in the current directory, I can help   
   locate it.                                                                                                      
 ```
+
+I followed up with:
+
+```
+You need to write a Go program now, to obtain the data live. We're buying licenses from               
+  slicervm.com for their microVM product.                                                               
+                                                                                                        
+  Find out the pricing for 2x home edition licenses and 5x commercial ones the page                     
+  is https://slicervm.com/pricing
+```
+
+The code it generated wasn't able to provide the pricing, or the correct quantities. I am going to give it the benefit of the doubt and say that it's not suitable for agentic use-cases with only 48GB of VRAM owing to the context window limitations. When I eventually gave up, it'd really overcomplicated the task and program by adding a dependency on a library to drive headless Chrome (github.com/chromedp/chromedp), but didn't know how to use it.
+
+Then, to add insult to injury it wrote a Go program to print hard-coded data it'd already worked out:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	// Known prices from SlicerVM pricing page
+	homePrice := 25
+	commercialPrice := 250
+
+	fmt.Println("=== SlicerVM Pricing ===")
+	fmt.Printf("Home Edition: $%d/month\n", homePrice)
+	fmt.Printf("Commercial (Pro) Tier: $%d/month per seat\n", commercialPrice)
+	fmt.Println()
+
+	// Calculate totals
+	homeTotal := homePrice * 2
+	commercialTotal := commercialPrice * 5
+	total := homeTotal + commercialTotal
+
+	fmt.Println("=== Your Order Summary ===")
+	fmt.Printf("2x Home Edition licenses: $%d/month\n", homeTotal)
+	fmt.Printf("5x Commercial licenses: $%d/month\n", commercialTotal)
+	fmt.Println()
+	fmt.Printf("TOTAL: $%d/month\n", total)
+	fmt.Println()
+	fmt.Println("Note: Enterprise pricing is custom - please contact SlicerVM directly")
+}
+```

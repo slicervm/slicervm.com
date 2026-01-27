@@ -78,6 +78,7 @@ slicer new k3s-rce \
   --cpu=2 \
   --ram=4 \
   --userdata-file ./userdata.sh \
+  --graceful-shutdown=false \
   > k3s-rce.yaml
 ```
 

@@ -88,13 +88,10 @@ Start the VM:
 sudo -E slicer up ./k3s-rce.yaml
 ```
 
-Wait until userdata has fully completed:
+Wait until the VM has run the whole userdata script:
 
 ```bash
-sudo -E slicer vm health
-HOSTNAME                  AGENT UPTIME         SYSTEM UPTIME        AGENT VERSION   USERDATA RAN
---------                  ------------         -------------        -------------   ------------
-k3s-rce-1                 22s                  22s                  0.1.57          1         
+sudo -E slicer vm ready --userdata
 ```
 
 ## Step 3: Run Graham's detection script

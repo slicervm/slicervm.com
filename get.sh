@@ -108,6 +108,16 @@ export TC_TAP_VERSION="2024-02-14-1230"
 export DEBIAN_FRONTEND=noninteractive
 
 detect_os() {
+    if [ -f /etc/os-release ]; then
+        # shellcheck disable=SC1091
+        . /etc/os-release
+        OS_ID="${ID:-}"
+        OS_LIKE="${ID_LIKE:-}"
+    else
+        OS_ID=""
+        OS_LIKE=""
+    fi
+
     if command -v apt-get >/dev/null 2>&1; then
         PKG_MGR="apt"
     elif command -v dnf >/dev/null 2>&1; then
@@ -119,6 +129,22 @@ detect_os() {
     else
         PKG_MGR=""
     fi
+}
+
+is_rhel_like() {
+    case "$OS_ID" in
+        rhel|rocky|almalinux|centos|ol|cloudlinux)
+            return 0
+            ;;
+    esac
+
+    case "$OS_LIKE" in
+        *rhel*|*fedora*)
+            return 0
+            ;;
+    esac
+
+    return 1
 }
 
 install_os_packages() {
@@ -133,10 +159,10 @@ install_os_packages() {
             apt install -qy --no-install-recommends "${packages[@]}"
             ;;
         dnf)
-            dnf -y install "${packages[@]}"
+            dnf -y --setopt=install_weak_deps=False install "${packages[@]}"
             ;;
         yum)
-            yum -y install "${packages[@]}"
+            yum -y --setopt=install_weak_deps=False install "${packages[@]}"
             ;;
         pacman)
             pacman -Sy --noconfirm "${packages[@]}"
@@ -231,21 +257,21 @@ install_devmapper_packages() {
 }
 
 install_zfs_packages() {
-    case "$PKG_MGR" in
-        apt)
-            install_os_packages zfsutils-linux
-            ;;
-        dnf|yum)
-            install_os_packages zfs
-            ;;
-        pacman)
-            install_os_packages zfs-utils
-            ;;
-        *)
-            echo "Error: unsupported Linux distribution"
-            exit 1
-            ;;
-    esac
+    if modprobe zfs >/dev/null 2>&1 && command -v zfs >/dev/null 2>&1; then
+        return
+    fi
+
+    if [ "$OS_ID" = "ubuntu" ]; then
+        install_os_packages zfsutils-linux
+        if modprobe zfs >/dev/null 2>&1 && command -v zfs >/dev/null 2>&1; then
+            return
+        fi
+    fi
+
+    echo "Error: ZFS is not available on this host."
+    echo "Please install OpenZFS for your distribution and re-run the installer."
+    echo "See: https://openzfs.github.io/openzfs-docs/Getting%20Started/index.html"
+    exit 1
 }
 
 validate_device() {

@@ -68,6 +68,11 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+if [ "$OSTYPE" = "linux-gnu" ] && [ "$(id -u)" -ne 0 ]; then
+    echo "The installation must be run as sudo or root"
+    exit 1
+fi
+
 echo "Downloading and installing Slicer..."
 
 # Install arkade
@@ -76,7 +81,11 @@ if ! [ -e /usr/local/bin/arkade ]; then
 fi
 
 # Use arkade to install Slicer from its OCI container image
-sudo -E arkade oci install ghcr.io/openfaasltd/slicer:latest \
+if ! command -v arkade >/dev/null 2>&1; then
+    export PATH="/usr/local/bin:$PATH"
+fi
+
+/usr/local/bin/arkade oci install ghcr.io/openfaasltd/slicer:latest \
   --path /usr/local/bin
 
 if [ "$OSTYPE" != "linux-gnu" ]; then
@@ -98,13 +107,145 @@ export FIRECRACKER_VER="1.14.0"
 export TC_TAP_VERSION="2024-02-14-1230"
 export DEBIAN_FRONTEND=noninteractive
 
-if [ "$(id -u)" -ne 0 ]; then
-    echo "The installation must be run as sudo or root"
-    exit 1
-fi
+detect_os() {
+    if command -v apt-get >/dev/null 2>&1; then
+        PKG_MGR="apt"
+    elif command -v dnf >/dev/null 2>&1; then
+        PKG_MGR="dnf"
+    elif command -v yum >/dev/null 2>&1; then
+        PKG_MGR="yum"
+    elif command -v pacman >/dev/null 2>&1; then
+        PKG_MGR="pacman"
+    else
+        PKG_MGR=""
+    fi
+}
 
-has_apt_get() {
-  [ -n "$(command -v apt-get)" ]
+install_os_packages() {
+    local packages=("$@")
+    if [ ${#packages[@]} -eq 0 ]; then
+        return 0
+    fi
+
+    case "$PKG_MGR" in
+        apt)
+            apt update -qy
+            apt install -qy --no-install-recommends "${packages[@]}"
+            ;;
+        dnf)
+            dnf -y install "${packages[@]}"
+            ;;
+        yum)
+            yum -y install "${packages[@]}"
+            ;;
+        pacman)
+            pacman -Sy --noconfirm "${packages[@]}"
+            ;;
+        *)
+            echo "Error: No supported package manager found."
+            exit 1
+            ;;
+    esac
+}
+
+install_core_packages() {
+    echo "Installing required OS packages"
+
+    case "$PKG_MGR" in
+        apt)
+            install_os_packages \
+                runc \
+                rsync \
+                e2fsprogs \
+                e2fsck-static \
+                bridge-utils \
+                iptables \
+                pciutils
+            ;;
+        dnf|yum)
+            if is_rhel_like; then
+                local rhel_version
+                rhel_version=$(rpm --eval "%{rhel}" 2>/dev/null || true)
+                if [ -n "$rhel_version" ] && [ "$rhel_version" -ge 8 ]; then
+                    install_os_packages \
+                        runc \
+                        rsync \
+                        e2fsprogs \
+                        iproute \
+                        iptables \
+                        pciutils
+                else
+                    install_os_packages \
+                        runc \
+                        rsync \
+                        e2fsprogs \
+                        bridge-utils \
+                        iptables \
+                        pciutils
+                fi
+            else
+                install_os_packages \
+                    runc \
+                    rsync \
+                    e2fsprogs \
+                    bridge-utils \
+                    iptables \
+                    pciutils
+            fi
+            ;;
+        pacman)
+            local arch_packages=(runc rsync e2fsprogs iproute2 pciutils)
+            # Only install iptables-nft if neither iptables variant is installed
+            if ! pacman -Q iptables-nft >/dev/null 2>&1 && ! pacman -Q iptables >/dev/null 2>&1; then
+                arch_packages+=(iptables-nft)
+            fi
+            install_os_packages "${arch_packages[@]}"
+            ;;
+        *)
+            echo "Error: unsupported Linux distribution"
+            exit 1
+            ;;
+    esac
+}
+
+install_devmapper_packages() {
+    case "$PKG_MGR" in
+        apt)
+            install_os_packages lvm2 dmsetup bc
+            ;;
+        dnf|yum)
+            if is_rhel_like; then
+                install_os_packages lvm2 device-mapper bc
+            else
+                install_os_packages lvm2 dmsetup bc
+            fi
+            ;;
+        pacman)
+            install_os_packages lvm2 device-mapper bc
+            ;;
+        *)
+            echo "Error: unsupported Linux distribution"
+            exit 1
+            ;;
+    esac
+}
+
+install_zfs_packages() {
+    case "$PKG_MGR" in
+        apt)
+            install_os_packages zfsutils-linux
+            ;;
+        dnf|yum)
+            install_os_packages zfs
+            ;;
+        pacman)
+            install_os_packages zfs-utils
+            ;;
+        *)
+            echo "Error: unsupported Linux distribution"
+            exit 1
+            ;;
+    esac
 }
 
 validate_device() {
@@ -183,7 +324,7 @@ check_kvm() {
         return
     fi
 
-    if $(has_apt_get); then
+    if [ "$PKG_MGR" = "apt" ]; then
         if ! command -v kvm-ok &> /dev/null; then
             echo "Installing kvm-ok to check for KVM support"
             apt update && apt install -qy \
@@ -192,21 +333,6 @@ check_kvm() {
         fi
         kvm-ok
     fi
-}
-
-install_pkgs() {
-    echo "Installing required OS packages"
-
-    apt update -qy \
-    && apt install -qy \
-        --no-install-recommends \
-        runc \
-        rsync \
-        e2fsprogs \
-        e2fsck-static \
-        bridge-utils \
-        iptables \
-        pciutils
 }
 
 install_cni() {
@@ -689,10 +815,11 @@ install_cloudhypervisor() {
 }
 
 # Validation checks
+detect_os
 check_kvm
 
 # Core dependencies
-install_pkgs
+install_core_packages
 install_cni
 install_tctap
 install_containerd
@@ -702,11 +829,7 @@ configure_network_management
 # Storage backends
 if [ "$INSTALL_DEVMAPPER" = true ]; then
     echo "Installing devmapper storage backend..."
-    apt install -qy \
-        --no-install-recommends \
-        lvm2 \
-        dmsetup \
-        bc
+    install_devmapper_packages
 
     # Validate devmapper device if specified
     if ! validate_device "$DEVMAPPER_DEV" "devmapper"; then
@@ -722,9 +845,7 @@ fi
 
 if [ "$INSTALL_ZVOL" = true ]; then
     echo "Installing ZFS zvol snapshotter storage backend..."
-    apt install -qy \
-        --no-install-recommends \
-        zfsutils-linux
+    install_zfs_packages
 
     # Validate ZFS device if specified
     if ! validate_device "$ZFS_DEV" "ZFS"; then

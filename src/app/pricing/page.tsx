@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import CheckoutModal from "../../components/CheckoutModal";
+import HomeEditionModal from "../../components/HomeEditionModal";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -13,11 +14,12 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Info } from "lucide-react";
 import Link from "next/link";
 
 export default function Pricing() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProModalOpen, setIsProModalOpen] = useState(false);
+  const [isHomeModalOpen, setIsHomeModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -51,6 +53,19 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm flex items-center gap-1">
+                    <span className="font-medium text-primary">Free trial available</span>
+                    <span className="relative group inline-flex items-center md:hidden">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Use a full-sized browser to access free trial
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
+                  </span>
+                </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
@@ -96,15 +111,13 @@ export default function Pricing() {
                 </li>
               </ul>
 
-              <Button className="w-full font-mono" size="lg" asChild>
-                <Link
-                  href="https://github.com/sponsors/alexellis"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Pay via GitHub Sponsors
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+              <Button
+                className="w-full font-mono cursor-pointer"
+                size="lg"
+                onClick={() => setIsHomeModalOpen(true)}
+              >
+                Get Started
+                <ArrowRight className="h-4 w-4" />
               </Button>
             </CardContent>
           </Card>
@@ -185,7 +198,7 @@ export default function Pricing() {
               <Button
                 className="w-full font-mono cursor-pointer"
                 size="lg"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setIsProModalOpen(true)}
               >
                 Purchase Seats
                 <ArrowRight className="h-4 w-4" />
@@ -282,10 +295,14 @@ export default function Pricing() {
       {/* Footer */}
       <Footer />
 
-      {/* Checkout Modal */}
+      {/* Modals */}
       <CheckoutModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isProModalOpen}
+        onClose={() => setIsProModalOpen(false)}
+      />
+      <HomeEditionModal
+        isOpen={isHomeModalOpen}
+        onClose={() => setIsHomeModalOpen(false)}
       />
     </div>
   );

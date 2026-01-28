@@ -155,8 +155,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                   [
                     rehypePrettyCode,
                     {
-                      theme: "vitesse-light",
-                      keepBackground: false, // Removes the default theme background
+                      theme: "github-light-high-contrast",
+                      keepBackground: true, // Removes the default theme background
                     },
                   ],
                 ],

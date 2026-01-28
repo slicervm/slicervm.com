@@ -161,7 +161,7 @@
   /* Ensure proper monospace font rendering for ASCII art */
   /* Use a guaranteed monospace font stack for proper character alignment */
   .prose pre {
-    font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Consolas", "Monaco", "Lucida Console", monospace !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
     font-variant-ligatures: none !important;
     font-feature-settings: normal !important;
     letter-spacing: 0 !important;
@@ -174,7 +174,7 @@
   /* Set default readable color for code blocks (for unhighlighted code like ASCII art) */
   /* Syntax-highlighted spans will override this with their inline styles */
   .prose pre code {
-    font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Consolas", "Monaco", "Lucida Console", monospace !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
     font-variant-ligatures: none !important;
     font-feature-settings: normal !important;
     letter-spacing: 0 !important;
@@ -188,7 +188,7 @@
   /* Ensure all nested elements use monospace for proper alignment */
   .prose pre code *,
   .prose pre code span {
-    font-family: "Courier New", Courier, "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Consolas", "Monaco", "Lucida Console", monospace !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
     font-variant-ligatures: none !important;
     font-feature-settings: normal !important;
     letter-spacing: 0 !important;

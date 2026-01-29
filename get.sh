@@ -417,76 +417,69 @@ EOF
 update_containerd_devmapper_config() {
     local pool_name="$1"
     local base_size="$2"
+    local root_path="${DATA_DIR:-/var/lib/containerd/devmapper}"
 
     local containerd_cfg="/etc/containerd/config.toml"
+    local tmp_removed="${containerd_cfg}.tmp"
+    local tmp_new="${containerd_cfg}.new"
 
     if [[ -z "$pool_name" ]]; then
         echo "Error: pool_name is required"
         return 1
     fi
 
-    base_size="${base_size:-10GB}"
+    base_size="${base_size:-25GB}"
 
     echo "Updating containerd devmapper config:"
     echo "  pool_name: ${pool_name}"
     echo "  base_image_size: ${base_size}"
+    echo "  root_path: ${root_path}"
 
     mkdir -p "$(dirname "$containerd_cfg")"
 
-    # If config exists, try to update in place
-    if [[ -f "$containerd_cfg" ]]; then
-        # Ensure version = 2 is set at the top level
-        if ! grep -q '^version = 2' "$containerd_cfg"; then
-            # Add version = 2 at the beginning if it doesn't exist
-            sed -i '1i version = 2\n' "$containerd_cfg"
-        fi
-
-        # Ensure devmapper plugin section exists
-        if ! grep -q 'io.containerd.snapshotter.v1.devmapper' "$containerd_cfg"; then
-            cat >> "$containerd_cfg" <<EOF
-
-[plugins."io.containerd.snapshotter.v1.devmapper"]
-  pool_name = "${pool_name}"
-  root_path = "/var/lib/containerd/devmapper"
-  base_image_size = "${base_size}"
-  discard_blocks = true
-EOF
-            return 0
-        fi
-
-        # Update existing values
-        sed -i \
-            -e "s|^\(\s*pool_name\s*=\s*\).*|\1\"${pool_name}\"|" \
-            -e "s|^\(\s*base_image_size\s*=\s*\).*|\1\"${base_size}\"|" \
-            "$containerd_cfg"
-
-        # Ensure root_path exists
-        if ! grep -q 'root_path' "$containerd_cfg"; then
-            sed -i \
-                "/io.containerd.snapshotter.v1.devmapper/a\  root_path = \"/var/lib/containerd/devmapper\"" \
-                "$containerd_cfg"
-        fi
-
-        # Ensure discard_blocks exists
-        if ! grep -q 'discard_blocks' "$containerd_cfg"; then
-            sed -i \
-                "/io.containerd.snapshotter.v1.devmapper/a\  discard_blocks = true" \
-                "$containerd_cfg"
-        fi
-
-    else
-        # Create new config
-        cat > "$containerd_cfg" <<EOF
-version = 2
-
-[plugins]
-  [plugins."io.containerd.snapshotter.v1.devmapper"]
+    local devmapper_block
+    devmapper_block=$(cat <<EOF
+  [plugins.devmapper]
     pool_name = "${pool_name}"
-    root_path = "/var/lib/containerd/devmapper"
+    root_path = "${root_path}"
     base_image_size = "${base_size}"
     discard_blocks = true
 EOF
+)
+
+    if [[ -f "$containerd_cfg" ]]; then
+        awk '
+            BEGIN { skip = 0 }
+            /^[[:space:]]*\[plugins\.devmapper\]$/ { skip = 1; next }
+            /^[[:space:]]*\[plugins\."io\.containerd\.snapshotter\.v1\.devmapper"\]$/ { skip = 1; next }
+            /^[[:space:]]*\[/ { if (skip) { skip = 0 } }
+            !skip { print }
+        ' "$containerd_cfg" > "$tmp_removed"
+    else
+        : > "$tmp_removed"
     fi
+
+    if grep -q '^[[:space:]]*\[plugins\][[:space:]]*$' "$tmp_removed"; then
+        awk -v block="$devmapper_block" '
+            { print }
+            !inserted && $0 ~ /^[[:space:]]*\[plugins\][[:space:]]*$/ {
+                print block
+                inserted = 1
+            }
+        ' "$tmp_removed" > "$tmp_new"
+    else
+        cp "$tmp_removed" "$tmp_new"
+        if [[ -s "$tmp_new" ]] && tail -n 1 "$tmp_new" | grep -q '[^[:space:]]'; then
+            printf '\n' >> "$tmp_new"
+        fi
+        cat <<EOF >> "$tmp_new"
+[plugins]
+$devmapper_block
+EOF
+    fi
+
+    mv "$tmp_new" "$containerd_cfg"
+    rm -f "$tmp_removed"
 
     return 0
 }
@@ -576,6 +569,11 @@ EOF
     update_containerd_devmapper_config \
         "${pool_name}-thinpool" \
         "$base_size"
+
+    if systemctl is-active --quiet containerd; then
+        echo "Restarting containerd to load devmapper snapshotter"
+        systemctl restart containerd
+    fi
 }
 
 zpool_exists() {
@@ -583,41 +581,59 @@ zpool_exists() {
     zpool list -H -o name | grep -q "^${pool_name}$"
 }
 
-configure_containerd_zvol_plugin() {
-    echo "Configuring containerd for zvol snapshotter"
-    mkdir -p /etc/containerd
+update_containerd_zvol_config() {
+    local containerd_cfg="/etc/containerd/config.toml"
+    local zvol_socket="/run/containerd-zvol-grpc/containerd-zvol-grpc.sock"
+    local tmp_removed="${containerd_cfg}.tmp"
+    local tmp_new="${containerd_cfg}.new"
 
-    # Check if zvol plugin configuration already exists
-    if [ -f /etc/containerd/config.toml ] && grep -q "proxy_plugins.zvol" /etc/containerd/config.toml; then
-        echo "zvol plugin configuration already exists"
-        return 0
-    fi
+    echo "Updating containerd zvol config:"
+    echo "  address: ${zvol_socket}"
 
-    # Check if proxy_plugins section exists
-    if [ -f /etc/containerd/config.toml ] && grep -q "^\[proxy_plugins\]" /etc/containerd/config.toml; then
-        # Add zvol plugin to existing proxy_plugins section
-        sed -i '/^\[proxy_plugins\]/a\
-  [proxy_plugins.zvol]\
-    type = "snapshot"\
-    address = "/run/containerd-zvol-grpc/containerd-zvol-grpc.sock"' /etc/containerd/config.toml
-    else
-        # Add new proxy_plugins section with zvol plugin
-        cat <<EOF >> /etc/containerd/config.toml
+    mkdir -p "$(dirname "$containerd_cfg")"
 
-[proxy_plugins]
+    local zvol_block
+    zvol_block=$(cat <<EOF
   [proxy_plugins.zvol]
     type = "snapshot"
-    address = "/run/containerd-zvol-grpc/containerd-zvol-grpc.sock"
+    address = "${zvol_socket}"
+EOF
+)
+
+    if [[ -f "$containerd_cfg" ]]; then
+        awk '
+            BEGIN { skip = 0 }
+            /^[[:space:]]*\[proxy_plugins\.zvol\]$/ { skip = 1; next }
+            /^[[:space:]]*\[/ { if (skip) { skip = 0 } }
+            !skip { print }
+        ' "$containerd_cfg" > "$tmp_removed"
+    else
+        : > "$tmp_removed"
+    fi
+
+    if grep -q '^[[:space:]]*\[proxy_plugins\][[:space:]]*$' "$tmp_removed"; then
+        awk -v block="$zvol_block" '
+            { print }
+            !inserted && $0 ~ /^[[:space:]]*\[proxy_plugins\][[:space:]]*$/ {
+                print block
+                inserted = 1
+            }
+        ' "$tmp_removed" > "$tmp_new"
+    else
+        cp "$tmp_removed" "$tmp_new"
+        if [[ -s "$tmp_new" ]] && tail -n 1 "$tmp_new" | grep -q '[^[:space:]]'; then
+            printf '\n' >> "$tmp_new"
+        fi
+        cat <<EOF >> "$tmp_new"
+[proxy_plugins]
+$zvol_block
 EOF
     fi
 
-    echo "Added zvol plugin configuration to containerd"
+    mv "$tmp_new" "$containerd_cfg"
+    rm -f "$tmp_removed"
 
-    # Restart containerd to pick up new configuration
-    if systemctl is-active --quiet containerd; then
-        echo "Restarting containerd to load zvol plugin"
-        systemctl restart containerd
-    fi
+    echo "Added zvol plugin configuration to containerd"
 }
 
 install_zvol_snapshotter() {
@@ -711,7 +727,12 @@ install_zvol_snapshotter() {
         fi
 
         # Configure containerd for zvol snapshotter
-        configure_containerd_zvol_plugin
+        update_containerd_zvol_config
+
+        if systemctl is-active --quiet containerd; then
+            echo "Restarting containerd to load zvol plugin"
+            systemctl restart containerd
+        fi
     fi
 }
 

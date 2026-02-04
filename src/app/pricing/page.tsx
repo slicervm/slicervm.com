@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CheckoutModal from "../../components/CheckoutModal";
 import HomeEditionModal from "../../components/HomeEditionModal";
+import IndividualModal from "../../components/IndividualModal";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ import Link from "next/link";
 export default function Pricing() {
   const [isProModalOpen, setIsProModalOpen] = useState(false);
   const [isHomeModalOpen, setIsHomeModalOpen] = useState(false);
+  const [isIndividualModalOpen, setIsIndividualModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -41,7 +43,7 @@ export default function Pricing() {
 
       {/* Pricing Cards */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {/* Home Edition Tier */}
           <Card className="border-border/50">
             <CardHeader>
@@ -69,7 +71,13 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Unlimited Slicer installations for personal use only
+                    Unlimited Slicer installations
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Personal use only
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -122,16 +130,75 @@ export default function Pricing() {
             </CardContent>
           </Card>
 
-          {/* Pro Tier */}
+          {/* Individual Tier */}
+          <Card className="border-border/50 relative">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <Badge variant="secondary" className="font-mono">
+                Use Slicer for work
+              </Badge>
+            </div>
+            <CardHeader>
+              <CardTitle className="text-center text-2xl">Individual</CardTitle>
+              <CardDescription className="text-center">
+                <div className="text-4xl font-bold text-primary mb-2">$100</div>
+                <div className="text-muted-foreground">per month</div>
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Commercial use allowed for solo developers
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Best for micro-SaaS, vibe-coded products, and commercial side projects
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    All Home Edition features included
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Single developer only — not for teams
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Support via Discord community
+                  </span>
+                </li>
+              </ul>
+
+              <Button
+                className="w-full font-mono cursor-pointer"
+                size="lg"
+                onClick={() => setIsIndividualModalOpen(true)}
+              >
+                Get Started
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Team Tier */}
           <Card className="border-primary/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <Badge className="bg-primary text-primary-foreground font-mono">
-                Use Slicer for work
+                Use Slicer in the business
               </Badge>
             </div>
 
             <CardHeader>
-              <CardTitle className="text-center text-2xl">Pro Tier</CardTitle>
+              <CardTitle className="text-center text-2xl">Team</CardTitle>
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$250</div>
                 <div className="text-muted-foreground">per month per seat</div>
@@ -303,6 +370,10 @@ export default function Pricing() {
       <HomeEditionModal
         isOpen={isHomeModalOpen}
         onClose={() => setIsHomeModalOpen(false)}
+      />
+      <IndividualModal
+        isOpen={isIndividualModalOpen}
+        onClose={() => setIsIndividualModalOpen(false)}
       />
     </div>
   );

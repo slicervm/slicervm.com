@@ -35,7 +35,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-mono">
-            SlicerVM <span className="text-primary">Pro Tier</span>
+            SlicerVM <span className="text-primary">Team</span>
           </DialogTitle>
           <DialogDescription>
             Deploy SlicerVM for commercial hosting, business, and internal use.
@@ -57,6 +57,23 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 </span>
               </li>
             </ul>
+
+            <Card className="bg-muted/50 border-border/50">
+              <CardContent className="p-3">
+                <p className="text-xs font-medium text-foreground mb-2">Example breakdown:</p>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs font-mono">
+                  <span>2× developers</span>
+                  <span className="text-right">2 seats</span>
+                  <span>1× production</span>
+                  <span className="text-right">1 seat</span>
+                  <span>1× staging</span>
+                  <span className="text-right">1 seat</span>
+                  <div className="col-span-2 border-t border-border/50 my-1"></div>
+                  <span className="font-semibold text-foreground">Total</span>
+                  <span className="text-right font-semibold text-foreground">4 seats</span>
+                </div>
+              </CardContent>
+            </Card>
             <p>
               Contact us via the{" "}
               <Link

@@ -71,13 +71,51 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Unlimited Slicer installations
+                    Unlimited Slicer installations for personal use
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
                     Personal use only
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm flex items-center gap-1">
+                    <span>
+                      <span className="font-medium text-primary">Bonus:</span> 1x free{" "}
+                      <a
+                        href="https://box.slicervm.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:text-primary"
+                      >
+                        Slicer Box
+                      </a>
+                    </span>
+                    <span className="relative group inline-flex items-center">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Slicer Box is a free cloud-hosted slicer instance just for you.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm flex items-center gap-1">
+                    <span>
+                      <span className="font-medium text-primary">Bonus:</span> Slicer For Mac (preview)
+                    </span>
+                    <span className="relative group inline-flex items-center">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Linux for your Mac that feels native, with folder sharing and Rosetta.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -113,8 +151,15 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Run <span className="font-mono">slicer activate</span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers
+                  <span className="text-sm flex items-center gap-1">
+                    <span>Support via Discord</span>
+                    <span className="relative group inline-flex items-center">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Run <span className="font-mono">slicer activate</span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
                   </span>
                 </li>
               </ul>

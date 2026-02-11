@@ -140,7 +140,11 @@ export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalPr
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>Unlimited Slicer installations for personal use</span>
+                  <span>Unlimited Slicer installations for personal use on Linux hosts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <span>Slicer for Mac Preview: commercial use allowed on your own device</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
@@ -174,7 +178,7 @@ export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalPr
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Linux for your Mac that feels native, with folder sharing and Rosetta.
+                        Linux for your Mac that feels native, with folder sharing and Rosetta. Commercial use on your own Mac is allowed on any tier, including Home Edition.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>

@@ -181,8 +181,7 @@ curl -sLS https://get.arkade.dev | sudo bash
 
 # Arkade extracts/downloads the latest binaries:
 
-arkade oci install docker.io/alexellis2/slicer-mac:1770740330 .
-arkade oci install docker.io/alexellis2/slicer-tray:1770740391 .
+arkade oci install docker.io/alexellis2/slicer-mac:latest .
 ```
 
 You'll see "slicer-mac.yaml" - leave it mainly as it is. This file can be regenerated via `slicer-mac up` at any time.
@@ -217,6 +216,10 @@ It solves for:
 * You are rightly annoyed with approving every permission for opencode, amp, claude code, codex, copilot, etc. You are so tempted to run `--dangerously-skip-permissions` to get things done faster. Maybe you already are.
 
 Slicer for Mac is in preview, it's working and capable of what we've covered above.
+
+Discord is currently the best place to participate in the preview, where you can ask questions, share direct feedback, and engage with our developers.
+
+That said, we've launched an initial set of [docs pages for Slicer for Mac](https://docs.slicervm.com/mac/overview/).
 
 See also:
 

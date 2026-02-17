@@ -184,21 +184,25 @@ curl -sLS https://get.arkade.dev | sudo bash
 arkade oci install docker.io/alexellis2/slicer-mac:latest .
 ```
 
-You'll see "slicer-mac.yaml" - leave it mainly as it is. This file can be regenerated via `slicer-mac up` at any time.
+You'll see "slicer-mac.yaml" - leave it mainly as it is. This file can be regenerated via `slicer-mac new` at any time.
+
+Start slicer-mac:
+
+```bash
+./slicer-mac up
+```
 
 Then you are ready to connect via slicer and get a shell:
 
 ```bash
 export SLICER_URL=`pwd`/slicer.sock
 
-slicer vm --token "" shell --uid 1000 slicer-1 
+slicer vm --token "" shell slicer-1 
 ```
 
 Passwordless `sudo` is built-in, or you can pass `--uid 0` to run as root.
 
-The `slicer vm --help` command will show the various operations our deeply integrated agent can offer:
-
-* `list`, `shutdown`, `pause`, `resume`, `add`, `remove`, `cp`, `forward`, `exec`, `shell`, `logs`, etc.
+The `slicer vm --help` command will show the various operations our deeply integrated agent can offer: `list`, `shutdown`, `pause`, `resume`, `add`, `remove`, `cp`, `forward`, `exec`, `shell`, `logs`, etc.
 
 ## Wrapping up
 

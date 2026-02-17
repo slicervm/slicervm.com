@@ -33,8 +33,8 @@ From the beginning we knew we wanted a tool that was:
 
 * CLI driven
 * API-first
-* SDK friendly with an openapi spec
-* Able to reproduce complex datacenter tooling like Proxmox, OpenStack, and ESXi
+* SDK friendly with an OpenAPI spec
+* more developer-friendly than: Multipass, QEMU, VirtualBox, Proxmox, OpenStack, and ESXi
 
 And most of all, it had to boot as fast as possible, and be able to tear down just as quickly.
 
@@ -219,7 +219,7 @@ Slicer for Mac is in preview, it's working and capable of what we've covered abo
 
 Discord is currently the best place to participate in the preview, where you can ask questions, share direct feedback, and engage with our developers.
 
-That said, we've launched an initial set of [docs pages for Slicer for Mac](https://docs.slicervm.com/mac/overview/).
+We've also launched initial [docs for Slicer for Mac](https://docs.slicervm.com/mac/overview/) and will be updated it based upon feedback you share with us.
 
 See also:
 

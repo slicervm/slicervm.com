@@ -74,11 +74,9 @@ slicer activate
 Download and start the Slicer for Mac daemon:
 
 ```bash
-curl -sLS https://get.arkade.dev | sudo bash
+slicer install slicer-mac ~/slicer-mac
 
-arkade oci install docker.io/alexellis2/slicer-mac:latest .
-
-./slicer-mac up
+~/slicer-mac/slicer-mac up
 ```
 
 That's it. You now have a persistent Linux VM (`slicer-1`) running on your Mac.
@@ -92,7 +90,7 @@ The default `slicer-mac.yaml` uses `share_home` with `~/`, which exposes your Ma
 Then mount it inside the VM:
 
 ```bash
-export SLICER_URL=`pwd`/slicer.sock
+export SLICER_URL=~/slicer-mac/slicer.sock
 
 slicer vm shell --token "" slicer-1
 ```
@@ -430,7 +428,7 @@ The agent reads this, implements a feature, builds it, boots a VM, copies the bi
 
 This saves hours. Instead of reviewing an untested diff and manually verifying it works, you get a complete feedback loop. The agent doesn't just write code — it proves the code works, on a real system, with real isolation. No containers pretending to be Linux, no mocked dependencies.
 
-Slicer has been built by hand since 2022 and shares its core with [Actuated](https://actuated.com). But for the past six months, every change a coding agent makes goes through this loop — boot a VM, run the tests, verify the result. 
+Slicer has been built by hand since 2022 and shares its core with [Actuated](https://actuated.com). But for the past six months, every change a coding agent makes goes through this loop — boot a VM, run the tests, verify the result.
 
 We're also been working on `slicer codex` — a sub-command that wraps the agent sandbox flow into a single invocation. Point it at a directory, it launches a sandbox, runs your agent, and hands back the results. It's available now for Codex, with opencode, amp, and Claude Code support coming next.
 

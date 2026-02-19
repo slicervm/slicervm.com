@@ -13,7 +13,8 @@ tags:
 In this post we'll explore what Slicer looks like as a native macOS port, where instead of Linux networking, and KVM/Firecracker, we use Apple's own native [Virtualization framework](https://developer.apple.com/documentation/virtualization).
 
 ![Slicer's tray application](/content/images/2026-02-slicer-mac-preview/menu-bar.jpg)
-> Slicer's native tray application, a Linux VM with your home folder mounted from the host. 
+
+> Slicer's native tray application, a Linux VM with your home folder mounted from the host.
 
 The initial response both on X and LinkedIn has been really positive, users are asking to get access.
 
@@ -31,10 +32,10 @@ One of our earliest use-cases was rapid deployment of Kubernetes clusters to rep
 
 From the beginning we knew we wanted a tool that was:
 
-* CLI driven
-* API-first
-* SDK friendly with an OpenAPI spec
-* more developer-friendly than: Multipass, QEMU, VirtualBox, Proxmox, OpenStack, and ESXi
+- CLI driven
+- API-first
+- SDK friendly with an OpenAPI spec
+- more developer-friendly than: Multipass, QEMU, VirtualBox, Proxmox, OpenStack, and ESXi
 
 And most of all, it had to boot as fast as possible, and be able to tear down just as quickly.
 
@@ -52,17 +53,17 @@ Services are VMs defined in YAML, which are permanent, persistent, and predictab
 
 Consider the "slicer" hostgroup and its first VM as your Linux twin.
 
-* Native Linux responsiveness and feel on mac
-* No complex GUI wrappers, sorry that's just not what we're going after here
-* Not specifically a "Docker for Mac" replacement (but will do it anyway)
+- Native Linux responsiveness and feel on mac
+- No complex GUI wrappers, sorry that's just not what we're going after here
+- Not specifically a "Docker for Mac" replacement (but will do it anyway)
 
 Pain we're trying to solve with Slicer Services:
 
-* You're more at home with Linux than macOS, but you have a company issued machine
-* You need a Kubernetes cluster to test your work - but you'll be waiting days for that ServiceNow ticket to get approved
-* You are working with eBPF programs and need a real, Linux kernel to build and run them on.
-* You find the various OSS/free tools give less than ideal customer support (read: they're projects, not products)
-* What you've tried feels heavy, slow, cumbersome, targeted at click-ops, but you're DevOps, you're IaaC, you say things like "but where is the API?"
+- You're more at home with Linux than macOS, but you have a company issued machine
+- You need a Kubernetes cluster to test your work - but you'll be waiting days for that ServiceNow ticket to get approved
+- You are working with eBPF programs and need a real, Linux kernel to build and run them on.
+- You find the various OSS/free tools give less than ideal customer support (read: they're projects, not products)
+- What you've tried feels heavy, slow, cumbersome, targeted at click-ops, but you're DevOps, you're IaaC, you say things like "but where is the API?"
 
 **Slicer Sandboxes**
 
@@ -70,9 +71,9 @@ Slicer Sandboxes are VMs that launch in ~ 0.5s and are completely ephemeral and 
 
 Here's how we'd see you using them:
 
-* Coding agents like Claude Code, but with `--dangerously-skip-permissions`.
-* You're developing a product for Linux cloud VMs, not for Macs, so you get a full local Linux VM instantly.
-* Maybe you actually want 2-3 K3s clusters, and to deploy different versions of your work, to validate different approaches
+- Coding agents like Claude Code, but with `--dangerously-skip-permissions`.
+- You're developing a product for Linux cloud VMs, not for Macs, so you get a full local Linux VM instantly.
+- Maybe you actually want 2-3 K3s clusters, and to deploy different versions of your work, to validate different approaches
 
 Jason Poley, Head of Engineering at Macquarie Group, wrote about [The Sandbox Explosion](https://daax.dev/blogs/the-sandbox-explosion) - how Docker, Apple, AWS, Azure, and Google have all moved to microVM-based sandboxes because containers were never the right security boundary.
 
@@ -122,8 +123,8 @@ One that can you can test your real work with, since the status quo is to run pr
 
 The above diagram shows a single VM running in the "slicer" host group. We've forwarded a UNIX socket for Docker, TCP port 6443 for Kubernetes, and we've installed an AI agent.
 
-* `slicer-mac` is the daemon that runs a Slicer-compatible server on Apple Virtualization. The main thing you'll do with this is run `slicer-mac up`, and best of all it doesn't need root privileges.
-* `slicer` on Linux is a full daemon and API client, but on Windows and macOS, it's just a client that has all the `slicer vm` commands.
+- `slicer-mac` is the daemon that runs a Slicer-compatible server on Apple Virtualization. The main thing you'll do with this is run `slicer-mac up`, and best of all it doesn't need root privileges.
+- `slicer` on Linux is a full daemon and API client, but on Windows and macOS, it's just a client that has all the `slicer vm` commands.
 
 ### Conceptual diagram: Programmable Linux
 
@@ -172,16 +173,10 @@ curl -sLS https://get.slicervm.com | sudo bash
 slicer activate
 ```
 
-Download the Slicer for Mac binary and the tray application:
+Download the Slicer for Mac binary:
 
 ```bash
-# Install Arkade
-
-curl -sLS https://get.arkade.dev | sudo bash
-
-# Arkade extracts/downloads the latest binaries:
-
-arkade oci install docker.io/alexellis2/slicer-mac:latest .
+slicer install slicer-mac ~/slicer-mac
 ```
 
 You'll see "slicer-mac.yaml" - leave it mainly as it is. This file can be regenerated via `slicer-mac new` at any time.
@@ -189,15 +184,15 @@ You'll see "slicer-mac.yaml" - leave it mainly as it is. This file can be regene
 Start slicer-mac:
 
 ```bash
-./slicer-mac up
+~/slicer-mac/slicer-mac up
 ```
 
 Then you are ready to connect via slicer and get a shell:
 
 ```bash
-export SLICER_URL=`pwd`/slicer.sock
+export SLICER_URL=~/slicer-mac/slicer.sock
 
-slicer vm --token "" shell slicer-1 
+slicer vm --token "" shell slicer-1
 ```
 
 Passwordless `sudo` is built-in, or you can pass `--uid 0` to run as root.
@@ -208,16 +203,16 @@ The `slicer vm --help` command will show the various operations our deeply integ
 
 It's never easy to write up something as powerful and versatile as "native-speed Linux twin/sandboxes" for macOS, but I hope you've got the gist of what we're trying to build here. And how it's different from existing solutions like Docker Desktop, UTM, QEMU, and the alike.
 
-* Slicer has no tech debt, no baggage. It's not replacing a GUI wrapper for Docker, it's not for click-ops folks.
-* Slicer is opinionated, programmatic Linux that boots almost instantly, and uses very few resources.
-* Has an engaged Discord community, with direct help from the engineering team.
+- Slicer has no tech debt, no baggage. It's not replacing a GUI wrapper for Docker, it's not for click-ops folks.
+- Slicer is opinionated, programmatic Linux that boots almost instantly, and uses very few resources.
+- Has an engaged Discord community, with direct help from the engineering team.
 
 It solves for:
 
-* Your IT team frustrates your daily workflow: Linux and Kubernetes are not 0.5s seconds away, they're hours, days away.
-* Your manager has no budget of his own, certainly not for cloud resources.
-* You're high agency and independent, want to get stuff done now. Realise POSIX-compatibility is not the same as Linux for end-to-end testing.
-* You are rightly annoyed with approving every permission for opencode, amp, claude code, codex, copilot, etc. You are so tempted to run `--dangerously-skip-permissions` to get things done faster. Maybe you already are.
+- Your IT team frustrates your daily workflow: Linux and Kubernetes are not 0.5s seconds away, they're hours, days away.
+- Your manager has no budget of his own, certainly not for cloud resources.
+- You're high agency and independent, want to get stuff done now. Realise POSIX-compatibility is not the same as Linux for end-to-end testing.
+- You are rightly annoyed with approving every permission for opencode, amp, claude code, codex, copilot, etc. You are so tempted to run `--dangerously-skip-permissions` to get things done faster. Maybe you already are.
 
 Slicer for Mac is in preview, it's working and capable of what we've covered above.
 
@@ -227,7 +222,7 @@ We've also launched initial [docs for Slicer for Mac](https://docs.slicervm.com/
 
 See also:
 
-* [Jason Poley: The Sandbox Explosion (2026)](https://daax.dev/blogs/the-sandbox-explosion)
-* [Go SDK for Slicer](https://github.com/slicervm/sdk)
-* [REST API reference](https://docs.slicervm.com/reference/api/)
-* [Slicer architecture diagram for Linux hosts](https://docs.slicervm.com/#slicer-architecture)
+- [Jason Poley: The Sandbox Explosion (2026)](https://daax.dev/blogs/the-sandbox-explosion)
+- [Go SDK for Slicer](https://github.com/slicervm/sdk)
+- [REST API reference](https://docs.slicervm.com/reference/api/)
+- [Slicer architecture diagram for Linux hosts](https://docs.slicervm.com/#slicer-architecture)

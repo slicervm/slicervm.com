@@ -14,7 +14,16 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Info, X, Sparkles } from "lucide-react";
+import {
+  Check,
+  ArrowRight,
+  Info,
+  X,
+  Sparkles,
+  Zap,
+  Shield,
+  Cpu,
+} from "lucide-react";
 import Link from "next/link";
 
 const SALES_FORM_URL =
@@ -39,12 +48,27 @@ export default function Pricing() {
         <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
         <div className="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 text-center">
           <h1 className="text-5xl font-bold tracking-tight text-balance mb-4">
-            Choose Your Plan
+            MicroVMs that boot in milliseconds.
           </h1>
-          <p className="text-lg text-muted-foreground text-pretty">
-            Individual and Team are per-developer seats for use on your own
-            devices. Platform is for shared deployments and infrastructure.
+          <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
+            Sandbox AI coding agents, run e2e tests on real Linux, spin up
+            Kubernetes clusters, or build a modern homelab -- pick the plan that
+            fits how you use Slicer.
           </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <Zap className="h-4 w-4 text-primary" />
+              Sub-second boot times
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Shield className="h-4 w-4 text-primary" />
+              VM and network isolation via KVM / Apple Virtualization
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Cpu className="h-4 w-4 text-primary" />
+              REST API, Go SDK, and CLI
+            </span>
+          </div>
         </div>
       </section>
 
@@ -65,24 +89,30 @@ export default function Pricing() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
+              <p className="text-sm text-muted-foreground text-center">
+                Sandbox Claude Code and Codex, run e2e tests on real Linux, spin
+                up Kubernetes, or build a modern homelab.
+              </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
                     <span className="font-medium text-primary">
-                      Free trial available
+                      14-day free trial available
                     </span>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>Slicer for Linux/Mac: 2x Slicer daemons</span>
+                    <span>
+                      Run on Linux, WSL2, and Mac: 2x concurrent Slicer daemons
+                    </span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         Run 2x Slicer daemons at any one time on any mix of
-                        Slicer for Mac or Slicer for Linux.
+                        Slicer for Mac, Slicer for Linux, or WSL2.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -92,12 +122,6 @@ export default function Pricing() {
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
                     Personal and commercial use as part of your day job
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Use Slicer on your own device(s)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -117,7 +141,7 @@ export default function Pricing() {
                     >
                       Go SDK
                     </Link>
-                    , and CLI.
+                    , and CLI
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -131,7 +155,7 @@ export default function Pricing() {
                       >
                         K3sup Pro
                       </Link>{" "}
-                      to bootstrap HA Kubernetes
+                      for HA Kubernetes clusters over SSH
                     </span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
@@ -145,7 +169,7 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">Support via Discord</span>
+                  <span className="text-sm">Community support via Discord</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -178,9 +202,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <X className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                   <span className="text-sm text-muted-foreground flex items-center gap-1">
-                    <span>
-                      Not for shared deployments/infrastructure
-                    </span>
+                    <span>Not for shared deployments/infrastructure</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3 w-3 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
@@ -221,16 +243,28 @@ export default function Pricing() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
+              <p className="text-sm text-muted-foreground text-center">
+                Equip your engineering team with isolated dev environments,
+                reproducible testing, and ephemeral sandboxes.
+              </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Everything in Individual, for every developer
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>Slicer for Linux/Mac: 2x Slicer daemons</span>
+                    <span>
+                      2x Slicer daemons per seat (Linux, WSL2, and Mac)
+                    </span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Run 2x Slicer daemons at any one time on any mix of
-                        Slicer for Mac or Slicer for Linux.
+                        Each developer can run 2x Slicer daemons at any one time
+                        on any mix of Slicer for Mac, Slicer for Linux, or WSL2.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -239,8 +273,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    One seat is one named developer on that developer&apos;s own
-                    device(s)
+                    One seat per named developer, used on their own device(s)
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -260,31 +293,29 @@ export default function Pricing() {
                     >
                       Go SDK
                     </Link>
-                    , and CLI.
+                    , and CLI
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Additional seats: 25 USD / mo per seat
+                    Scale as you grow: additional seats at $25/mo each
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">Support via Discord</span>
+                  <span className="text-sm">Community support via Discord</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Self-service with debit/credit-card
+                    Self-service billing with debit/credit card
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <X className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                   <span className="text-sm text-muted-foreground flex items-center gap-1">
-                    <span>
-                      Not for shared deployments/infrastructure
-                    </span>
+                    <span>Not for shared deployments/infrastructure</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3 w-3 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
@@ -310,7 +341,10 @@ export default function Pricing() {
 
           <Card className="border-primary/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-              <Badge variant="secondary" className="text-primary border-primary/30 font-mono">
+              <Badge
+                variant="secondary"
+                className="text-primary border-primary/30 font-mono"
+              >
                 Shared infrastructure
               </Badge>
             </div>
@@ -324,40 +358,28 @@ export default function Pricing() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
+              <p className="text-sm text-muted-foreground text-center">
+                Run Slicer on shared servers, build internal platforms, or embed
+                microVM sandboxes in your product.
+              </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">Slicer for Linux</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Required for any deployment beyond an individual
-                    developer&apos;s own devices
+                    Slicer for Linux on shared or remote servers
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Shared or remote server deployments
+                    Build internal developer platforms and automation
+                    infrastructure
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Internal tools, internal platforms, and internal use
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Product integrations and customer-facing SaaS
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Licensed per installation/daemon
+                    Embed microVM sandboxes in customer-facing SaaS products
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -377,16 +399,26 @@ export default function Pricing() {
                     >
                       Go SDK
                     </Link>
-                    , and CLI.
+                    , and CLI
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">Private Discord channel</span>
+                  <span className="text-sm">
+                    Licensed per running daemon -- add capacity as you scale
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">Email support</span>
+                  <span className="text-sm">
+                    Private Discord channel and email support
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Self-service billing with debit/credit card
+                  </span>
                 </li>
               </ul>
 
@@ -407,145 +439,188 @@ export default function Pricing() {
           <Card className="border-border/50">
             <CardHeader>
               <CardTitle className="text-2xl text-center">
-                Core Slicer Capabilities
+                Every Plan Includes
               </CardTitle>
               <CardDescription className="text-center">
-                Included across Individual, Team, and Platform.
+                Core capabilities across Individual, Team, and Platform -- no
+                feature gating.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Services: run systemd-based Linux microVMs for servers,
-                    containers, and{" "}
-                    <Link
-                      href="https://docs.slicervm.com/examples/autoscaling-k3s/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      autoscaling Kubernetes
-                    </Link>
-                    .
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Sandboxes: run ephemeral jobs in microVMs via{" "}
-                    <Link
-                      href="https://docs.slicervm.com/reference/api/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      REST API
-                    </Link>{" "}
-                    or{" "}
-                    <Link
-                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      Go SDK
-                    </Link>
-                    .
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Built-in guest agent with{" "}
-                    <Link
-                      href="https://docs.slicervm.com/tasks/execute-commands/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      cp, exec, shell, metrics, and port-forwarding
-                    </Link>
-                    .
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Customise microVMs via userdata or custom Docker images.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Supported operating systems: Ubuntu LTS (x86_64/arm64) and
-                    Rocky 9 (x86_64).
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    <Link
-                      href="https://docs.slicervm.com/reference/vfio/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      Mount GPUs
-                    </Link>{" "}
-                    into microVMs for AI/LLM workloads.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Deploy almost anywhere: WSL, RPi 4/5, NUCs,{" "}
-                    <Link
-                      href="https://blog.alexellis.io/slicer-bare-metal-preview/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      N100
-                    </Link>
-                    , mini PCs, racked servers, and{" "}
-                    <Link
-                      href="https://www.hetzner.com/dedicated-rootserver/matrix-ax/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      Hetzner bare-metal
-                    </Link>
-                    .
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    More use-cases in the{" "}
-                    <Link
-                      href="https://docs.slicervm.com/examples/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      Slicer documentation
-                    </Link>
-                    .
-                  </span>
-                </li>
-              </ul>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-primary" />
+                    Two Ways to Run MicroVMs
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        <span className="font-medium">Services</span> --
+                        long-lived systemd-based microVMs for servers,
+                        containers, and{" "}
+                        <Link
+                          href="https://docs.slicervm.com/examples/autoscaling-k3s/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          autoscaling Kubernetes
+                        </Link>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        <span className="font-medium">Sandboxes</span> --
+                        ephemeral microVMs for AI agents, automated tasks, and
+                        code execution via{" "}
+                        <Link
+                          href="https://docs.slicervm.com/reference/api/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          REST API
+                        </Link>{" "}
+                        or{" "}
+                        <Link
+                          href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          Go SDK
+                        </Link>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold flex items-center gap-2">
+                    <Shield className="h-4 w-4 text-primary" />
+                    Built-in VM Management
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Guest agent with{" "}
+                        <Link
+                          href="https://docs.slicervm.com/tasks/execute-commands/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          cp, exec, shell, metrics, and port-forwarding
+                        </Link>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Customise microVMs via userdata or custom Docker/OCI
+                        images
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Ubuntu LTS (x86_64/arm64) and Rocky 9 (x86_64)
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold flex items-center gap-2">
+                    <Cpu className="h-4 w-4 text-primary" />
+                    Run Anywhere
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        <Link
+                          href="https://docs.slicervm.com/reference/vfio/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          Mount GPUs
+                        </Link>{" "}
+                        into microVMs for AI and LLM workloads
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Laptops, homelabs, bare-metal servers, and cloud VMs --{" "}
+                        <Link
+                          href="/microvms"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          see where Slicer runs
+                        </Link>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Explore more in the{" "}
+                        <Link
+                          href="https://docs.slicervm.com/examples/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          Slicer docs and examples
+                        </Link>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* Additional Information */}
+      {/* Enterprise / Custom CTA */}
       <section className="border-t border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold tracking-tight mb-4">
-            Got questions about{" "}
-            <span className="text-primary font-mono">Slicer</span>?
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            Book a call with our team to get your questions answered.
-          </p>
-          <Button size="lg" variant="outline" className="font-mono" asChild>
-            <Link
-              href={SALES_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Talk to Our Team
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
+        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold tracking-tight mb-4">
+              Need a custom plan?
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              For larger deployments, volume licensing, or specific
+              requirements, we offer custom terms on top of the Team and
+              Platform plans.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
+            <div className="flex items-start gap-2.5">
+              <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+              <span className="text-sm">
+                Optional: SLA for fast response times
+              </span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+              <span className="text-sm">Dedicated Slack channel</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+              <span className="text-sm">Invoicing via SWIFT or ACH</span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+              <span className="text-sm">
+                Volume discounts and annual billing
+              </span>
+            </div>
+          </div>
+          <div className="text-center">
+            <Button size="lg" variant="outline" className="font-mono" asChild>
+              <Link
+                href={SALES_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Talk to Our Team
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 

@@ -15,6 +15,7 @@ This document explains how to test the Slicer install script (`get.sh`) on Digit
 ### Supported Distributions
 
 Test on these distributions:
+
 - Ubuntu 24.04 (ubuntu-24-04-x64) - supports both --devmapper and --zfs
 - Debian 12 (debian-12-x64)
 - Fedora 42 (fedora-42-x64)
@@ -212,5 +213,9 @@ For each distribution, verify:
 - [ ] VM works with image storage (default)
 - [ ] VM works with devmapper storage (`--storage devmapper`)
 - [ ] VM works with ZFS storage (`--storage zfs`) - Ubuntu only
+
+## Website development
+
+- Do NOT run `npm run build` or `npm run dist` to verify changes. The user runs their own `npm run dev` server.
 
 </instructions>

@@ -57,6 +57,10 @@ Slicer for Mac uses Apple's Virtualization framework to run arm64 Linux VMs nati
 
 That last part matters more than it sounds. With a SaaS sandbox, every iteration is: upload file, wait, execute, wait, download result. With Slicer, the file is already there. The agent edits it, you see it. No upload, no download, no network. Local is king for latency.
 
+Watch a [video tour of Slicer for Mac](https://www.youtube.com/watch?v=jNmSXlLnV4o) with its ~0.5s boot time on an M2 Macbook Air.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jNmSXlLnV4o?si=lzPjJGuZGf1_Zmrb" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
 ### Set up
 
 Install the Slicer CLI and activate your license:

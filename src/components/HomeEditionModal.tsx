@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -19,22 +20,55 @@ interface HomeEditionModalProps {
 }
 
 export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalProps) {
+  const [mobileView, setMobileView] = useState<"full" | "trial">("full");
+
+  useEffect(() => {
+    if (isOpen) {
+      setMobileView("full");
+    }
+  }, [isOpen]);
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader className="text-center">
           <DialogTitle className="font-mono text-2xl">
-            Get Started with <span className="text-primary">Slicer Home Edition</span>
+            Get Started with <span className="text-primary">Slicer Individual</span>
           </DialogTitle>
           <DialogDescription className="text-lg text-muted-foreground">
-            <span className="hidden md:inline">Demo mode, or ready to roll? Pick your path below.</span>
+            <span className="hidden md:inline">Try Slicer first, or go straight to the Individual plan.</span>
             <span className="md:hidden">Get full access to Slicer with GitHub Sponsors.</span>
           </DialogDescription>
         </DialogHeader>
 
-        <div className="grid md:grid-cols-2 gap-4 mt-4">
-          {/* Free Trial Option - Hidden on mobile */}
-          <Card className="border-border/50 relative hidden md:block">
+        <div className="mt-2 inline-flex items-center gap-1 rounded-lg border border-border/60 bg-background p-1 w-full">
+          <Button
+            type="button"
+            size="sm"
+            variant={mobileView === "full" ? "default" : "ghost"}
+            className="font-mono flex-1"
+            onClick={() => setMobileView("full")}
+          >
+            Full Access
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            variant={mobileView === "trial" ? "default" : "ghost"}
+            className="font-mono flex-1"
+            onClick={() => setMobileView("trial")}
+          >
+            Trial
+          </Button>
+        </div>
+
+        <div className="mt-4">
+          {/* Free Trial Option */}
+          <Card
+            className={`border-border/50 relative max-w-xl mx-auto ${
+              mobileView === "trial" ? "block" : "hidden"
+            }`}
+          >
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
               <Badge variant="secondary" className="font-mono">
                 Limited Access Trial
@@ -96,7 +130,7 @@ export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalPr
 
                 <li className="flex items-start gap-2">
                   <X className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">No Discord, K3sup-Pro, OpenFaaS Edge </span>
+                  <span className="text-muted-foreground">No Discord, no K3sup Pro</span>
                 </li>
 
               </ul>
@@ -120,10 +154,14 @@ export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalPr
           </Card>
 
           {/* GitHub Sponsors Option */}
-          <Card className="border-primary/50 relative">
+          <Card
+            className={`border-primary/50 relative max-w-xl mx-auto ${
+              mobileView === "full" ? "block" : "hidden"
+            }`}
+          >
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
               <Badge className="bg-primary text-primary-foreground font-mono">
-                Full Access
+                Individual Plan
               </Badge>
             </div>
             <CardContent className="p-6 pt-5 space-y-4">
@@ -140,58 +178,33 @@ export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalPr
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>Unlimited Slicer installations for personal use on Linux hosts</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>Slicer for Mac Preview: commercial use allowed on your own device</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span className="flex items-center gap-1">
-                    <span>
-                      <span className="font-medium text-primary">Bonus:</span> 1x free{" "}
-                      <Link
-                        href="https://box.slicervm.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline underline-offset-2 hover:text-primary"
-                      >
-                        Slicer Box
-                      </Link>
-                    </span>
-                    <span className="relative group inline-flex items-center">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Slicer Box is a free cloud-hosted slicer instance just for you.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
+                  <span>
+                    Personal and commercial use as part of your day job
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                   <span className="flex items-center gap-1">
-                    <span>
-                      <span className="font-medium text-primary">Bonus:</span> Slicer For Mac (preview)
-                    </span>
-                    <span className="relative group inline-flex items-center">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Linux for your Mac that feels native, with folder sharing and Rosetta. Commercial use on your own Mac is allowed on any tier, including Home Edition.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span className="flex items-center gap-1">
-                    <span>Support via Discord</span>
+                    <span>2x Slicer daemons</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Run <span className="font-mono">slicer activate</span> to join our Discord server to talk to like-minded self-hosters, experimenters, and home-labbers.
+                        Run 2x Slicer daemons at any one time on any mix of
+                        Slicer for Mac or Slicer for Linux.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Info className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
+                  <span className="flex items-center gap-1">
+                    <span>Optional: Upgrade to 5x Slicer daemons</span>
+                    <span className="relative group inline-flex items-center">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Select 50 USD / mo tier on GitHub Sponsors to run an
+                        additional 3x Slicer daemons.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -199,7 +212,42 @@ export default function HomeEditionModal({ isOpen, onClose }: HomeEditionModalPr
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>Everything included as per Pricing page</span>
+                  <span>Individual use on your own device(s) only</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <span>
+                    Includes{" "}
+                    <Link
+                      href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      K3sup Pro
+                    </Link>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <span className="flex items-center gap-1">
+                    <span>
+                      Not for remote deployment, product integration, or shared
+                      use
+                    </span>
+                    <span className="relative group inline-flex items-center">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Platform is required for remote servers, internal tools,
+                        SaaS backends, or any shared multi-user deployment.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <span>Support via Discord</span>
                 </li>
               </ul>
 

@@ -54,7 +54,7 @@ export default function Pricing() {
           <Card className="border-border/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <Badge variant="secondary" className="font-mono">
-                Solo developer seat
+                Just for you
               </Badge>
             </div>
             <CardHeader>
@@ -77,12 +77,12 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>Personal and commercial use as part of your day job</span>
+                    <span>Slicer for Linux/Mac: 2x Slicer daemons</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        The Individual tier is intended to be paid for by the
-                        user.
+                        Run 2x Slicer daemons at any one time on any mix of
+                        Slicer for Mac or Slicer for Linux.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -91,18 +91,53 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Best for a single developer running Slicer locally
+                    Personal and commercial use as part of your day job
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Use Slicer on your own device(s)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Automate via{" "}
+                    <Link
+                      href="https://docs.slicervm.com/reference/api/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      REST API
+                    </Link>
+                    ,{" "}
+                    <Link
+                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Go SDK
+                    </Link>
+                    , and CLI.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>Ideal for home-labs and self-hosting</span>
+                    <span>
+                      Includes{" "}
+                      <Link
+                        href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro"
+                        className="underline underline-offset-2 hover:text-primary"
+                      >
+                        K3sup Pro
+                      </Link>{" "}
+                      to bootstrap HA Kubernetes
+                    </span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        May use Slicer to self-host non-commercial websites,
-                        services, APIs, etc.
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        K3sup Pro is a terraform-like tool for building and
+                        maintaining Kubernetes clusters over SSH.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -110,13 +145,17 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">Support via Discord</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>2x Slicer daemons</span>
+                    <span>Paid via GitHub Sponsors</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Run 2x Slicer daemons at any one time on any mix of
-                        Slicer for Mac or Slicer for Linux.
+                        The Individual tier is intended to be paid for by the
+                        user.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -137,42 +176,13 @@ export default function Pricing() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    One seat is one named developer on that developer&apos;s own
-                    device(s)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Includes{" "}
-                    <Link
-                      href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      K3sup Pro
-                    </Link>
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">Support via Discord</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Paid via GitHub Sponsors
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
                   <X className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                   <span className="text-sm text-muted-foreground flex items-center gap-1">
                     <span>
                       Not for shared deployments/infrastructure
                     </span>
                     <span className="relative group inline-flex items-center">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <Info className="h-3 w-3 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         Choose Platform for any shared server, internal system,
                         customer-facing product, or SaaS backend.
@@ -188,7 +198,7 @@ export default function Pricing() {
                 size="lg"
                 onClick={() => setIsIndividualModalOpen(true)}
               >
-                Get Started
+                Get Slicer
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </CardContent>
@@ -197,7 +207,7 @@ export default function Pricing() {
           <Card className="border-primary/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <Badge className="bg-primary text-primary-foreground font-mono">
-                Developer team seats
+                For your team
               </Badge>
             </div>
             <CardHeader>
@@ -214,21 +224,8 @@ export default function Pricing() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Best for teams where each developer runs Slicer locally
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    One seat is one named developer on that developer&apos;s own
-                    device(s)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>2x Slicer daemons</span>
+                    <span>Slicer for Linux/Mac: 2x Slicer daemons</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
@@ -242,7 +239,34 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Additional seats 25 USD / mo per seat
+                    One seat is one named developer on that developer&apos;s own
+                    device(s)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Automate via{" "}
+                    <Link
+                      href="https://docs.slicervm.com/reference/api/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      REST API
+                    </Link>
+                    ,{" "}
+                    <Link
+                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Go SDK
+                    </Link>
+                    , and CLI.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Additional seats: 25 USD / mo per seat
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -262,7 +286,7 @@ export default function Pricing() {
                       Not for shared deployments/infrastructure
                     </span>
                     <span className="relative group inline-flex items-center">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <Info className="h-3 w-3 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         Choose Platform for any shared server, internal system,
                         customer-facing product, or SaaS backend.
@@ -286,7 +310,7 @@ export default function Pricing() {
 
           <Card className="border-primary/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-              <Badge className="bg-primary text-primary-foreground font-mono">
+              <Badge variant="secondary" className="text-primary border-primary/30 font-mono">
                 Shared infrastructure
               </Badge>
             </div>
@@ -301,6 +325,10 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">Slicer for Linux</span>
+                </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
@@ -330,6 +358,26 @@ export default function Pricing() {
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
                     Licensed per installation/daemon
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Automate via{" "}
+                    <Link
+                      href="https://docs.slicervm.com/reference/api/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      REST API
+                    </Link>
+                    ,{" "}
+                    <Link
+                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Go SDK
+                    </Link>
+                    , and CLI.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -442,18 +490,6 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    <Link
-                      href="https://actuated.com/blog/bringing-firecracker-to-jenkins"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      Jenkins plugin
-                    </Link>{" "}
-                    for ephemeral build workers.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
                     Deploy almost anywhere: WSL, RPi 4/5, NUCs,{" "}
                     <Link
                       href="https://blog.alexellis.io/slicer-bare-metal-preview/"
@@ -474,32 +510,12 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Run lightweight appliances like a{" "}
+                    More use-cases in the{" "}
                     <Link
-                      href="https://docs.slicervm.com/examples/router-firewall/"
+                      href="https://docs.slicervm.com/examples/"
                       className="underline underline-offset-2 hover:text-primary"
                     >
-                      Linux firewall/router
-                    </Link>{" "}
-                    or{" "}
-                    <Link
-                      href="https://docs.slicervm.com/examples/pihole-adblock/"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      ad blocker
-                    </Link>
-                    .
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Learn Kubernetes with included{" "}
-                    <Link
-                      href="https://github.com/alexellis/k3sup?tab=readme-ov-file#k3sup-pro"
-                      className="underline underline-offset-2 hover:text-primary"
-                    >
-                      K3sup Pro
+                      Slicer documentation
                     </Link>
                     .
                   </span>

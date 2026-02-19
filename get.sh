@@ -911,10 +911,11 @@ fi
 install_firecracker
 install_cloudhypervisor
 
+echo "Slicer for Linux requires a license"
 echo ""
-echo "Home Edition users, run: \"slicer activate\" to complete the setup"
+echo "Individual tier, run: \"slicer activate\" to complete the setup"
 echo ""
-echo "Commercial users, paste your license key into ~/.slicer/LICENSE"
+echo "Team/Platform tier, paste your license key into ~/.slicer/LICENSE from Order confirmation"
 echo ""
 echo "Find out more at https://slicervm.com"
 echo ""

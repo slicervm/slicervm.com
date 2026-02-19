@@ -56,16 +56,23 @@ export default function Pricing() {
             fits how you use Slicer.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Zap className="h-4 w-4 text-primary" />
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <Zap className="h-4 w-4 text-primary shrink-0" />
               Sub-second boot times
             </span>
-            <span className="flex items-center gap-1.5">
-              <Shield className="h-4 w-4 text-primary" />
-              VM and network isolation via KVM / Apple Virtualization
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <Shield className="h-4 w-4 text-primary shrink-0" />
+              VM &amp; network isolation
+              <span className="relative group inline-flex items-center">
+                <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 whitespace-normal">
+                  Powered by KVM on Linux and Apple Virtualization on Mac.
+                  <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                </span>
+              </span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <Cpu className="h-4 w-4 text-primary" />
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <Cpu className="h-4 w-4 text-primary shrink-0" />
               REST API, Go SDK, and CLI
             </span>
           </div>

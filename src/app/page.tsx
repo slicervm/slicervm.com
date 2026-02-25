@@ -36,8 +36,8 @@ export default function HomePage() {
                 Real Linux, in milliseconds.
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground text-pretty mb-4 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Full VMs with systemd and a real kernel
-                — on your Mac, your servers, or your cloud.
+                Full VMs with systemd and a real kernel — on your Mac, your
+                servers, or your cloud.
               </p>
               <div className="flex flex-row items-center gap-2 sm:gap-4 mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0 flex-wrap justify-center lg:justify-start">
                 <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/5 px-2 sm:px-3 py-1.5 sm:py-2">
@@ -247,7 +247,7 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
-                    <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3">
                     <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
                       <Zap className="h-4 w-4 text-primary" />
                     </div>
@@ -256,8 +256,9 @@ export default function HomePage() {
                         Local-first — the fastest possible I/O
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        Files are shared directly via VSOCK — no network round-trips
-                        to a remote API. Your data never leaves your machine.
+                        Files are shared directly via VSOCK — no network
+                        round-trips to a remote API. Your data never leaves your
+                        machine.
                       </p>
                     </div>
                   </div>
@@ -323,8 +324,9 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
             But it&apos;s not just a sandbox — it&apos;s a full OS.
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Every microVM runs a real kernel with systemd, package managers, and cron.
-            Run Kubernetes clusters, pass through GPUs, or replace your entire dev VM stack — on the same platform.
+            Every microVM runs a real kernel with systemd, package managers, and
+            cron. Run Kubernetes clusters, pass through GPUs, or replace your
+            entire dev VM stack — on the same platform.
           </p>
         </div>
       </section>
@@ -423,7 +425,8 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       Stop fighting macOS/Linux differences. Develop and test
-                      against your real deployment target — without cloud access or VPN.
+                      against your real deployment target — without cloud access
+                      or VPN.
                     </p>
                   </div>
                 </div>
@@ -480,8 +483,8 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
                 Stop waiting for cloud access, VPN approvals, or AWS accounts.
-                Every developer gets real Linux with systemd on their laptop
-                — same packages, same tooling, same workflows as production.
+                Every developer gets real Linux with systemd on their laptop —
+                same packages, same tooling, same workflows as production.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -548,19 +551,28 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                     <ul className="space-y-2.5 text-sm">
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;I need real Linux but I&apos;m stuck on a Mac&rdquo;</span>
+                        <span>
+                          &ldquo;I need real Linux but I&apos;m stuck on a
+                          Mac&rdquo;
+                        </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;I can&apos;t get an AWS account&rdquo;</span>
+                        <span>
+                          &ldquo;I can&apos;t get an AWS account&rdquo;
+                        </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;Docker Desktop isn&apos;t real Linux&rdquo;</span>
+                        <span>
+                          &ldquo;Docker Desktop isn&apos;t real Linux&rdquo;
+                        </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;My tests pass locally but break in prod&rdquo;</span>
+                        <span>
+                          &ldquo;My tests pass locally but break in prod&rdquo;
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -571,19 +583,29 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                     <ul className="space-y-2.5 text-sm">
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;My team keeps asking for cloud access&rdquo;</span>
+                        <span>
+                          &ldquo;My team keeps asking for cloud access&rdquo;
+                        </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;We&apos;re paying for EKS just for dev/test&rdquo;</span>
+                        <span>
+                          &ldquo;We&apos;re paying for EKS just for
+                          dev/test&rdquo;
+                        </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>&ldquo;Every VM means a ServiceNow ticket and days of waiting&rdquo;</span>
+                        <span>
+                          &ldquo;Every VM means a ServiceNow ticket and days of
+                          waiting&rdquo;
+                        </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>5 seats for $125/mo — cheaper than one month of EKS</span>
+                        <span>
+                          5 seats for $125/mo — cheaper than one month of EKS
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -616,8 +638,8 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                       Customer support in seconds
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Reproduce a customer&apos;s issue on their exact OS. Boot a
-                      fresh Ubuntu or Rocky environment, debug, ship the fix —
+                      Reproduce a customer&apos;s issue on their exact OS. Boot
+                      a fresh Ubuntu or Rocky environment, debug, ship the fix —
                       all in minutes.
                     </p>
                   </div>
@@ -627,13 +649,11 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                     <Play className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">
-                      Fast local iteration
-                    </h3>
+                    <h3 className="font-semibold mb-1">Fast local iteration</h3>
                     <p className="text-sm text-muted-foreground">
                       Build, test, and iterate locally with VSOCK I/O — no
-                      pushing to a remote server. Tear down and rebuild in
-                      under a second.
+                      pushing to a remote server. Tear down and rebuild in under
+                      a second.
                     </p>
                   </div>
                 </div>
@@ -664,7 +684,8 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                       >
                         autoscaling nodes
                       </a>
-                      . Simulate real cloud infrastructure on a single bare-metal host.
+                      . Simulate real cloud infrastructure on a single
+                      bare-metal host.
                     </p>
                   </div>
                 </div>
@@ -686,8 +707,8 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                       >
                         Ubuntu LTS and Rocky Linux
                       </a>{" "}
-                      (RHEL-compatible) on x86_64 and arm64. Ship with confidence
-                      to enterprise and airgapped environments.
+                      (RHEL-compatible) on x86_64 and arm64. Ship with
+                      confidence to enterprise and airgapped environments.
                     </p>
                   </div>
                 </div>
@@ -700,7 +721,9 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span className="ml-2 text-xs font-mono text-muted-foreground">Ask your AI Agent to reproduce support tickets</span>
+                    <span className="ml-2 text-xs font-mono text-muted-foreground">
+                      Ask your AI Agent to reproduce support tickets
+                    </span>
                   </div>
                   <pre className="overflow-x-auto text-sm font-mono whitespace-pre-wrap">
                     <code>
@@ -754,10 +777,15 @@ build on OpenFaaS CE with Rocky 9.`}
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
             >
-              millions of CI jobs for CNCF and Linux Foundation projects
-            </a>
-            . Since 2022, we use Slicer every day for product development,
-            load testing, and customer support at OpenFaaS Ltd.
+              3M+ CI minutes on Arm runners for CNCF
+            </a>{" "}
+            — securing the ecosystem before it hit GitHub&apos;s roadmap.
+          </p>
+          <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto mt-6">
+            Alex Ellis, founder of OpenFaaS: We&apos;ve run Slicer internally
+            since 2022 which has kept our cloud costs really low and given us
+            the fastest response times we&apos;ve seen yet on customer support
+            tickets.
           </p>
         </div>
       </section>
@@ -769,7 +797,8 @@ build on OpenFaaS CE with Rocky 9.`}
             Real Linux, on your hardware, in milliseconds.
           </h2>
           <p className="text-muted-foreground mb-4 max-w-xl mx-auto">
-            Start with a 14-day free trial. No security review needed — it runs on your machine.
+            Start with a 14-day free trial. No security review needed — it runs
+            on your machine.
           </p>
           <p className="text-sm text-muted-foreground mb-8">
             Individual from{" "}

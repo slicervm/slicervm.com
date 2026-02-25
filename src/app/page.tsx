@@ -15,6 +15,8 @@ import {
   Code,
   Layers,
   Gpu,
+  Monitor,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -31,11 +33,11 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="text-center lg:text-left lg:order-1">
               <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-6xl mb-4">
-                Firecracker for humans.
+                Real Linux, in milliseconds.
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground text-pretty mb-4 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Boot Linux microVMs in <span className="font-mono">&lt;1s</span>{" "}
-                - for sandboxes and services.
+                Full VMs with systemd and a real kernel
+                — on your Mac, your servers, or your cloud.
               </p>
               <div className="flex flex-row items-center gap-2 sm:gap-4 mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0 flex-wrap justify-center lg:justify-start">
                 <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/5 px-2 sm:px-3 py-1.5 sm:py-2">
@@ -86,7 +88,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
                 API-driven microVMs for automation in{" "}
-                <span className="font-mono">~300ms</span>
+                <span className="font-mono">&lt;1s</span>
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
                 Build and run untrusted code, background jobs, preview
@@ -245,26 +247,17 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
+                    <div className="flex items-start gap-3">
                     <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                      <Code className="h-4 w-4 text-primary" />
+                      <Zap className="h-4 w-4 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">
-                        Ephemeral Jenkins CI runners
+                        Local-first — the fastest possible I/O
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        Spins up isolated CI/CD runners on-demand with a fully
-                        isolated guest Kernel.{" "}
-                        <a
-                          href="https://docs.slicervm.com/examples/jenkins/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                        >
-                          Learn more
-                        </a>
-                        .
+                        Files are shared directly via VSOCK — no network round-trips
+                        to a remote API. Your data never leaves your machine.
                       </p>
                     </div>
                   </div>
@@ -320,6 +313,19 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
               </Card>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Transition */}
+      <section className="border-b border-border/50">
+        <div className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+            But it&apos;s not just a sandbox — it&apos;s a full OS.
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
+            Every microVM runs a real kernel with systemd, package managers, and cron.
+            Run Kubernetes clusters, pass through GPUs, or replace your entire dev VM stack — on the same platform.
+          </p>
         </div>
       </section>
 
@@ -409,15 +415,15 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Zap className="h-4 w-4 text-primary" />
+                    <Layers className="h-4 w-4 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Fast customer support
+                      Real Linux on your Mac
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Reproduce customer issues in seconds. Boot a fresh
-                      environment, ship fixes in minutes.
+                      Stop fighting macOS/Linux differences. Develop and test
+                      against your real deployment target — without cloud access or VPN.
                     </p>
                   </div>
                 </div>
@@ -460,17 +466,22 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
         </div>
       </section>
 
-      {/* Why microVMs over datacenter solutions */}
+      {/* Slicer for Mac — Enterprise Dev Teams */}
       <section className="border-b border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:py-14 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
+              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-lg font-mono font-medium text-primary mb-4">
+                <Monitor className="h-4 w-4" />
+                Slicer for Mac
+              </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                Why microVMs over datacenter-style solutions?
+                Your team develops on Mac. They deploy to Linux.
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Lightning fast, easy to use, and built for modern workloads —
-                without the datacenter overhead of Proxmox, kubevirt, or ESXi.
+                Stop waiting for cloud access, VPN approvals, or AWS accounts.
+                Every developer gets real Linux with systemd on their laptop
+                — same packages, same tooling, same workflows as production.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -478,77 +489,22 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                     <Zap className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">
-                      Quicker to set up and maintain
-                    </h3>
+                    <h3 className="font-semibold mb-1">No cloud spend</h3>
                     <p className="text-sm text-muted-foreground">
-                      No ISO, just install to Ubuntu LTS. Run your first VM in
-                      single-digit minutes.
+                      No AWS accounts, no EKS clusters, no cloud VMs. Real Linux
+                      runs locally on the hardware your team already has.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Play className="h-4 w-4 text-primary" />
+                    <Shield className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">API-first automation</h3>
+                    <h3 className="font-semibold mb-1">No procurement</h3>
                     <p className="text-sm text-muted-foreground">
-                      Deploy via declarative YAML configs,{" "}
-                      <a
-                        href="https://docs.slicervm.com/reference/api/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        REST API
-                      </a>
-                      , or{" "}
-                      <a
-                        href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        Go SDK
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Code className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Container-like simplicity
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Instant disk cloning, fast boot, full OS, and systemd.
-                      Customise the OS with Docker or a userdata script.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Layers className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      No expensive SANs needed
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Fast, local{" "}
-                      <a
-                        href="https://docs.slicervm.com/reference/storage/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        ZFS support
-                      </a>{" "}
-                      with snapshots and clones. Run on local NVMe or SSDs — no
-                      network storage required.
+                      A developer expenses $25/mo. No security review, no vendor
+                      assessment, no data leaving the building.
                     </p>
                   </div>
                 </div>
@@ -558,25 +514,180 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Portable - from edge, to cloud
+                      Match your deployment target
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Runs anywhere you can install Linux. From on-premises
-                      servers, to edge devices, to bare-metal cloud, to a
-                      homelab.
+                      Ubuntu LTS and Rocky Linux with systemd — the same OS you
+                      run in production. Not a macOS approximation.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Code className="h-4 w-4 text-primary" />
+                    <Layers className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Better utilization</h3>
+                    <h3 className="font-semibold mb-1">
+                      Replace your VM stack
+                    </h3>
                     <p className="text-sm text-muted-foreground">
-                      Lightweight microVMs use fewer resources than traditional
-                      VMs. Run more workloads on the same hardware with better
-                      performance.
+                      One tool instead of Docker Desktop, Colima, Lima, or UTM.
+                      Sandboxes and services from the same product.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative hidden sm:block">
+              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
+                <CardContent className="p-6 space-y-5">
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
+                      For developers
+                    </h3>
+                    <ul className="space-y-2.5 text-sm">
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;I need real Linux but I&apos;m stuck on a Mac&rdquo;</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;I can&apos;t get an AWS account&rdquo;</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;Docker Desktop isn&apos;t real Linux&rdquo;</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;My tests pass locally but break in prod&rdquo;</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="border-t border-border/50 pt-5">
+                    <h3 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
+                      For engineering managers
+                    </h3>
+                    <ul className="space-y-2.5 text-sm">
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;My team keeps asking for cloud access&rdquo;</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;We&apos;re paying for EKS just for dev/test&rdquo;</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>&ldquo;Every VM means a ServiceNow ticket and days of waiting&rdquo;</span>
+                      </li>
+                      <li className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span>5 seats for $125/mo — cheaper than one month of EKS</span>
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What teams use Slicer for */}
+      <section className="border-b border-border/50">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:py-14 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+                How teams use Slicer every day
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                From customer support to product testing to full Kubernetes
+                clusters — real workflows on real Linux, not cloud simulations.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Zap className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Customer support in seconds
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Reproduce a customer&apos;s issue on their exact OS. Boot a
+                      fresh Ubuntu or Rocky environment, debug, ship the fix —
+                      all in minutes.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Play className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Fast local iteration
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Build, test, and iterate locally with VSOCK I/O — no
+                      pushing to a remote server. Tear down and rebuild in
+                      under a second.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Layers className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      HA Kubernetes clusters
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Spin up{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/ha-k3s/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        multi-node clusters
+                      </a>{" "}
+                      with real networking and{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/autoscaling-k3s/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        autoscaling nodes
+                      </a>
+                      . Simulate real cloud infrastructure on a single bare-metal host.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Shield className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Enterprise &amp; airgap OS coverage
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Test against{" "}
+                      <a
+                        href="https://docs.slicervm.com/reference/images/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Ubuntu LTS and Rocky Linux
+                      </a>{" "}
+                      (RHEL-compatible) on x86_64 and arm64. Ship with confidence
+                      to enterprise and airgapped environments.
                     </p>
                   </div>
                 </div>
@@ -585,18 +696,41 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
             <div className="relative hidden sm:block">
               <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
                 <CardContent className="p-6">
-                  <pre className="overflow-x-auto text-sm font-mono">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span className="ml-2 text-xs font-mono text-muted-foreground">Ask your AI Agent to reproduce support tickets</span>
+                  </div>
+                  <pre className="overflow-x-auto text-sm font-mono whitespace-pre-wrap">
                     <code>
-                      <span className="text-muted-foreground">
-                        # Simple, fast, automated setup
-                        <br /># Install directly to existing Ubuntu LTS
-                        installations
-                      </span>
-                      <br />
+                      <span className="text-muted-foreground">{`## AGENTS.md
+
+# Customer support environment
+
+## Setup`}</span>
                       {`
-$ curl -SLs https://get.slicervm.com | sudo -E bash
-$ slicer --help
-`}
+$ slicer new support \\
+    --image ghcr.io/openfaasltd/\\
+    slicer-systemd-rocky9:\\
+    5.10.240-x86_64-latest \\
+    > support.yaml
+$ slicer up ./support.yaml
+$ slicer vm exec support-1 -- \\
+    bash -c "curl -sLS \\
+    https://get.docker.com | bash"
+$ slicer vm exec support-1 -- \\
+    usermod -aG docker slicer
+$ slicer vm exec support-1 -- \\
+    bash -c "curl -sLSf \\
+    https://cli.openfaas.com | bash"`}
+                      <span className="text-muted-foreground">{`
+
+## Prompt`}</span>
+                      {`
+Use AGENTS.md to investigate case #4821.
+Customer says Python template fails to
+build on OpenFaaS CE with Rocky 9.`}
                     </code>
                   </pre>
                 </CardContent>
@@ -606,14 +740,45 @@ $ slicer --help
         </div>
       </section>
 
+      {/* Social Proof */}
+      <section className="border-b border-border/50">
+        <div className="mx-auto max-w-4xl px-4 py-10 sm:py-14 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-balance mb-3">
+            Battle-tested in production
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
+            Slicer&apos;s code has run{" "}
+            <a
+              href="https://actuated.com/blog/millions-of-cncf-minutes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+            >
+              millions of CI jobs for CNCF and Linux Foundation projects
+            </a>
+            . Since 2022, we use Slicer every day for product development,
+            load testing, and customer support at OpenFaaS Ltd.
+          </p>
+        </div>
+      </section>
+
       {/* Bottom CTA */}
       <section className="border-t border-border/50 bg-muted/30">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold tracking-tight mb-4">
-            Ready to run microVMs?
+            Real Linux, on your hardware, in milliseconds.
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Start with a 14-day free trial, or talk to us about your use case.
+          <p className="text-muted-foreground mb-4 max-w-xl mx-auto">
+            Start with a 14-day free trial. No security review needed — it runs on your machine.
+          </p>
+          <p className="text-sm text-muted-foreground mb-8">
+            Individual from{" "}
+            <span className="font-semibold text-foreground">$25/mo</span>
+            {" · "}Team{" "}
+            <span className="font-semibold text-foreground">$125/mo</span>
+            {" · "}Platform{" "}
+            <span className="font-semibold text-foreground">$250/mo</span>
+            /daemon
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" className="font-mono" asChild>

@@ -58,7 +58,7 @@ export default function Pricing() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
               <Zap className="h-4 w-4 text-primary shrink-0" />
-              Sub-second boot times
+              Sub-second boot, local-first I/O
             </span>
             <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
               <Shield className="h-4 w-4 text-primary shrink-0" />

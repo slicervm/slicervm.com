@@ -42,7 +42,7 @@ const terminalSequence = [
   {
     type: "output",
     text: `
-Slicer licensed to: Alex Ellis (Home Edition - personal use only) expires: 7 days       Version: 0.1.31-0e117e15fba4672388c50b58013eee5d87cfea5d
+Slicer licensed to: Alex Ellis (Individual) expires: 365 days       Version: 0.1.31-0e117e15fba4672388c50b58013eee5d87cfea5d
 
 2025/12/23 09:31:40 Creating network pool for host group agents with gateway 192.168.137.1/24 (192.168.137.0 192.168.137.0/24)
 

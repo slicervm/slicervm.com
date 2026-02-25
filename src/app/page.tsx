@@ -331,144 +331,6 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
         </div>
       </section>
 
-      {/* Slicer Services Section */}
-      <section>
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-lg font-mono font-medium text-primary mb-4">
-                <Server className="h-4 w-4" />
-                Slicer Services
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                Long-lived microVMs for servers, clusters, and labs
-              </h2>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Run persistent workloads on cost-effective bare-metal instead of
-                expensive cloud instances. Homelabs, Kubernetes, dev
-                environments, and customer support -- all with systemd and a
-                full OS.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Layers className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Disposable Kubernetes clusters
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      One of the fastest ways to{" "}
-                      <a
-                        href="https://docs.slicervm.com/examples/ha-k3s/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        spin up HA Kubernetes clusters
-                      </a>{" "}
-                      for development, testing, and demos.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <DollarSign className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Cost-effective bare-metal
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Run on your own{" "}
-                      <a
-                        href="https://www.hetzner.com/dedicated-rootserver"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        bare-metal hardware
-                      </a>{" "}
-                      at a fraction of cloud costs. No more unhinged cloud spend
-                      for dev and test environments.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Server className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Ubuntu & Rocky Linux</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Boot a{" "}
-                      <a
-                        href="https://docs.slicervm.com/reference/images/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        Debian- or RHEL-like OS
-                      </a>{" "}
-                      with systemd, matching your production environment.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Layers className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Real Linux on your Mac
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Stop fighting macOS/Linux differences. Develop and test
-                      against your real deployment target — without cloud access
-                      or VPN.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative hidden sm:block">
-              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
-                <CardContent className="p-6">
-                  <pre className="overflow-x-auto text-sm font-mono">
-                    <code>
-                      <span className="text-muted-foreground">
-                        # Kubernetes in seconds, not 30 minutes.
-                        <br /># Tear down in a few seconds.
-                      </span>
-                      <br />
-                      <span>{`
-$ slicer new k3s --count=3 > k3s.yaml
-$ slicer vm list --json > devices.json
-`}</span>
-                      <span>{`
-$ k3sup-pro plan --user ubuntu
-$ k3sup-pro get-config --merge \\
-    --local-path ~/.kube/config \\
-    --context slicer
-`}</span>
-                      <span>{`
-$ kubectx slicer
-$ kubectl get node
-`}</span>
-                      <span className="text-muted-foreground">{`NAME    STATUS    AGE   VERSION
-k3s-1   Ready     53s   v1.33.6+k3s1
-k3s-2   Ready     56s   v1.33.6+k3s1
-k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
-                    </code>
-                  </pre>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Slicer for Mac — Enterprise Dev Teams */}
       <section className="border-b border-border/50 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:py-14 sm:px-6 lg:px-8">
@@ -609,6 +471,144 @@ k3s-3   Ready     59s   v1.33.6+k3s1`}</span>
                       </li>
                     </ul>
                   </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Slicer Services Section */}
+      <section>
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/10 px-4 py-1.5 text-lg font-mono font-medium text-primary mb-4">
+                <Server className="h-4 w-4" />
+                Slicer Services
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
+                Long-lived microVMs for servers, clusters, and labs
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
+                Run persistent workloads on cost-effective bare-metal instead of
+                expensive cloud instances. Homelabs, Kubernetes, dev
+                environments, and customer support — all with systemd and a full
+                OS.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Layers className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Disposable Kubernetes clusters
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      One of the fastest ways to{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/ha-k3s/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        spin up HA Kubernetes clusters
+                      </a>{" "}
+                      for development, testing, and demos.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <DollarSign className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Cost-effective bare-metal
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Run on your own{" "}
+                      <a
+                        href="https://www.hetzner.com/dedicated-rootserver"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        bare-metal hardware
+                      </a>{" "}
+                      at a fraction of cloud costs. No more unhinged cloud spend
+                      for dev and test environments.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Server className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Ubuntu & Rocky Linux</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Boot a{" "}
+                      <a
+                        href="https://docs.slicervm.com/reference/images/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Debian- or RHEL-like OS
+                      </a>{" "}
+                      with systemd, matching your production environment.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Code className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      OCI images — extend with Docker
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Slicer&apos;s base images are OCI images. Extend them with
+                      a Dockerfile — add packages, tooling, or your own software
+                      in a single build step.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative hidden sm:block">
+              <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span className="ml-2 text-xs font-mono text-muted-foreground">
+                      Dockerfile
+                    </span>
+                  </div>
+                  <pre className="overflow-x-auto text-sm font-mono">
+                    <code>
+                      <span className="text-muted-foreground">{`# Extend a Slicer OS image with Docker/BuildKit`}</span>
+                      {`
+
+FROM ghcr.io/openfaasltd/\\
+  slicer-systemd-ubuntu24.04:\\
+  6.1.90-x86_64-latest
+
+RUN apt-get update -qy \\
+  && apt-get install -qy \\
+    python3 python3-pip
+
+RUN curl -sLS \\
+  https://get.docker.com | bash
+RUN systemctl enable --now docker
+RUN usermod -aG docker ubuntu`}
+                    </code>
+                  </pre>
                 </CardContent>
               </Card>
             </div>

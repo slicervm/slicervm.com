@@ -1,7 +1,7 @@
 ---
-title: "Installing Slicer Home Edition on an Intel NUC"
+title: "Installing Slicer on an Intel NUC"
 date: "2025-12-23T11:01:58Z"
-excerpt: "Installing Slicer Home Edition on an Intel NUC."
+excerpt: "Installing Slicer on an Intel NUC."
 author: "Alex Ellis"
 tags:
   - "linux"
@@ -11,7 +11,7 @@ tags:
   - "nuc"
 ---
 
-Running a home lab does not have to be complex or expensive. To prove that, and to help save your hard earned money, I installed Slicer Home Edition on an 10 year old Intel NUC.
+Running a home lab does not have to be complex or expensive. To prove that, and to help save your hard earned money, I installed Slicer on a 10 year old Intel NUC.
 
 ![Intel NUC](/images/nuc.jpeg)
 
@@ -40,7 +40,7 @@ Here's the breakdown of the stream:
 
 Watch the [recording from the live stream](https://www.youtube.com/watch?v=QILuFrqtEUw&t=95s):
 
-## Other hardware for Slicer Home Edition
+## Other hardware for Slicer
 
 ![Intel NUC opened up](/images/nuc-upgrade.jpg)
 > Intel NUC opened up to add a spare NVMe drive

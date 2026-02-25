@@ -161,7 +161,7 @@ There are plenty of videos, and use-cases in the Slicer documentation for Linux.
 
 If this sounds like something you want to try right now. Then folliow this section.
 
-Sign up for [Slicer Home Edition](https://slicervm.com/pricing) or higher.
+Sign up for [Slicer Individual](https://slicervm.com/pricing) or higher.
 
 Generally, these commands can all be run without `sudo`, it's just there so you don't have to move the binary yourself into your `$PATH`.
 

@@ -29,7 +29,7 @@ The example used in this post is a single-node cluster designed to be disposable
 
 On a machine with Linux installed, and KVM available (bare-metal or nested virtualization), [install Slicer](https://docs.slicervm.com/getting-started/install/).
 
-You can use a [commercial seat, or your Home Edition license](https://slicervm.com/pricing).
+You can use a [Team, Platform, or Individual license](https://slicervm.com/pricing).
 
 Create a working directory for the lab.
 

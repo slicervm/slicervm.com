@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import CheckoutModal from "../../components/CheckoutModal";
-import HomeEditionModal from "../../components/HomeEditionModal";
+import IndividualModal from "../../components/IndividualModal";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -48,12 +48,11 @@ export default function Pricing() {
         <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
         <div className="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 text-center">
           <h1 className="text-5xl font-bold tracking-tight text-balance mb-4">
-            MicroVMs that boot in milliseconds.
+            Linux that runs like localhost — because it is.
           </h1>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Sandbox AI coding agents, run e2e tests on real Linux, spin up
-            Kubernetes clusters, or build a modern homelab -- pick the plan that
-            fits how you use Slicer.
+            Make development feel like production - for AI sandboxes, native
+            Linux applications, and Kubernetes.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
@@ -97,15 +96,15 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-sm text-muted-foreground text-center">
-                Sandbox Claude Code and Codex, run e2e tests on real Linux, spin
-                up Kubernetes, or build a modern homelab.
+                For a solo developer or single-person evaluation: core Slicer
+                features on your own device(s).
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
                     <span className="font-medium text-primary">
-                      14-day free trial available
+                      14-day free trial, then $25/mo
                     </span>
                   </span>
                 </li>
@@ -251,14 +250,14 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-sm text-muted-foreground text-center">
-                Equip your engineering team with isolated dev environments,
-                reproducible testing, and ephemeral sandboxes.
+                Designed for teams using Slicer on their own laptops and
+                desktops.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Everything in Individual, for every developer
+                    5 seat baseline (starter team), plus $25/mo per extra seat
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -306,7 +305,8 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Scale as you grow: additional seats at $25/mo each
+                    Every seat includes 2 concurrent daemons on Linux, WSL2, or
+                    Mac
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -366,8 +366,8 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-sm text-muted-foreground text-center">
-                Run Slicer on shared servers, build internal platforms, or embed
-                microVM sandboxes in your product.
+                For shared infrastructure, internal systems, and customer-facing
+                products with Slicer for Linux.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -647,7 +647,7 @@ export default function Pricing() {
         plan="platform"
         checkoutUrl={PLATFORM_CHECKOUT_URL}
       />
-      <HomeEditionModal
+      <IndividualModal
         isOpen={isIndividualModalOpen}
         onClose={() => setIsIndividualModalOpen(false)}
       />

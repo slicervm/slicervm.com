@@ -10,7 +10,7 @@ interface SlicerTerminalProps {
 // Prompt rendering constants
 const userPrompt = (
   <>
-    <span className="text-green-700 font-bold">alex@n200</span>
+    <span className="text-green-700 font-bold">alex@n100</span>
     <span className="text-slate-900">:</span>
     <span className="text-blue-700 font-bold">~</span>
     <span className="text-slate-900">$</span>
@@ -19,10 +19,10 @@ const userPrompt = (
 
 const rootPrompt = (
   <>
-    <span className="text-red-700 font-bold">root@agents-1</span>
+    <span className="text-green-700 font-bold">ubuntu@agents-1</span>
     <span className="text-slate-900">:</span>
-    <span className="text-primary font-bold">/root</span>
-    <span className="text-slate-900">#</span>
+    <span className="text-primary font-bold">~</span>
+    <span className="text-slate-900">$</span>
   </>
 );
 
@@ -130,16 +130,18 @@ agents-1          192.168.137.2   2025-12-23 09:32:02
     text: `
 Connecting to VM: agents-1
 Connected! Press Ctrl+] to exit.
-Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.10.240 x86_64)
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.1.90 x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
-This system has been minimized by removing packages and content that are
-not required on a system that users do not log into.
+* Image built by SlicerVM (2026)
+* Website: https://slicervm.com
+* Docs: https://docs.slicervm.com
 
-To restore this content, you can run the 'unminimize' command.
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 `,
     delay: 400,
   },

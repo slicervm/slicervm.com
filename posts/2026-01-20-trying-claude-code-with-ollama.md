@@ -70,7 +70,7 @@ claude --dangerously-skip-permissions \
 
 > This is obviously not something I'd do on a workstation, but inside a throwaway microVM it's acceptable and improves our workflow.
 
-From there, I prompted it to tell me the costs of Slicer Home Edition and Commercial seats. It performed a number of Internet searches then gave completely bogus results.
+From there, I prompted it to tell me the costs of Slicer Individual and Commercial seats. It performed a number of Internet searches then gave completely bogus results.
 
 To my surprise, it didn't edit a single main.go file, but wrote many different files `slicer_pricing.go`, `slicer_pricing_final.go`, `slicer_pricing_clean.go`, `slicer_pricing_additional.go` and various others. That's definitely not been my experience of using agents with opencode or GitHub Copilot.
 
@@ -117,7 +117,7 @@ ubuntu@lab-1:~$ go run slicervm_pricing.go
 SlicerVM Pricing Information
 ============================
 
-Home Edition License (2x):
+Individual License (2x):
 Monthly: $50
 Annual:  $600
 
@@ -126,7 +126,7 @@ Monthly: $1250
 Annual:  $15000
 
 Breakdown:
-- Home Edition: $25/month ($300/year) for 2 licenses
+- Individual: $25/month ($300/year) for 2 licenses
 - Commercial:   $250/month ($3000/year) for 5 licenses
 ```
 
@@ -201,7 +201,7 @@ func main() {
 		homePrice := prices[0]
 		commercialPrice := prices[1]
 
-		fmt.Printf("\nHome Edition License (2x):\n")
+		fmt.Printf("\nIndividual License (2x):\n")
 		fmt.Printf("Monthly: $%d\n", homePrice * 2)
 		fmt.Printf("Annual:  $%d\n", homePrice*2*12)
 
@@ -210,7 +210,7 @@ func main() {
 		fmt.Printf("Annual:  $%d\n", commercialPrice*5*12)
 
 		fmt.Printf("\nBreakdown:\n")
-		fmt.Printf("- Home Edition: $%d/month ($%d/year) for 2 licenses\n", homePrice, homePrice*12)
+		fmt.Printf("- Individual: $%d/month ($%d/year) for 2 licenses\n", homePrice, homePrice*12)
 		fmt.Printf("- Commercial:   $%d/month ($%d/year) for 5 licenses\n", commercialPrice, commercialPrice*12)
 	} else {
 		fmt.Println("Could not extract two distinct prices from the page.")
@@ -267,7 +267,7 @@ Even when prompted and reminded, it claimed to have no prior knowledge. So this 
   ┌──────────────┬─────────────────────┬───────────────────────────────────────┐                        
   │     Tier     │        Price        │              Target Use               │                        
   ├──────────────┼─────────────────────┼───────────────────────────────────────┤                        
-  │ Home Edition │ $25/month           │ Personal use, homelab experimentation │                        
+  │ Individual │ $25/month           │ Personal use, homelab experimentation │                        
   ├──────────────┼─────────────────────┼───────────────────────────────────────┤                        
   │ Pro Tier     │ $250/month per seat │ Commercial workloads, production      │                        
   ├──────────────┼─────────────────────┼───────────────────────────────────────┤                        
@@ -275,7 +275,7 @@ Even when prompted and reminded, it claimed to have no prior knowledge. So this 
   └──────────────┴─────────────────────┴───────────────────────────────────────┘                        
   Key Features Highlighted:                                                                             
                                                                                                         
-  - Home Edition ($25): Unlimited personal installations, runs on WSL, RPi, N100, mini PCs, servers,    
+  - Individual ($25): Unlimited personal installations, runs on WSL, RPi, N100, mini PCs, servers,    
   Hetzner bare-metal, etc. Includes features like Linux firewalls, ad blockers, K3sup Pro, and OpenFaaS 
   Edge.                                                                                                 
   - Pro Tier ($250/seat): Includes systemd-based Linux microVMs, REST API/Go SDK for sandboxes, built-in
@@ -322,7 +322,7 @@ func main() {
 	commercialPrice := 250
 
 	fmt.Println("=== SlicerVM Pricing ===")
-	fmt.Printf("Home Edition: $%d/month\n", homePrice)
+	fmt.Printf("Individual: $%d/month\n", homePrice)
 	fmt.Printf("Commercial (Pro) Tier: $%d/month per seat\n", commercialPrice)
 	fmt.Println()
 
@@ -332,7 +332,7 @@ func main() {
 	total := homeTotal + commercialTotal
 
 	fmt.Println("=== Your Order Summary ===")
-	fmt.Printf("2x Home Edition licenses: $%d/month\n", homeTotal)
+	fmt.Printf("2x Individual licenses: $%d/month\n", homeTotal)
 	fmt.Printf("5x Commercial licenses: $%d/month\n", commercialTotal)
 	fmt.Println()
 	fmt.Printf("TOTAL: $%d/month\n", total)

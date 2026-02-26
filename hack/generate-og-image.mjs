@@ -31,6 +31,11 @@ async function main() {
   // Wait for fonts to load
   await page.evaluate(() => document.fonts.ready);
 
+  // Hide Next.js dev mode indicator
+  await page.evaluate(() => {
+    document.querySelector("nextjs-portal")?.remove();
+  });
+
   await page.screenshot({
     path: OUT_PATH,
     type: "png",

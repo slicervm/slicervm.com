@@ -17,9 +17,9 @@ export default function OgCardPage() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
       <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
 
-      <div className="relative flex flex-col items-center justify-center h-full px-20 py-16">
+      <div className="relative flex flex-col items-center justify-center h-full px-20 pt-12 pb-20">
         {/* Logo + brand — matches navigation.tsx */}
-        <div className="flex items-center gap-5 mb-12">
+        <div className="flex items-center gap-5 mb-14">
           <div className="relative">
             <div className="absolute -inset-1 bg-primary/20 rounded-lg blur" />
             <Image
@@ -41,7 +41,7 @@ export default function OgCardPage() {
         </h1>
 
         {/* Subtext */}
-        <p className="text-[28px] text-muted-foreground text-center max-w-[920px] mb-10 leading-relaxed">
+        <p className="text-[28px] text-muted-foreground text-center max-w-[920px] mb-14 leading-relaxed">
           Full VMs with systemd and a real kernel — on your Mac, your servers, or your cloud.
         </p>
 

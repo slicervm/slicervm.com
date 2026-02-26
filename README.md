@@ -20,3 +20,4 @@ node hack/generate-og-image.mjs http://localhost:3099
 Commit the updated `public/og-image.png` after regenerating.
 
 Slicer and SlicerVM are trademarks of OpenFaaS Ltd.
+

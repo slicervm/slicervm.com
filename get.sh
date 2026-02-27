@@ -174,13 +174,22 @@ install_os_packages() {
     esac
 }
 
+install_runc() {
+    if command -v runc >/dev/null 2>&1; then
+        echo "runc already installed at $(command -v runc), skipping"
+        return 0
+    fi
+
+    echo "Installing runc"
+    install_os_packages runc
+}
+
 install_core_packages() {
     echo "Installing required OS packages"
 
     case "$PKG_MGR" in
         apt)
             install_os_packages \
-                runc \
                 rsync \
                 e2fsprogs \
                 e2fsck-static \
@@ -194,7 +203,6 @@ install_core_packages() {
                 rhel_version=$(rpm --eval "%{rhel}" 2>/dev/null || true)
                 if [ -n "$rhel_version" ] && [ "$rhel_version" -ge 8 ]; then
                     install_os_packages \
-                        runc \
                         rsync \
                         e2fsprogs \
                         iproute \
@@ -202,7 +210,6 @@ install_core_packages() {
                         pciutils
                 else
                     install_os_packages \
-                        runc \
                         rsync \
                         e2fsprogs \
                         bridge-utils \
@@ -211,7 +218,6 @@ install_core_packages() {
                 fi
             else
                 install_os_packages \
-                    runc \
                     rsync \
                     e2fsprogs \
                     bridge-utils \
@@ -220,7 +226,7 @@ install_core_packages() {
             fi
             ;;
         pacman)
-            local arch_packages=(runc rsync e2fsprogs iproute2 pciutils)
+            local arch_packages=(rsync e2fsprogs iproute2 pciutils)
             # Only install iptables-nft if neither iptables variant is installed
             if ! pacman -Q iptables-nft >/dev/null 2>&1 && ! pacman -Q iptables >/dev/null 2>&1; then
                 arch_packages+=(iptables-nft)
@@ -232,6 +238,8 @@ install_core_packages() {
             exit 1
             ;;
     esac
+
+    install_runc
 }
 
 install_devmapper_packages() {

@@ -442,3 +442,24 @@ See also:
 - [Go SDK for Slicer](https://github.com/slicervm/sdk)
 - [Getting to sub-300ms microVM sandboxes](/blog/microvms-sandboxes-in-300ms/)
 - [Pricing and free trial](https://slicervm.com/pricing)
+
+## Appendix: tmux cheat-sheet
+
+| Action | Command |
+| --- | --- |
+| Start named session | `tmux new -s <name>` |
+| List sessions | `tmux ls` |
+| Attach to session | `tmux attach -t <name>` |
+| Detach from session | `Ctrl-b d` |
+| Rename session | `Ctrl-b $` |
+| Split vertically | `Ctrl-b %` |
+| Split horizontally | `Ctrl-b "` |
+| Move between panes | `Ctrl-b` then `↑`, `↓`, `←`, `→` |
+| Resize pane | `Ctrl-b Ctrl-Arrow` |
+| Kill current pane | `Ctrl-b x` |
+| Kill current window | `Ctrl-b &` |
+| Create new window | `Ctrl-b c` |
+| Next / previous window | `Ctrl-b n` / `Ctrl-b p` |
+| Enter scroll/copy mode | `Ctrl-b [` |
+
+Note: start a session with `tmux new -s <name>`, list with `tmux ls`, and rejoin with `tmux attach -t <name>`. If you're in a nested tmux setup, press `Ctrl-b` twice to send your prefix through one level.

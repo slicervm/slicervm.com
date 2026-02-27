@@ -853,7 +853,7 @@ install_cloudhypervisor() {
         echo "Installing cloud-hypervisor"
 
         # Unlike with firecracker, the version of cloud-hypervisor is not pinned.
-        arkade get cloud-hypervisor
+        CI=1 arkade get cloud-hypervisor
         chmod +x $HOME/.arkade/bin/cloud-hypervisor
         sudo mv $HOME/.arkade/bin/cloud-hypervisor /usr/local/bin/
     else

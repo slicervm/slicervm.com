@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CheckoutModal from "../../components/CheckoutModal";
 import IndividualModal from "../../components/IndividualModal";
+import DaemonExplainer from "../../components/DaemonExplainer";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ import {
   Zap,
   Shield,
   Cpu,
+  Infinity,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -37,6 +39,7 @@ export default function Pricing() {
   const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
   const [isPlatformModalOpen, setIsPlatformModalOpen] = useState(false);
   const [isIndividualModalOpen, setIsIndividualModalOpen] = useState(false);
+  const [isDaemonExplainerOpen, setIsDaemonExplainerOpen] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -84,7 +87,7 @@ export default function Pricing() {
           <Card className="border-border/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <Badge variant="secondary" className="font-mono">
-                Just for you
+                Work and side-projects
               </Badge>
             </div>
             <CardHeader>
@@ -96,8 +99,8 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-sm text-muted-foreground text-center">
-                For a solo developer or single-person evaluation: core Slicer
-                features on your own device(s).
+                Full Slicer on your own hardware -- personal projects, homelabs,
+                or your day job.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -112,16 +115,22 @@ export default function Pricing() {
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
                     <span>
-                      Run on Linux, WSL2, and Mac: 2x concurrent Slicer daemons
+                      2x concurrent Slicer daemons on Linux, WSL2, or Mac
                     </span>
-                    <span className="relative group inline-flex items-center">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Run 2x Slicer daemons at any one time on any mix of
-                        Slicer for Mac, Slicer for Linux, or WSL2.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
+                    <button
+                      type="button"
+                      className="relative group inline-flex items-center"
+                      onClick={() => setIsDaemonExplainerOpen(true)}
+                    >
+                      <Info className="h-3.5 w-3.5 text-primary cursor-pointer" />
+                    </button>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Infinity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <span className="font-medium">Unlimited VMs</span> per
+                    daemon
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -194,12 +203,13 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Info className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
-                    <span>Optional: Upgrade to 5x Slicer daemons</span>
+                    <span>Optional: Upgrade to 5 concurrent daemons</span>
                     <span className="relative group inline-flex items-center">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         Select 50 USD / mo tier on GitHub Sponsors to run an
-                        additional 3x Slicer daemons.
+                        additional 3 Slicer daemons -- still unlimited VMs on
+                        each.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -250,8 +260,8 @@ export default function Pricing() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-sm text-muted-foreground text-center">
-                Designed for teams using Slicer on their own laptops and
-                desktops.
+                Designed for teams to run Slicer on their work devices. Easy,
+                centralised billing.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -264,16 +274,15 @@ export default function Pricing() {
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm flex items-center gap-1">
                     <span>
-                      2x Slicer daemons per seat (Linux, WSL2, and Mac)
+                      2 concurrent daemons per seat (Linux, WSL2, or Mac)
                     </span>
-                    <span className="relative group inline-flex items-center">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Each developer can run 2x Slicer daemons at any one time
-                        on any mix of Slicer for Mac, Slicer for Linux, or WSL2.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
+                    <button
+                      type="button"
+                      className="relative group inline-flex items-center"
+                      onClick={() => setIsDaemonExplainerOpen(true)}
+                    >
+                      <Info className="h-3.5 w-3.5 text-primary cursor-pointer" />
+                    </button>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -303,10 +312,10 @@ export default function Pricing() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <Infinity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Every seat includes 2 concurrent daemons on Linux, WSL2, or
-                    Mac
+                    <span className="font-medium">Unlimited VMs</span> per
+                    daemon
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -360,7 +369,7 @@ export default function Pricing() {
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$250</div>
                 <div className="text-muted-foreground">
-                  USD per installation/daemon per month
+                  USD per daemon per month
                 </div>
               </CardDescription>
             </CardHeader>
@@ -412,7 +421,8 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Licensed per running daemon -- add capacity as you scale
+                    Licensed per running daemon -- add capacity as you scale.
+                    Unlimited VMs per daemon.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -650,6 +660,10 @@ export default function Pricing() {
       <IndividualModal
         isOpen={isIndividualModalOpen}
         onClose={() => setIsIndividualModalOpen(false)}
+      />
+      <DaemonExplainer
+        isOpen={isDaemonExplainerOpen}
+        onClose={() => setIsDaemonExplainerOpen(false)}
       />
     </div>
   );

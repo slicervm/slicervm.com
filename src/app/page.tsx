@@ -421,20 +421,22 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                         <span>
-                          &ldquo;We don&apos;t have our own cloud accounts&rdquo;
+                          &ldquo;We don&apos;t have our own cloud
+                          accounts&rdquo;
                         </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                         <span>
-                          &ldquo;Docker Desktop is eating my battery alive&rdquo;
+                          &ldquo;Docker Desktop is eating my battery
+                          alive&rdquo;
                         </span>
                       </li>
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                         <span>
-                          &ldquo;I don&apos;t want to manage VirtualBox, I just need
-                          a shell, now.&rdquo;
+                          &ldquo;I don&apos;t want to manage VirtualBox, I just
+                          need a shell, now.&rdquo;
                         </span>
                       </li>
                     </ul>
@@ -808,7 +810,7 @@ build on OpenFaaS CE with Rocky 9.`}
             <span className="font-semibold text-foreground">$125/mo</span>
             {" · "}Platform{" "}
             <span className="font-semibold text-foreground">$250/mo</span>
-            /daemon
+            /daemon (unlimited VMs)
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" className="font-mono" asChild>

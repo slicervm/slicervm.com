@@ -78,20 +78,22 @@ export default function CheckoutModal({
                 <>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    <span>Each developer that runs Slicer requires a seat.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
                     <span>
-                      Each seat includes 2x Slicer daemons on the developer&apos;s
-                      own device(s).
+                      Each developer that runs Slicer requires a seat.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
                     <span>
-                      Not for shared deployments/infrastructure. Use Platform for
-                      those workloads.
+                      Each seat includes 2 concurrent Slicer daemons on the
+                      developer&apos;s own device(s). Unlimited VMs per daemon.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>
+                      Not for shared deployments/infrastructure. Use Platform
+                      for those workloads.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -118,13 +120,15 @@ export default function CheckoutModal({
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
                     <span>
-                      Quantity is the number of running Platform installations
-                      (daemons).
+                      Quantity is the number of running Slicer daemons. Each
+                      daemon can launch unlimited VMs.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
-                    <span>Includes private Discord channel and email support.</span>
+                    <span>
+                      Includes private Discord channel and email support.
+                    </span>
                   </li>
                 </>
               )}
@@ -176,7 +180,7 @@ export default function CheckoutModal({
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center gap-3">
               <Label htmlFor="quantity">
-                {isTeam ? "Number of seats" : "Number of seats/installations"}
+                {isTeam ? "Number of seats" : "Number of daemons"}
               </Label>
               <Input
                 id="quantity"
@@ -185,7 +189,10 @@ export default function CheckoutModal({
                 value={quantity}
                 onChange={(e) =>
                   setQuantity(
-                    Math.max(minQuantity, parseInt(e.target.value, 10) || minQuantity)
+                    Math.max(
+                      minQuantity,
+                      parseInt(e.target.value, 10) || minQuantity
+                    )
                   )
                 }
                 min={String(minQuantity)}
@@ -202,7 +209,7 @@ export default function CheckoutModal({
                   <p className="text-xs text-muted-foreground mt-1">
                     {isTeam
                       ? "$25 per seat per month"
-                      : "$250 per installation/daemon per month"}
+                      : "$250 per daemon per month (unlimited VMs)"}
                   </p>
                 </div>
               </CardContent>

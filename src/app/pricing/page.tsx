@@ -169,7 +169,7 @@ export default function Pricing() {
                       >
                         K3sup Pro
                       </Link>{" "}
-                      for HA Kubernetes clusters over SSH
+                      to bootstrap Kubernetes
                     </span>
                     <span className="relative ml-1 inline-flex align-middle group">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
@@ -196,8 +196,9 @@ export default function Pricing() {
                         rel="noopener noreferrer"
                         className="underline underline-offset-2 hover:text-primary"
                       >
-                        Superterm access
+                        Superterm
                       </Link>
+                      , the AI-native terminal
                     </span>
                     <span className="relative ml-1 inline-flex align-middle group">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
@@ -360,8 +361,9 @@ export default function Pricing() {
                         rel="noopener noreferrer"
                         className="underline underline-offset-2 hover:text-primary"
                       >
-                        Superterm access
+                        Superterm
                       </Link>
+                      , the AI-native terminal
                     </span>
                     <span className="relative ml-1 inline-flex align-middle group">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />

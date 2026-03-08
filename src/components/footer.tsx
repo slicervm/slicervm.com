@@ -4,8 +4,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="text-center text-sm text-muted-foreground">
           <p className="font-mono">
-            © 2025 OpenFaaS Ltd. Made by the team behind OpenFaaS, Inlets, K3sup
-            and Actuated.
+            © 2025 OpenFaaS Ltd. Made by the team behind OpenFaaS, Inlets, and
+            Actuated.
           </p>
           <p className="font-mono mt-2 pt-2 border-t border-border/50">
             <span>Follow </span>

@@ -113,10 +113,9 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm flex items-center gap-1">
-                    <span>
-                      2x concurrent Slicer daemons on Linux, WSL2, or Mac
-                    </span>
+                  <span className="text-sm">
+                    <span>2x concurrent Slicer daemons on Linux, WSL2, or Mac</span>
+                    {"\u00a0"}
                     <button
                       type="button"
                       className="relative group inline-flex items-center"
@@ -161,7 +160,7 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm flex items-center gap-1">
+                  <span className="text-sm">
                     <span>
                       Includes{" "}
                       <Link
@@ -172,11 +171,40 @@ export default function Pricing() {
                       </Link>{" "}
                       for HA Kubernetes clusters over SSH
                     </span>
-                    <span className="relative group inline-flex items-center">
+                    <span className="relative ml-1 inline-flex align-middle group">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         K3sup Pro is a terraform-like tool for building and
                         maintaining Kubernetes clusters over SSH.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <img
+                    src="https://superterm.dev/icon.svg"
+                    alt=""
+                    className="h-5 w-5 shrink-0 mt-0.5 rounded-[4px]"
+                  />
+                  <span className="text-sm">
+                    <span>
+                      Includes{" "}
+                      <Link
+                        href="https://superterm.dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:text-primary"
+                      >
+                        Superterm access
+                      </Link>
+                    </span>
+                    <span className="relative ml-1 inline-flex align-middle group">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Superterm is the terminal for the agentic era. Built
+                        from the ground up with visual feedback for long-running
+                        CLI sessions.
                         <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
                       </span>
                     </span>
@@ -188,9 +216,9 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm flex items-center gap-1">
+                  <span className="text-sm">
                     <span>Paid via GitHub Sponsors</span>
-                    <span className="relative group inline-flex items-center">
+                    <span className="relative ml-1 inline-flex align-middle group">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         The Individual tier is intended to be paid for by the
@@ -202,9 +230,9 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Info className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                  <span className="text-sm flex items-center gap-1">
-                    <span>Optional: Upgrade to 5 concurrent daemons</span>
-                    <span className="relative group inline-flex items-center">
+                  <span className="text-sm">
+                    <span>Optional: Upgrade to 5x Slicer daemons</span>
+                    <span className="relative ml-1 inline-flex align-middle group">
                       <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
                       <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         Select 50 USD / mo tier on GitHub Sponsors to run an
@@ -272,10 +300,9 @@ export default function Pricing() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm flex items-center gap-1">
-                    <span>
-                      2 concurrent daemons per seat (Linux, WSL2, or Mac)
-                    </span>
+                  <span className="text-sm">
+                    <span>2x concurrent Slicer daemons per seat (Linux, WSL2, or Mac)</span>
+                    {"\u00a0"}
                     <button
                       type="button"
                       className="relative group inline-flex items-center"
@@ -283,6 +310,13 @@ export default function Pricing() {
                     >
                       <Info className="h-3.5 w-3.5 text-primary cursor-pointer" />
                     </button>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Infinity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <span className="font-medium">Unlimited VMs</span> per
+                    daemon
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -312,10 +346,32 @@ export default function Pricing() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Infinity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <img
+                    src="https://superterm.dev/icon.svg"
+                    alt=""
+                    className="h-5 w-5 shrink-0 mt-0.5 rounded-[4px]"
+                  />
                   <span className="text-sm">
-                    <span className="font-medium">Unlimited VMs</span> per
-                    daemon
+                    <span>
+                      Includes{" "}
+                      <Link
+                        href="https://superterm.dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2 hover:text-primary"
+                      >
+                        Superterm access
+                      </Link>
+                    </span>
+                    <span className="relative ml-1 inline-flex align-middle group">
+                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        Superterm is the terminal for the agentic era. Built
+                        from the ground up with visual feedback for long-running
+                        CLI sessions.
+                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
+                      </span>
+                    </span>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

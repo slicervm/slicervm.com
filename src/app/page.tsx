@@ -267,7 +267,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       >
                         Claude, Codex, and OpenCode
                       </a>{" "}
-                      in a Slicer VM — full auto, nothing can escape. No <code className="text-xs bg-muted px-1 py-0.5 rounded font-mono">--dangerously-skip-permissions</code> needed.
+                      in its own VM with root access. Copy out the results when it&apos;s done.
                     </p>
                   </div>
                 </div>
@@ -287,7 +287,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       >
                         K3s inside a Slicer VM
                       </a>
-                      . Test Helm charts, validate RBAC, iterate on controllers — without touching the shared cluster.
+                      . Test Helm charts, validate RBAC, iterate on controllers — on your own machine.
                     </p>
                   </div>
                 </div>
@@ -297,12 +297,18 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Extend OS images with Docker
+                      Edit on Mac, run on Linux
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Slicer images are OCI images. Add your framework, packages, or toolchain with a{" "}
-                      <code className="text-xs bg-muted px-1 py-0.5 rounded font-mono">FROM</code>{" "}
-                      in a Dockerfile — build once, reuse everywhere.
+                      <a
+                        href="https://docs.slicervm.com/mac/folder-sharing/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        VirtioFS
+                      </a>{" "}
+                      mounts your Mac directory into the VM. Agents, builds, and tests see the same files — no copying, no syncing.
                     </p>
                   </div>
                 </div>
@@ -330,28 +336,28 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                     </h3>
                     <ul className="space-y-2.5 text-sm">
                       <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary/40 shrink-0 mt-2" />
                         <span>
                           &ldquo;I need real Linux but I&apos;m stuck on a
                           Mac&rdquo;
                         </span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary/40 shrink-0 mt-2" />
                         <span>
                           &ldquo;We don&apos;t have our own cloud
                           accounts&rdquo;
                         </span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary/40 shrink-0 mt-2" />
                         <span>
-                          &ldquo;Docker Desktop is eating my battery
-                          alive&rdquo;
+                          &ldquo;I wish Claude Code could run
+                          uninterrupted&rdquo;
                         </span>
                       </li>
                       <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary/40 shrink-0 mt-2" />
                         <span>
                           &ldquo;Wanted a VM, got a helpdesk ticket from
                           IT&rdquo;

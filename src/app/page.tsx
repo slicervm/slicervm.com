@@ -91,11 +91,7 @@ export default function HomePage() {
                 <span className="font-mono">&lt;1s</span>
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Build and run untrusted code, background jobs, preview
-                environments, autoscaling infrastructure, and sandboxes.
-                <br />
-                Run untrusted code with the ease of containers, but a full guest
-                Kernel, OS and systemd.
+                Isolated Linux VMs with the ease of containers — a real kernel, systemd, and full OS. Launch from code, tear down when done.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -103,10 +99,18 @@ export default function HomePage() {
                     <Code className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Linux on demand</h3>
+                    <h3 className="font-semibold mb-1">Goodbye approval fatigue</h3>
                     <p className="text-sm text-muted-foreground">
-                      Run background jobs, code workspaces, bots, and AI agents
-                      via{" "}
+                      Run{" "}
+                      <a
+                        href="https://docs.slicervm.com/mac/coding-agents/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Claude, Codex, and OpenCode
+                      </a>{" "}
+                      in isolated sandboxes — full auto, nothing can escape. Launch via{" "}
                       <a
                         href="https://docs.slicervm.com/reference/api/"
                         target="_blank"
@@ -134,19 +138,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Share secrets securely from the host
+                      Cold boot in under a second
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Securely inject{" "}
-                      <a
-                        href="https://docs.slicervm.com/reference/secrets/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        secrets and credentials
-                      </a>{" "}
-                      into microVMs from the host.
+                      ZFS snapshots make every launch instant. Test, throw away, repeat — no waiting for images or provisioning.
                     </p>
                   </div>
                 </div>
@@ -156,19 +151,19 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Slicer Agent - API for Linux
+                      Program Linux like an API
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Program Linux systems with slicer&apos;s guest agent for{" "}
+                      Built-in guest agent for{" "}
                       <a
                         href="https://docs.slicervm.com/reference/api/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        cp, exec, shell, metrics, and port-forwarding
+                        exec, cp, shell, metrics, and port-forwarding
                       </a>
-                      .
+                      . No SSH setup, no config.
                     </p>
                   </div>
                 </div>
@@ -178,19 +173,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      PCI passthrough for GPUs, TPUs, and NICs
+                      Self-hosted. Zero metering.
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      <a
-                        href="https://docs.slicervm.com/reference/vfio/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        Mount PCI devices
-                      </a>{" "}
-                      like GPUs, TPUs, and NICs into microVMs for hardware
-                      acceleration.
+                      E2B, Modal, and Daytona meter by the second. Slicer runs on your hardware — flat rate, data never leaves your network.
                     </p>
                   </div>
                 </div>
@@ -235,8 +221,8 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
             Every microVM runs a real kernel with systemd, package managers, and
-            cron. Run Kubernetes clusters, pass through GPUs, or replace your
-            entire dev VM stack — on the same platform.
+            cron. Run Kubernetes clusters, long-lived servers, or replace your
+            entire dev VM stack — one platform.
           </p>
         </div>
       </section>
@@ -254,9 +240,7 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                 Your team develops on Mac. They deploy to Linux.
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Stop waiting for cloud access, VPN approvals, or AWS accounts.
-                Every developer gets real Linux with systemd on their laptop —
-                same packages, same tooling, same workflows as production.
+                No cloud access, no VPN, no AWS account needed. Real Linux with systemd on every developer&apos;s laptop — matching production.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -266,8 +250,7 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                   <div>
                     <h3 className="font-semibold mb-1">No cloud spend</h3>
                     <p className="text-sm text-muted-foreground">
-                      No AWS accounts, no EKS clusters, no cloud VMs. Real Linux
-                      runs locally on the hardware your team already has.
+                      No AWS accounts, no EKS clusters, no cloud VMs. Real Linux on the hardware your team already owns.
                     </p>
                   </div>
                 </div>
@@ -276,10 +259,18 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                     <Shield className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">No procurement</h3>
+                    <h3 className="font-semibold mb-1">Kubernetes on your laptop</h3>
                     <p className="text-sm text-muted-foreground">
-                      A developer expenses $25/mo. No security review, no vendor
-                      assessment, no data leaving the building.
+                      Spin up{" "}
+                      <a
+                        href="https://docs.slicervm.com/mac/kubernetes/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        K3s inside a Slicer VM
+                      </a>
+                      . Test Helm charts, validate RBAC, iterate on controllers — without touching the shared cluster.
                     </p>
                   </div>
                 </div>
@@ -289,11 +280,12 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Match your deployment target
+                      Extend OS images with Docker
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Ubuntu LTS and Rocky Linux with systemd — the same OS you
-                      run in production. Not a macOS approximation.
+                      Slicer images are OCI images. Add your framework, packages, or toolchain with a{" "}
+                      <code className="text-xs bg-muted px-1 py-0.5 rounded font-mono">FROM</code>{" "}
+                      in a Dockerfile — build once, reuse everywhere.
                     </p>
                   </div>
                 </div>
@@ -303,11 +295,10 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Replace your VM stack
+                      Replace Docker Desktop, Colima, Lima, and UTM
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      One tool instead of Docker Desktop, Colima, Lima, or UTM.
-                      Sandboxes and services from the same product.
+                      Ephemeral sandboxes and long-lived servers in one tool. Faster boot, real systemd, and a workflow that just works.
                     </p>
                   </div>
                 </div>
@@ -404,10 +395,7 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                 Long-lived microVMs for servers, clusters, and labs
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Run persistent workloads on cost-effective bare-metal instead of
-                expensive cloud instances. Homelabs, Kubernetes, dev
-                environments, and customer support — all with systemd and a full
-                OS.
+                Persistent workloads on bare-metal instead of expensive cloud instances. Kubernetes, dev environments, homelabs — full OS with systemd.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -441,17 +429,16 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                       Cost-effective bare-metal
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Run on your own{" "}
+                      Run on{" "}
                       <a
                         href="https://www.hetzner.com/dedicated-rootserver"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        bare-metal hardware
+                        bare-metal
                       </a>{" "}
-                      at a fraction of cloud costs. No more unhinged cloud spend
-                      for dev and test environments.
+                      at a fraction of cloud costs. No more unhinged cloud spend for dev and test.
                     </p>
                   </div>
                 </div>

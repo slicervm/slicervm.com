@@ -196,96 +196,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border/50">
-                <h3 className="text-lg font-semibold mb-4">
-                  Examples of code sandboxes:
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4">
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                      <Code className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        AI Agents and code sandboxes
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Run automated bots for code reviews, notifications, and
-                        integrations. See our{" "}
-                        <a
-                          href="https://blog.alexellis.io/ai-code-review-bot/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                        >
-                          code review bot built with opencode
-                        </a>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                      <Code className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        Convert videos with ffmpeg
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        microVMs are better suited for processing large media
-                        files.{" "}
-                        <a
-                          href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                        >
-                          See example
-                        </a>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                      <Zap className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        Local-first — the fastest possible I/O
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Files are shared directly via VSOCK — no network
-                        round-trips to a remote API. Your data never leaves your
-                        machine.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                      <Layers className="h-4 w-4 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">
-                        Self-hosted Kubernetes with node autoscaling
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Launch Kubernetes nodes via API with{" "}
-                        <a
-                          href="https://docs.slicervm.com/examples/autoscaling-k3s/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                        >
-                          node scaling and termination
-                        </a>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div className="relative hidden sm:block">
               <Card className="py-0 border-primary/20 bg-card shadow-lg shadow-primary/5">
@@ -638,12 +548,6 @@ RUN usermod -aG docker ubuntu`}
             </a>{" "}
             — securing the ecosystem before it hit GitHub&apos;s roadmap.
           </p>
-          <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto mt-6">
-            Alex Ellis, founder of OpenFaaS: We&apos;ve run Slicer internally
-            since 2022 which has kept our cloud costs really low and given us
-            the fastest response times we&apos;ve seen yet on customer support
-            tickets.
-          </p>
         </div>
       </section>
 
@@ -654,17 +558,15 @@ RUN usermod -aG docker ubuntu`}
             Real Linux, on your hardware, in milliseconds.
           </h2>
           <p className="text-muted-foreground mb-4 max-w-xl mx-auto">
-            Start with a 14-day free trial. No security review needed — it runs
-            on your machine.
+            Start with a 14-day free trial. Runs on your own hardware — nothing leaves your machine.
           </p>
           <p className="text-sm text-muted-foreground mb-8">
-            Individual from{" "}
             <span className="font-semibold text-foreground">$25/mo</span>
             {" · "}Team{" "}
-            <span className="font-semibold text-foreground">$125/mo</span>
-            {" · "}Platform{" "}
+            <span className="font-semibold text-foreground">$25/mo</span>
+            /seat{" · "}Platform{" "}
             <span className="font-semibold text-foreground">$250/mo</span>
-            /daemon (unlimited VMs)
+            /server
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button size="lg" className="font-mono" asChild>

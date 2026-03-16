@@ -36,7 +36,7 @@ export default function HomePage() {
                 Real Linux, in milliseconds.
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground text-pretty mb-4 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Full VMs with systemd and a real kernel — on your Mac, your
+                Full VMs with systemd and a dedicated kernel — on your Mac, your
                 servers, or your cloud.
               </p>
               <div className="flex flex-row items-center gap-2 sm:gap-4 mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0 flex-wrap justify-center lg:justify-start">

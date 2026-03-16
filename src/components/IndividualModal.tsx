@@ -18,9 +18,9 @@ interface IndividualModalProps {
   onClose: () => void;
 }
 
-type Tier = 25 | 50 | "trial";
+type Tier = 25 | "trial";
 
-const SPONSOR_URL = "https://github.com/sponsors/alexellis";
+const CHECKOUT_URL = "https://buy.polar.sh/polar_cl_b3bvlhv3WVYOgUbzk0XN7Su3taGaOmCijLpSa0RqDn0";
 const INSTALL_URL = "https://docs.slicervm.com/getting-started/install/";
 
 export default function IndividualModal({
@@ -51,7 +51,7 @@ export default function IndividualModal({
   };
 
   const isTrial = tier === "trial";
-  const daemons = tier === 50 ? 5 : tier === 25 ? 2 : 1;
+  const daemons = tier === 25 ? 2 : 1;
 
   return (
     <>
@@ -69,7 +69,7 @@ export default function IndividualModal({
             </DialogDescription>
           </DialogHeader>
 
-          {/* 3-way toggle */}
+          {/* toggle */}
           <div className="mt-2 inline-flex items-center gap-1 rounded-lg border border-border/60 bg-background p-1 w-full">
             <Button
               type="button"
@@ -79,15 +79,6 @@ export default function IndividualModal({
               onClick={() => handleTierChange(25)}
             >
               $25/mo
-            </Button>
-            <Button
-              type="button"
-              size="sm"
-              variant={tier === 50 ? "default" : "ghost"}
-              className="font-mono flex-1 text-sm h-8"
-              onClick={() => handleTierChange(50)}
-            >
-              $50/mo
             </Button>
             <Button
               type="button"
@@ -167,11 +158,11 @@ export default function IndividualModal({
               <div className="mt-4 grid sm:grid-cols-2 gap-2">
                 <Button className="font-mono" asChild>
                   <Link
-                    href={SPONSOR_URL}
+                    href={CHECKOUT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Sponsor on GitHub
+                    Subscribe
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>

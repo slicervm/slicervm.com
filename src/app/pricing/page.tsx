@@ -181,6 +181,7 @@ export default function Pricing() {
                     </span>
                   </span>
                 </li>
+                {/* TODO: re-enable when Polar subscription includes Superterm
                 <li className="flex items-start gap-3">
                   <img
                     src="https://superterm.dev/icon.svg"
@@ -200,17 +201,9 @@ export default function Pricing() {
                       </Link>
                       , the AI-native terminal
                     </span>
-                    <span className="relative ml-1 inline-flex align-middle group">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Superterm is the terminal for the agentic era. Built
-                        from the ground up with visual feedback for long-running
-                        CLI sessions.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
                   </span>
                 </li>
+                */}
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">Community support via Discord</span>
@@ -218,30 +211,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    <span>Paid via GitHub Sponsors</span>
-                    <span className="relative ml-1 inline-flex align-middle group">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        The Individual tier is intended to be paid for by the
-                        user.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Info className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    <span>Optional: Upgrade to 5x Slicer daemons</span>
-                    <span className="relative ml-1 inline-flex align-middle group">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Select 50 USD / mo tier on GitHub Sponsors to run an
-                        additional 3 Slicer daemons -- still unlimited VMs on
-                        each.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
+                    Billed monthly, cancel anytime
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -346,6 +316,7 @@ export default function Pricing() {
                     , and CLI
                   </span>
                 </li>
+                {/* TODO: re-enable when Polar subscription includes Superterm
                 <li className="flex items-start gap-3">
                   <img
                     src="https://superterm.dev/icon.svg"
@@ -365,17 +336,9 @@ export default function Pricing() {
                       </Link>
                       , the AI-native terminal
                     </span>
-                    <span className="relative ml-1 inline-flex align-middle group">
-                      <Info className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
-                      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-2 text-xs text-muted-foreground bg-popover border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                        Superterm is the terminal for the agentic era. Built
-                        from the ground up with visual feedback for long-running
-                        CLI sessions.
-                        <span className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-popover"></span>
-                      </span>
-                    </span>
                   </span>
                 </li>
+                */}
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">Community support via Discord</span>

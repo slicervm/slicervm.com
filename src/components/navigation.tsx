@@ -13,8 +13,6 @@ export function Navigation() {
   const closeMenu = () => setIsOpen(false);
 
   const navigationLinks = [
-    { href: "/", label: "Home" },
-    { href: "/microvms", label: "microVMs" },
     { href: "/pricing", label: "Pricing" },
     { href: "/blog", label: "Blog" },
   ];

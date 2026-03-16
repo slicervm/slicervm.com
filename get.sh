@@ -73,6 +73,69 @@ if [ "$OSTYPE" = "linux-gnu" ] && [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+ensure_slicer_group() {
+    if getent group slicer >/dev/null 2>&1; then
+        echo "Group 'slicer' already exists"
+        return 0
+    fi
+
+    echo "Creating system group 'slicer'"
+    groupadd --system slicer
+}
+
+configure_slicer_group_access() {
+    echo "Configuring local Slicer access for the 'slicer' group"
+
+    install -d -m 0750 /var/lib/slicer
+    install -d -m 0750 /var/lib/slicer/auth
+    install -d -m 0770 /run/slicer
+
+    chgrp slicer /var/lib/slicer
+    chgrp slicer /var/lib/slicer/auth
+    chgrp slicer /run/slicer
+
+    chmod 0750 /var/lib/slicer
+    chmod 0750 /var/lib/slicer/auth
+    chmod 0770 /run/slicer
+
+    if [ -f /var/lib/slicer/auth/token ]; then
+        chgrp slicer /var/lib/slicer/auth/token
+        chmod 0640 /var/lib/slicer/auth/token
+        echo "Updated /var/lib/slicer/auth/token to root:slicer 0640"
+    fi
+}
+
+print_group_access_message() {
+    local target_user="${SUDO_USER:-}"
+
+    echo ""
+    echo "Local Slicer admin access"
+    echo "Members of the 'slicer' group can read:"
+    echo "  - /var/lib/slicer/auth/token"
+    echo "  - local Slicer API sockets such as /run/slicer/*.sock"
+    echo ""
+    echo "Before joining the group, local CLI usage usually needs sudo:"
+    echo "  sudo slicer vm list --url http://127.0.0.1:8080"
+    echo "  sudo slicer vm list --url /run/slicer/slicer.sock --token-file /var/lib/slicer/auth/token"
+    echo ""
+
+    if [ -n "$target_user" ] && [ "$target_user" != "root" ]; then
+        echo "To run the CLI as ${target_user} instead:"
+        echo "  sudo usermod -aG slicer ${target_user}"
+    else
+        echo "To run the CLI as your login user instead:"
+        echo "  sudo usermod -aG slicer <your-user>"
+    fi
+
+    echo "  newgrp slicer"
+    echo ""
+    echo "After joining the group and starting a new shell:"
+    echo "  slicer vm list --url http://127.0.0.1:8080"
+    echo "  slicer vm list --url /run/slicer/slicer.sock --token-file /var/lib/slicer/auth/token"
+    echo ""
+    echo "If your Unix socket config has auth disabled, you can omit --token-file on the socket form."
+}
+
 echo "Downloading and installing Slicer..."
 
 # Install arkade
@@ -872,6 +935,8 @@ install_cloudhypervisor() {
 # Validation checks
 detect_os
 check_kvm
+ensure_slicer_group
+configure_slicer_group_access
 
 # Core dependencies
 install_core_packages
@@ -924,6 +989,8 @@ echo ""
 echo "Individual tier, run: \"slicer activate\" to complete the setup"
 echo ""
 echo "Team/Platform tier, paste your license key into ~/.slicer/LICENSE from Order confirmation"
+echo ""
+print_group_access_message
 echo ""
 echo "Find out more at https://slicervm.com"
 echo ""

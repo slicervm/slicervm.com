@@ -54,7 +54,7 @@ export default function HomePage() {
                     Services
                   </span>
                   <span className="text-xs text-muted-foreground hidden sm:inline">
-                    Datacenter on a diet
+                    Bare-metal performance
                   </span>
                 </div>
               </div>
@@ -87,8 +87,7 @@ export default function HomePage() {
                 Slicer Sandboxes
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                API-driven microVMs for automation in{" "}
-                <span className="font-mono">&lt;1s</span>
+                Isolated compute, ready to ship
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
                 Isolated Linux VMs with the ease of containers — a real kernel, systemd, and full OS. Launch from code, tear down when done.
@@ -99,18 +98,9 @@ export default function HomePage() {
                     <Code className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Goodbye approval fatigue</h3>
+                    <h3 className="font-semibold mb-1">Skip the Firecracker boilerplate</h3>
                     <p className="text-sm text-muted-foreground">
-                      Run{" "}
-                      <a
-                        href="https://docs.slicervm.com/mac/coding-agents/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
-                      >
-                        Claude, Codex, and OpenCode
-                      </a>{" "}
-                      in isolated sandboxes — full auto, nothing can escape. Launch via{" "}
+                      Real VM isolation powered by Firecracker and cloud-hypervisor — without managing the stack. Embed sandboxes in your product via{" "}
                       <a
                         href="https://docs.slicervm.com/reference/api/"
                         target="_blank"
@@ -138,6 +128,19 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
+                      Self-hosted. Zero metering.
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      E2B, Modal, and Daytona meter by the second. Slicer runs on your hardware — flat rate, data never leaves your network.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Zap className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
                       Cold boot in under a second
                     </h3>
                     <p className="text-sm text-muted-foreground">
@@ -151,32 +154,37 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Program Linux like an API
+                      Automate VMs like API calls
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Built-in guest agent for{" "}
+                      Copy files in, run commands, pull results out. No SSH, no Ansible — just Slicer&apos;s{" "}
+                      <a
+                        href="https://docs.slicervm.com/getting-started/install/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        CLI
+                      </a>
+                      ,{" "}
                       <a
                         href="https://docs.slicervm.com/reference/api/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        exec, cp, shell, metrics, and port-forwarding
+                        REST API
                       </a>
-                      . No SSH setup, no config.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Gpu className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      Self-hosted. Zero metering.
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      E2B, Modal, and Daytona meter by the second. Slicer runs on your hardware — flat rate, data never leaves your network.
+                      , or{" "}
+                      <a
+                        href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Go SDK
+                      </a>
+                      .
                     </p>
                   </div>
                 </div>
@@ -202,7 +210,7 @@ $ slicer vm exec vm-1 \\
 $ slicer vm exec vm-1 opencode \\
     -m "Review this code and quit when done" \\
     >> /tmp/REVIEW.md
-$ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
+$ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
 `}
                     </code>
                   </pre>
@@ -237,10 +245,10 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                 Slicer for Mac
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-                Your team develops on Mac. They deploy to Linux.
+                Real Linux on your Mac
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                No cloud access, no VPN, no AWS account needed. Real Linux with systemd on every developer&apos;s laptop — matching production.
+                No cloud access, no VPN, no AWS account. Real Linux with systemd on your laptop — matching production.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -248,9 +256,18 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                     <Zap className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">No cloud spend</h3>
+                    <h3 className="font-semibold mb-1">Goodbye approval fatigue</h3>
                     <p className="text-sm text-muted-foreground">
-                      No AWS accounts, no EKS clusters, no cloud VMs. Real Linux on the hardware your team already owns.
+                      Run{" "}
+                      <a
+                        href="https://docs.slicervm.com/mac/coding-agents/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Claude, Codex, and OpenCode
+                      </a>{" "}
+                      in a Slicer VM — full auto, nothing can escape. No <code className="text-xs bg-muted px-1 py-0.5 rounded font-mono">--dangerously-skip-permissions</code> needed.
                     </p>
                   </div>
                 </div>
@@ -336,41 +353,8 @@ $ slicer vm vm-1:/tmp/REVIEW.md ./REVIEW.md
                       <li className="flex items-start gap-2.5">
                         <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                         <span>
-                          &ldquo;I don&apos;t want to manage VirtualBox, I just
-                          need a shell, now.&rdquo;
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="border-t border-border/50 pt-5">
-                    <h3 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider">
-                      For engineering managers
-                    </h3>
-                    <ul className="space-y-2.5 text-sm">
-                      <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>
-                          &ldquo;My team keeps asking for cloud access&rdquo;
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>
-                          &ldquo;We&apos;re paying for EKS just for
-                          dev/test&rdquo;
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>
-                          &ldquo;Every VM means a ServiceNow ticket and days of
-                          waiting&rdquo;
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>
-                          5 seats for $125/mo — cheaper than one month of EKS
+                          &ldquo;Wanted a VM, got a helpdesk ticket from
+                          IT&rdquo;
                         </span>
                       </li>
                     </ul>

@@ -11,6 +11,7 @@ fi
 # Parse command line arguments
 INSTALL_DEVMAPPER=false
 INSTALL_ZVOL=false
+INSTALL_QEMU=false
 ZFS_DEV=""
 DEVMAPPER_DEV=""
 OVERWRITE=false
@@ -39,6 +40,10 @@ while [[ $# -gt 0 ]]; do
             OVERWRITE=true
             shift
             ;;
+        --qemu)
+            INSTALL_QEMU=true
+            shift
+            ;;
         --help|-h)
             echo "Usage: $0 [OPTIONS]"
             echo ""
@@ -47,6 +52,7 @@ while [[ $# -gt 0 ]]; do
             echo "                        Optionally specify block device (e.g. /dev/sdc1)"
             echo "  --zfs [DEVICE]        Install ZFS zvol storage backend"
             echo "                        Optionally specify block device (e.g. /dev/sdb1)"
+            echo "  --qemu                Install QEMU backend dependencies"
             echo "  --overwrite           Overwrite existing disk"
             echo "  --help, -h            Show this help message"
             echo ""
@@ -56,6 +62,7 @@ while [[ $# -gt 0 ]]; do
             echo "  $0 --devmapper /dev/sdb      # Install devmapper with block device"
             echo "  $0 --zfs                     # Install with ZFS zvol storage (loop device)"
             echo "  $0 --zfs /dev/sdc            # Install ZFS with block device"
+            echo "  $0 --qemu                    # Install QEMU backend dependencies"
             echo "  $0 --devmapper --zfs         # Install with both storage backends"
             echo "  $0 --zfs /dev/sdb1 --overwrite  # Overwrite existing disks"
             exit 0
@@ -932,6 +939,27 @@ install_cloudhypervisor() {
     fi
 }
 
+install_qemu() {
+    local machine_arch
+    machine_arch=$(uname -m)
+
+    if [ "$machine_arch" != "x86_64" ] && [ "$machine_arch" != "amd64" ]; then
+        echo "QEMU backend currently expects qemu-system-x86_64 and is only supported on x86_64 hosts"
+        exit 1
+    fi
+
+    if command -v qemu-system-x86_64 >/dev/null 2>&1; then
+        echo "QEMU already present"
+    else
+        echo "Installing QEMU"
+        apt install -qy \
+            --no-install-recommends \
+            qemu-system-x86
+    fi
+
+    qemu-system-x86_64 --version | head -n1
+}
+
 # Validation checks
 detect_os
 check_kvm
@@ -983,6 +1011,9 @@ fi
 # Hypervisors
 install_firecracker
 install_cloudhypervisor
+if [ "$INSTALL_QEMU" = true ]; then
+    install_qemu
+fi
 
 echo "Slicer for Linux requires a license"
 echo ""

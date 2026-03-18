@@ -397,16 +397,39 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       Disposable Kubernetes clusters
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      One of the fastest ways to{" "}
+                      One of the fastest ways to spin up{" "}
                       <a
                         href="https://docs.slicervm.com/examples/ha-k3s/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
-                        spin up HA Kubernetes clusters
+                        HA Kubernetes clusters
+                      </a>{" "}
+                      with{" "}
+                      <a
+                        href="https://docs.slicervm.com/examples/autoscaling-k3s/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        node autoscaling
                       </a>{" "}
                       for development, testing, and demos.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
+                    <Gpu className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Accelerate AI Workloads with GPUs
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Attach GPUs to microVMs for inference, fine-tuning,
+                      transcription, and more.
                     </p>
                   </div>
                 </div>
@@ -437,7 +460,9 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                     <Server className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Ubuntu & Rocky Linux</h3>
+                    <h3 className="font-semibold mb-1">
+                      Ubuntu & Rocky Linux
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       Boot a{" "}
                       <a
@@ -449,21 +474,6 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                         Debian- or RHEL-like OS
                       </a>{" "}
                       with systemd, matching your production environment.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-lg bg-primary/10 p-2 border border-primary/20">
-                    <Code className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      OCI images — extend with Docker
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Slicer&apos;s base images are OCI images. Extend them with
-                      a Dockerfile — add packages, tooling, or your own software
-                      in a single build step.
                     </p>
                   </div>
                 </div>

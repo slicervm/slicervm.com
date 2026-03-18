@@ -98,9 +98,10 @@ export default function HomePage() {
                     <Code className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Skip the Firecracker boilerplate</h3>
+                    <h3 className="font-semibold mb-1">Skip the DIY</h3>
                     <p className="text-sm text-muted-foreground">
-                      Real VM isolation powered by Firecracker and cloud-hypervisor — without managing the stack. Embed sandboxes in your product via{" "}
+                      Get fast microVM isolation without building and supporting the
+                      stack yourself. Embed sandboxes in your product via{" "}
                       <a
                         href="https://docs.slicervm.com/reference/api/"
                         target="_blank"
@@ -428,8 +429,15 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       Accelerate AI Workloads with GPUs
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Attach GPUs to microVMs for inference, fine-tuning,
-                      transcription, and more.
+                      <a
+                        href="https://docs.slicervm.com/examples/gpu-ollama/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        Attach GPUs to microVMs
+                      </a>{" "}
+                      for inference, fine-tuning, transcription, and more.
                     </p>
                   </div>
                 </div>
@@ -439,7 +447,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">
-                      Cost-effective bare-metal
+                      Skip the cloud tax
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       Run on{" "}
@@ -451,7 +459,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       >
                         bare-metal
                       </a>{" "}
-                      at a fraction of cloud costs. No more unhinged cloud spend for dev and test.
+                      at a fraction of cloud costs for dev and test.
                     </p>
                   </div>
                 </div>

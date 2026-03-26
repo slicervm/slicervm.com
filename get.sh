@@ -1017,7 +1017,7 @@ fi
 
 echo "Slicer for Linux requires a license"
 echo ""
-echo "Individual tier, run: \"slicer activate\" to complete the setup"
+echo "Individual tier: managed via Polar (no activation step required)"
 echo ""
 echo "Team/Platform tier, paste your license key into ~/.slicer/LICENSE from Order confirmation"
 echo ""

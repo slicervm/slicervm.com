@@ -63,12 +63,10 @@ Watch a [video tour of Slicer for Mac](https://www.youtube.com/watch?v=jNmSXlLnV
 
 ### Set up
 
-Install the Slicer CLI and activate your license:
+Install the Slicer CLI:
 
 ```bash
 curl -sLS https://get.slicervm.com | sudo bash
-
-slicer activate
 ```
 
 Download and start the Slicer for Mac daemon:

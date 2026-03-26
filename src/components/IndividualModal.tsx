@@ -172,7 +172,7 @@ export default function IndividualModal({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Install &amp; activate
+                    Install Slicer
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
@@ -191,7 +191,7 @@ export default function IndividualModal({
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2.5">
                     <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                    <span>1x Slicer daemon only</span>
+                    <span>1x Slicer for Mac/Linux installation only</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <X className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
@@ -214,7 +214,7 @@ export default function IndividualModal({
                   <li className="flex items-start gap-2.5">
                     <Info className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">
-                      Requires a high-quality, verified GitHub account
+                      Requires a verified GitHub account
                     </span>
                   </li>
                 </ul>
@@ -232,7 +232,7 @@ export default function IndividualModal({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Install Slicer
+                    Install &amp; activate trial
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>

@@ -165,12 +165,10 @@ Sign up for [Slicer Individual](https://slicervm.com/pricing) or higher.
 
 Generally, these commands can all be run without `sudo`, it's just there so you don't have to move the binary yourself into your `$PATH`.
 
-Install the Slicer CLI (as a client) and activate it:
+Install the Slicer CLI (as a client):
 
 ```bash
 curl -sLS https://get.slicervm.com | sudo bash
-
-slicer activate
 ```
 
 Download the Slicer for Mac binary:

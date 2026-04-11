@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="border-t border-border/50 mt-2">
@@ -18,6 +20,14 @@ export function Footer() {
               @slicervm on X (Twitter)
             </a>
             <span> for updates.</span>
+          </p>
+          <p className="font-mono mt-2">
+            <Link
+              href="/eula"
+              className="text-muted-foreground hover:text-foreground underline underline-offset-2 transition-colors"
+            >
+              EULA
+            </Link>
           </p>
         </div>
       </div>

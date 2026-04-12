@@ -223,4 +223,4 @@ See also:
 - [Jason Poley: The Sandbox Explosion (2026)](https://daax.dev/blogs/the-sandbox-explosion)
 - [Go SDK for Slicer](https://github.com/slicervm/sdk)
 - [REST API reference](https://docs.slicervm.com/reference/api/)
-- [Slicer architecture diagram for Linux hosts](https://docs.slicervm.com/#slicer-architecture)
+- [Slicer architecture diagram for Linux hosts](https://docs.slicervm.com/#conceptual-architecture)

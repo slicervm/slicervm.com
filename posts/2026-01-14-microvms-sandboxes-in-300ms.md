@@ -97,7 +97,7 @@ Going forward, you'll have three choices for images for x86_64:
 
 Most people should focus on the default "full" images, which will feel like a regular cloud VM, but with a faster boot time. Ideal for homelabs, long-lived production services, databases, Kubernetes clusters on bare-metal, etc. See: [Autoscaling HA K3s cluster](https://docs.slicervm.com/examples/autoscaling-k3s/)
 
-For those of us that need to sandbox workloads such as customer code/scripts, AI coding agents (Claude, opencode, etc), the "min" images will boot as quick as reasonably possible whilst not giving up on the convenience of systemd. See: [Execute Commands in VM via SDK](https://docs.slicervm.com/tasks/execute-commands-with-sdk/) or [Run Jenkins build slaves in microVMs](https://docs.slicervm.com/examples/jenkins/)
+For those of us that need to sandbox workloads such as customer code/scripts, AI coding agents (Claude, opencode, etc), the "min" images will boot as quick as reasonably possible whilst not giving up on the convenience of systemd. See: [Execute Commands in VM](https://docs.slicervm.com/tasks/execute-commands/) or [Run Jenkins build slaves in microVMs](https://docs.slicervm.com/examples/jenkins/)
 
 Finally, for those of us that need to pass through hardware devices into the microVM, the CH images are the only option. These are generally around the same speed to boot as the full FC images. Ideal for running a [router/firewall](/blog/lightweight-linux-router-firewall/), or a GPU-accelerated workload like [Ollama](https://docs.slicervm.com/examples/gpu-ollama/) or [Whisper](https://openai.com/index/whisper/).
 
@@ -237,4 +237,3 @@ config:
     auth:
       enabled: true
 ```
-

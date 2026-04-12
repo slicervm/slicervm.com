@@ -266,7 +266,7 @@ You can also pass `--token` or `--token-file` flags directly. On Mac, the daemon
 
 Slicer's REST API can also be exposed over the Internet using a HTTPS tunnel — [inlets](https://inlets.dev), Cloudflare Tunnels, ngrok, or Tailscale all work. Point `SLICER_URL` at the tunnel endpoint, set your token, and any remote machine can create, manage, and exec into microVMs as if they were local. You'll pick up some additional latency from the tunnel, but the workflow is identical. This is useful when your build server, CI runner, or laptop needs to drive VMs on a different host.
 
-The [Go SDK](https://docs.slicervm.com/tasks/execute-commands-with-sdk/) wraps all of this in proper Go types if you're building a service around it. The [REST API](https://docs.slicervm.com/reference/api/) works if Go isn't your thing.
+The [Go SDK](https://docs.slicervm.com/platform/go-sdk/) wraps all of this in proper Go types if you're building a service around it. The [REST API](https://docs.slicervm.com/reference/api/) works if Go isn't your thing.
 
 ### Speed matters here too
 
@@ -436,7 +436,7 @@ See also:
 
 - [Slicer for Mac: Preview](/blog/slicer-for-mac-preview)
 - [Coding agents on Slicer for Mac](https://docs.slicervm.com/mac/coding-agents/)
-- [Run a one-shot task via API](https://docs.slicervm.com/examples/run-a-task/)
+- [Run a one-shot task via API](https://docs.slicervm.com/platform/ephemeral-tasks/)
 - [Go SDK for Slicer](https://github.com/slicervm/sdk)
 - [Getting to sub-300ms microVM sandboxes](/blog/microvms-sandboxes-in-300ms/)
 - [Pricing and free trial](https://slicervm.com/pricing)

@@ -150,7 +150,7 @@ export default function Pricing() {
                     </Link>
                     ,{" "}
                     <Link
-                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                      href="https://docs.slicervm.com/platform/go-sdk/"
                       className="underline underline-offset-2 hover:text-primary"
                     >
                       Go SDK
@@ -308,7 +308,7 @@ export default function Pricing() {
                     </Link>
                     ,{" "}
                     <Link
-                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                      href="https://docs.slicervm.com/platform/go-sdk/"
                       className="underline underline-offset-2 hover:text-primary"
                     >
                       Go SDK
@@ -431,7 +431,7 @@ export default function Pricing() {
                     </Link>
                     ,{" "}
                     <Link
-                      href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                      href="https://docs.slicervm.com/platform/go-sdk/"
                       className="underline underline-offset-2 hover:text-primary"
                     >
                       Go SDK
@@ -520,7 +520,7 @@ export default function Pricing() {
                         </Link>{" "}
                         or{" "}
                         <Link
-                          href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                          href="https://docs.slicervm.com/platform/go-sdk/"
                           className="underline underline-offset-2 hover:text-primary"
                         >
                           Go SDK

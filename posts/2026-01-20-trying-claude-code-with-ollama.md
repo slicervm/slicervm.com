@@ -18,7 +18,7 @@ So I was curious when the Ollama team [announced their new support](https://olla
 
 SlicerVM is a product we developed to make running microVMs as [fast and easy as running containers](/blog/microvms-sandboxes-in-300ms/). You can pick between long-lived microVMs aka "services" and short-lived, ephemeral "sandboxes".
 
-Over in the docs, there is a detailed [guide on driving opencode](https://docs.slicervm.com/examples/opencode-agent/) for one-shotting tasks via userdata or bash with Slicer sandboxes, so it is familiar territory. Our [code review bot](https://blog.alexellis.io/ai-code-review-bot/) takes a very similar approach - launching a microVM, then running opencode through the `cp` and `exec` APIs and the [Go SDK](https://docs.slicervm.com/tasks/execute-commands-with-sdk/).
+Over in the docs, there is a detailed [guide on driving opencode](https://docs.slicervm.com/examples/opencode-agent/) for one-shotting tasks via userdata or bash with Slicer sandboxes, so it is familiar territory. Our [code review bot](https://blog.alexellis.io/ai-code-review-bot/) takes a very similar approach - launching a microVM, then running opencode through the `cp` and `exec` APIs and the [Go SDK](https://docs.slicervm.com/platform/go-sdk/).
 
 <blockquote className="twitter-tweet" data-media-max-width="560"><p lang="in" dir="ltr">GPUs go brrr <a href="https://t.co/pgT7sItK6E">pic.twitter.com/pgT7sItK6E</a></p>&mdash; Alex Ellis (@alexellisuk) <a href="https://twitter.com/alexellisuk/status/2013641406355493314?ref_src=twsrc%5Etfw">January 20, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 

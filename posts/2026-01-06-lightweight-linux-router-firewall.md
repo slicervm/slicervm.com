@@ -207,4 +207,4 @@ This is ideal for running servers, CI runners, and other services exposed to the
 
 You've now created a lightweight Linux router/firewall which physically isolates LAN2 from LAN1. LAN2 has its own IP range (`10.88.0.0/24`) and all devices must pass through the microVM to access the Internet or LAN1.
 
-The full example with complete userdata scripts and configuration is available in the [Slicer documentation](https://docs.slicervm.com/examples/router-firewall).
+The full example with complete userdata scripts and configuration is available in the [Slicer documentation](https://docs.slicervm.com/examples/router-firewall/).

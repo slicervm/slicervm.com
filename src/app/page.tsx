@@ -112,7 +112,7 @@ export default function HomePage() {
                       </a>{" "}
                       or{" "}
                       <a
-                        href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                        href="https://docs.slicervm.com/platform/go-sdk/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
@@ -178,7 +178,7 @@ export default function HomePage() {
                       </a>
                       , or{" "}
                       <a
-                        href="https://docs.slicervm.com/tasks/execute-commands-with-sdk/"
+                        href="https://docs.slicervm.com/platform/go-sdk/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
@@ -281,7 +281,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                     <p className="text-sm text-muted-foreground">
                       Spin up{" "}
                       <a
-                        href="https://docs.slicervm.com/mac/kubernetes/"
+                        href="https://docs.slicervm.com/mac/linux-vm/#forward-k3s"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"

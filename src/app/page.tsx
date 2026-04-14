@@ -119,6 +119,15 @@ export default function HomePage() {
                       >
                         Go SDK
                       </a>
+                      {" / "}
+                      <a
+                        href="https://docs.slicervm.com/platform/typescript-sdk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        TypeScript SDK
+                      </a>
                       .
                     </p>
                   </div>
@@ -184,6 +193,15 @@ export default function HomePage() {
                         className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
                       >
                         Go SDK
+                      </a>
+                      {" / "}
+                      <a
+                        href="https://docs.slicervm.com/platform/typescript-sdk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
+                      >
+                        TypeScript SDK
                       </a>
                       .
                     </p>

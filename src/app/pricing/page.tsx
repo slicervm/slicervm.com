@@ -75,7 +75,7 @@ export default function Pricing() {
             </span>
             <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
               <Cpu className="h-4 w-4 text-primary shrink-0" />
-              REST API, Go SDK, and CLI
+              REST API, Go SDK / TypeScript SDK, and CLI
             </span>
           </div>
         </div>
@@ -154,6 +154,13 @@ export default function Pricing() {
                       className="underline underline-offset-2 hover:text-primary"
                     >
                       Go SDK
+                    </Link>
+                    {" / "}
+                    <Link
+                      href="https://docs.slicervm.com/platform/typescript-sdk/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      TypeScript SDK
                     </Link>
                     , and CLI
                   </span>
@@ -313,6 +320,13 @@ export default function Pricing() {
                     >
                       Go SDK
                     </Link>
+                    {" / "}
+                    <Link
+                      href="https://docs.slicervm.com/platform/typescript-sdk/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      TypeScript SDK
+                    </Link>
                     , and CLI
                   </span>
                 </li>
@@ -436,6 +450,13 @@ export default function Pricing() {
                     >
                       Go SDK
                     </Link>
+                    {" / "}
+                    <Link
+                      href="https://docs.slicervm.com/platform/typescript-sdk/"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      TypeScript SDK
+                    </Link>
                     , and CLI
                   </span>
                 </li>
@@ -524,6 +545,13 @@ export default function Pricing() {
                           className="underline underline-offset-2 hover:text-primary"
                         >
                           Go SDK
+                        </Link>
+                        {" / "}
+                        <Link
+                          href="https://docs.slicervm.com/platform/typescript-sdk/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          TypeScript SDK
                         </Link>
                       </span>
                     </li>

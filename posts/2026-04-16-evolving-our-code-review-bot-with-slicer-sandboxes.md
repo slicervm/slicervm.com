@@ -177,8 +177,6 @@ slicer vm cp sbox-1:/home/ubuntu/REVIEW.md ./REVIEW.md
 
 Copying a directory streams a tar archive through the guest agent - binary-safe, no intermediate files, no SSH keys. This handles binary files, symlinks, permissions, and large directories.
 
-We also added `slicer fs` for more granular filesystem operations - `ReadDir`, `Stat`, `Exists`, `Mkdir`, `Remove` - all through the same guest agent channel, no SSH needed.
-
 ### Egress filtering and isolated networking
 
 The old bot had the proxy and dummy key, but the VM had full internet access - it could reach any service on the network. `--net=isolated` was added to solve this, creating an airgap:
@@ -290,7 +288,7 @@ We've been running this updated workflow on every PR across the company for mont
 
 These primitives are all available now in Slicer. The sandbox stops being an SSH target and becomes something you talk to through files and events. You launch it, stream output, react to files as they're written, and tear it down when done. No SSH, no polling, no secrets on the VM.
 
-We are preparing reviewfn as an open source solution in response to user demand. The project has been red-teamed using Codex CLI and Claude Code. Malicious prompt injection remains a hard problem to solve, however we do not think it's relevant here. There is nothing of value inside the VM to exfiltrate and no meaningful compute or network access an agent could exploit. We plan to release reviewfn to the community shortly, both as a working code review bot and as a reference for sandboxing untrusted workloads.
+We are preparing reviewfn as an open source solution in response to user demand. The project has been red-teamed using Codex CLI and Claude Code. Malicious prompt injection remains a hard problem to solve, however we think its impact is low in this use-case. There is nothing of value inside the VM to exfiltrate and no meaningful compute or network access an agent could exploit. We plan to release reviewfn to the community shortly, both as a working code review bot and as a reference for sandboxing untrusted workloads.
 
 ## Get started with Slicer
 

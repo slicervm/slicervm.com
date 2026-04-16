@@ -276,11 +276,13 @@ The updated steps:
 
 1. **Clone repo** - Short lived token minted using GitHub App's private key, no credentials in the VM
 2. **Launch and wait** - no polling, one SDK call, agent ready immediately
-3. **Copy in** - binary-safe tar stream via `CpToVM`, no SSH needed
-4. **Run with streaming output** - `Exec` with real-time stdout/stderr via channels, no SSH
+3. **Copy in** - binary-safe tar stream via `CpToVM`
+4. **Run with streaming output** - `Exec` with real-time stdout/stderr via channels
 5. **Watch for results** - event stream, instant notification
-6. **Read file directly** - `ReadFile` from the VM, no SSH
+6. **Read file directly** - `ReadFile` from the VM
 7. **Comment on PR** - post the review, then tear down the VM
+
+In short, the workflow is more event-driven, and the SDK does the orchestration, instead of SSH.
 
 ## Wrapping up
 

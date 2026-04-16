@@ -13,7 +13,7 @@ tags:
 
 Back in November 2025, I [wrote about our code review bot](https://blog.alexellis.io/ai-code-review-bot/) that used Slicer microVMs to review pull requests. At the time, GitHub was pushing their built-in code review bot, but we found it lacked depth and was hard to customise.
 
-The workflow has remained the same: the code is cloned using a short-lived JWT, then a microVM boots, the agent queries an LLM, writes REVIEW.md, comments on the PR, and the VM is terminated.
+The workflow has remained the same: the code is cloned using a short-lived JWT, then a microVM boots, the [opencode](https://opencode.ai/) agent queries an LLM, writes REVIEW.md, comments on the PR, and the VM is terminated.
 
 In the past our developers would send up a PR and walk away from it, waiting for a human to review it. Since November 2025, the bot has reviewed every one of our team's PRs. Now, we open a PR and see it's already had 2-3 revisions, and we can focus on architecture and intent instead of whether someone forgot a nil check.
 
@@ -270,7 +270,7 @@ The min image boots in 200-300ms on modern hardware and its guest agent is ready
 
 We also considered local models. In an ideal world, we'd rather keep ownership of our source code unambiguous - who owns the IP, and whether inputs or outputs end up as training data. We opt out of those arrangements where we can, but most providers still keep a 30 day retention window on inputs and outputs. A locally-hosted model removes that ambiguity.
 
-Smaller models flagged too many false positives in Go - hallucinating race conditions and misreading context usage. [Qwopus3.5-27B-v3](https://huggingface.co/Jackrong/Qwopus3.5-27B-v3-GGUF) from Jackrong - a fine-tune of Qwen 3.5 27B - handled idiomatic Go better and quieted most of that noise. It's a community project, and one we're happy to support.
+Smaller models flagged too many false positives in Go - hallucinating race conditions and misreading context usage. [Qwopus3.5-27B-v3](https://huggingface.co/Jackrong/Qwopus3.5-27B-v3-GGUF) from Jackrong - a fine-tune of [Qwen 3.5 27B by Alibaba Cloud](https://huggingface.co/Qwen/Qwen3.5-27B) - handled idiomatic Go better and quieted most of that noise. It's a community project, and one we're happy to support.
 
 The updated steps:
 

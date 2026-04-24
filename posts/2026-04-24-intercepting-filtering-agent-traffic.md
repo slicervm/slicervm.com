@@ -17,7 +17,7 @@ Slicer is a fast and convenient way to sandbox and isolate workloads like coding
 
 ## Prior work: Isolated Networking mode
 
-In December 2025 we launched [isolated network](/isolated-network-mode/) mode which meant a microVM could have its network egress controlled at the TCP level. The main use-cases we saw were: blocking all traffic (i.e. an airgap), blocking selective network ranges (like your home or office LAN) and allowing traffic to certain IP addresses like a proxy or an internal database server.
+In December 2025 we launched [isolated network](/isolated-network-mode/) mode which meant a microVM could have its network egress controlled at the IP address level (iptables FORWARD rules matching on destination CIDR). The main use-cases we saw were: blocking all traffic (i.e. an airgap), blocking selective network ranges (like your home or office LAN) and allowing traffic to certain IP addresses like a proxy or an internal database server.
 
 The following policy blocks all egress, and allows access to a single internal-only machine, where we could run something like an intercepting HTTP proxy.
 
@@ -33,7 +33,7 @@ Many SaaS-based solutions from Fly, to Vercel, to Cloudflare, and various others
 
 One of the oldest HTTP proxies is [Squid](https://www.squid-cache.org/), which also works well as a cache. The chances are that if you've ever used WiFi at a hospital, government building, school, or large enterprise company, that your traffic was being routed through Squid or a very similar product.
 
-Rather than being presented with the real certificate for let's say `wikipedia.org`, the proxy will generate and sign a certificate with its private key and present that instead. Once the client accepts it, the proxy dials upstream to the real site and sends bytes back and forth.
+The proxy substitutes its own certificate for the real one, terminates TLS, and re-originates the connection upstream — hence Man-In-The-Middle.
 
 ```
 ┌──────────┐    ┌───────────┐    ┌──────────────┐
@@ -46,13 +46,9 @@ Rather than being presented with the real certificate for let's say `wikipedia.o
 └──────────┘    └───────────┘    └──────────────┘
 ```
 
-In order for this to work, the public key of the CA must be installed into the trust bundle of the VM. This usually means placing the cert at ` /usr/local/share/ca-certificates/` (or equivalent for the OS), and running `update-ca-certificates`.
+In order for this to work, the public key of the CA must be installed into the trust bundle of the VM. This usually means placing the cert at `/usr/local/share/ca-certificates/` (or equivalent for the OS), and running `update-ca-certificates`.
 
-Production CA private keys are typically read from an Hardware Security Module (HSM) rather than stored on disk. They typically use a hierarchy with intermediary certificates to limit exposure — the root key is never exposed or used directly.
-
-For the purposes of sandboxing agents on our own infrastructure, we can take a less involved route.
-
-Slicer can now inject the public certificate for a CA into a VM at boot time to avoid boilerplate code.
+For sandboxing agents on your own infrastructure, you don't need the HSM-and-intermediates complexity that production PKI requires — Slicer handles the CA lifecycle for you, injecting the public certificate into each VM at boot time.
 
 There are two modes:
 
@@ -101,7 +97,7 @@ slicer new agents \
 
 `--count 0` starts the host group with no VMs running — we'll add one after the proxy is wired up.
 
-`--dns 127.0.0.1` points the VM at a resolver that doesn't exist, so any lookup the guest tries directly fails. Every name resolution now has to go via Squid's CONNECT handling, which means you get a log line for it — and it's defence-in-depth against DNS-over-53 exfiltration, where a compromised process inside the VM tries to tunnel data out through DNS queries even though HTTP egress is clamped down.
+`--dns 127.0.0.1` points the VM at a resolver that doesn't exist, so guest-side lookups fail. Every name now has to resolve via Squid's CONNECT handling — you get a log line for it, and it shuts down DNS-over-53 as an exfil channel.
 
 Start the daemon:
 
@@ -214,6 +210,58 @@ Because Squid bumped the tunnel, it logs the full URL — not just the host. Tha
 Before this release, getting a MITM proxy in front of a Slicer VM meant wiring a CA yourself: generating it, shipping the public cert into the image or a config drive, running `update-ca-certificates`, and keeping all of that in sync across host groups. Most people didn't bother — which is why so many sandboxing products either don't offer egress inspection at all, or only offer it as a hosted SaaS feature.
 
 With `ca: { generate: true }` on the host group, every VM in that group boots with the CA cert already installed system-wide. You run one `slicer up`, point your proxy of choice at `./.slicer/ca/<host-group>/`, and you have URL-level visibility on every outbound TLS connection from every VM in the group.
+
+## Secrets substitution: keep tokens off the VM
+
+Once you control the proxy, you control what leaves the VM — and what gets added to requests on their way out. The same CONNECT-then-bump mechanism that lets Squid log the full URL lets it rewrite headers. Which means your agent never has to see the real `GITHUB_TOKEN`, LLM API key, or any other credential.
+
+The pattern is: the VM uses a placeholder token (or no token at all). Squid matches the destination, strips whatever the VM sent, and adds an `Authorization` header with the real secret. The upstream sees a valid token; the VM never did.
+
+Here's a working example against a private `llama.cpp` endpoint. Append this to `/etc/squid/squid.conf` — generate the file at deploy time from your secrets manager rather than committing a real token:
+
+```squid
+acl llama_upstream dstdomain llm.internal.example.com
+
+# Strip whatever the VM sent and replace with the real token.
+request_header_access Authorization deny llama_upstream
+request_header_add Authorization "Bearer REAL_LLAMA_CPP_API_KEY_HERE" llama_upstream
+```
+
+Scope the replacement tightly to specific hostnames and paths, and keep the real token out of any file that isn't tightly permissioned.
+
+From the VM, a deliberately bogus bearer sails through because Squid swaps it on the way out:
+
+```sh
+# VM sends a fake token; upstream receives the real one.
+$ http_proxy=http://192.168.137.1:3129 \
+  https_proxy=http://192.168.137.1:3129 \
+  curl -sS -H "Authorization: Bearer FAKE-TOKEN-FROM-VM-NEVER-VALID" \
+    https://llm.internal.example.com/v1/models
+{"models":[{"name":"unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q5_K_XL",...}]}
+
+# The same request straight to the upstream (no proxy) gets 401.
+$ curl -sS -o /dev/null -w 'HTTP=%{http_code}\n' \
+    -H "Authorization: Bearer FAKE-TOKEN-FROM-VM-NEVER-VALID" \
+    https://llm.internal.example.com/v1/models
+HTTP=401
+```
+
+Same pattern as Fly's tokenizer or Cloudflare's AI Gateway, except it runs on your own infrastructure with tokens that never leave your host. A compromised agent process can still use the upstream API (it has a working connection through the proxy), but it can't exfiltrate the credential — because it never had the credential to exfiltrate.
+
+Worth flagging: this is defence-in-depth, not a silver bullet. An agent with a working connection through the proxy can still abuse the API within whatever scope the real token grants. Secrets substitution limits blast radius if the VM is compromised or the token leaks via a log; it doesn't stop a malicious agent from doing bad things with the API the token is for. Scope your tokens narrowly (read-only where possible, per-repo where possible) and treat the proxy as one layer in a stack.
+
+## What this doesn't cover
+
+MITM is incompatible with certificate-pinned clients (mobile app SDKs, some update mechanisms, a few CLI tools that embed their own root store) and with workloads that do mutual TLS outbound. If your agent needs either, add a bypass list to Squid's `ssl_bump` rules to let those connections pass through untouched:
+
+```squid
+acl pinned dstdomain .apple.com .googleapis.com
+ssl_bump splice pinned
+ssl_bump peek step1
+ssl_bump bump all
+```
+
+`splice` tells Squid to forward the raw TLS bytes without terminating — no header rewriting, no URL logging, but the connection still goes through the proxy and remains subject to the egress policy. The CA injection is still useful for everything else.
 
 ## Primitives now, policy later
 

@@ -66,7 +66,7 @@ End User License Agreement (EULA) for Slicer
 
 7.4 Automatic Termination. This Agreement terminates automatically without notice upon expiry of the license term, failure to renew, or termination, lapse, refund, chargeback, cancellation, expiry, or downgrade of the qualifying Individual subscription.
 
-7.5 Effect of Termination. Upon termination, Customer must immediately stop using the Licensed Software, delete all copies in its possession or control, and confirm in writing to Supplier that these actions have been completed. Sections 1, 2, 4, 5, 6, 8, 9, and 10 survive termination.
+7.5 Effect of Termination. Upon termination, Customer must immediately stop using the Licensed Software, delete all copies in its possession or control, and confirm in writing to Supplier that these actions have been completed. Sections 1, 2, 4, 5, 6, 8, 9, 10, and 11 survive termination.
 
 8. Customer Data; Audit
 
@@ -74,14 +74,22 @@ End User License Agreement (EULA) for Slicer
 
 8.2 Audit. Supplier may audit Customer’s use of the Licensed Software to assess compliance with this Agreement. Customer agrees to cooperate and provide reasonable assistance and access to relevant records (including, for example, purchase records, deployment records, and license key usage logs). Any audit shall not unreasonably interfere with Customer’s normal business operations.
 
-9. Limitation of Liability; Disclaimer
+9. Co-Marketing
 
-9.1 Warranty Disclaimer. The Licensed Software and documentation are provided “as is” and “as available” without warranty of any kind, express or implied. Customer uses the Licensed Software at its own risk. Customer assumes all responsibility for selecting the Licensed Software to achieve its intended results and for the installation of, and results obtained from, the Licensed Software.
+9.1 At the request of Supplier, Customer agrees to participate in reasonable marketing activities that promote the benefits of the Licensed Software to other potential customers, which may include providing testimonials, case studies, and references.
 
-9.2 No Consequential Damages. IN NO EVENT SHALL SUPPLIER BE LIABLE HEREUNDER FOR SPECIAL, PUNITIVE, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, INCLUDING, BUT NOT LIMITED TO, LOSS OF PROFITS, LOSS OF REVENUE, LOSS OF USE, OR LOSS OF DATA, EVEN IF ADVISED OF THE POSSIBILITY THEREOF OR, IF REASONABLY FORESEEABLE, INCURRED BY CUSTOMER OR END USERS, OR CLAIMED AGAINST CUSTOMER BY ANY OTHER PARTY (WHETHER ANY SUCH CLAIMS ARISE UNDER THEORY OF CONTRACT, TORT, OR OTHERWISE).
+9.2 Customer grants Supplier the right to use Customer’s name and logo on Supplier’s websites and in Supplier’s promotional materials.
 
-9.3 Liability Cap. To the extent permitted by applicable law, the aggregate liability of Supplier and its licensors, personnel, subcontractors, and suppliers arising out of or related to this Agreement shall not exceed the license fees paid by Customer hereunder in the twelve (12) months immediately preceding the event giving rise to the claim.
+9.3 Customer agrees that Supplier may disclose Customer as a customer of the Licensed Software.
 
-10. Contact
+10. Limitation of Liability; Disclaimer
+
+10.1 Warranty Disclaimer. The Licensed Software and documentation are provided “as is” and “as available” without warranty of any kind, express or implied. Customer uses the Licensed Software at its own risk. Customer assumes all responsibility for selecting the Licensed Software to achieve its intended results and for the installation of, and results obtained from, the Licensed Software.
+
+10.2 No Consequential Damages. IN NO EVENT SHALL SUPPLIER BE LIABLE HEREUNDER FOR SPECIAL, PUNITIVE, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, INCLUDING, BUT NOT LIMITED TO, LOSS OF PROFITS, LOSS OF REVENUE, LOSS OF USE, OR LOSS OF DATA, EVEN IF ADVISED OF THE POSSIBILITY THEREOF OR, IF REASONABLY FORESEEABLE, INCURRED BY CUSTOMER OR END USERS, OR CLAIMED AGAINST CUSTOMER BY ANY OTHER PARTY (WHETHER ANY SUCH CLAIMS ARISE UNDER THEORY OF CONTRACT, TORT, OR OTHERWISE).
+
+10.3 Liability Cap. To the extent permitted by applicable law, the aggregate liability of Supplier and its licensors, personnel, subcontractors, and suppliers arising out of or related to this Agreement shall not exceed the license fees paid by Customer hereunder in the twelve (12) months immediately preceding the event giving rise to the claim.
+
+11. Contact
 
 If you have any questions about these terms or the Licensed Software, contact Supplier at contact@openfaas.com.

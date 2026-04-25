@@ -4,7 +4,7 @@ End User License Agreement (EULA) for Slicer
 
 1.1 Slicer (the “Licensed Software”) is licensed as commercial software and must not be used without a valid license key issued by OpenFaaS Ltd.
 
-1.2 Slicer may be offered in different editions or variants from time to time. The term “Slicer” in this Agreement refers to any commercially licensed edition or variant of Slicer provided by OpenFaaS Ltd.
+1.2 Slicer may be offered in different editions or variants from time to time. The term “Slicer” in this Agreement refers to any commercially licensed edition or variant of Slicer provided by OpenFaaS Ltd. The term “Licensed Software” includes all software, binaries, source-available code, scripts, installers, system images, kernels, configuration files, examples, templates, APIs, SDKs, protocols, host-to-guest and host-to-agent communication mechanisms, guest agent behavior, documentation, diagrams, designs, product flows, user interfaces, benchmarks, website copy, marketing prose, and other materials supplied by or on behalf of Supplier in connection with Slicer.
 
 1.3 OpenFaaS Ltd (“Supplier”) is a company registered in England & Wales, company number: 11076587, registered address: Peterborough, UK.
 
@@ -18,11 +18,13 @@ End User License Agreement (EULA) for Slicer
 
 2.4 Governing law. This Agreement is entered into under the jurisdiction of the Courts of England and Wales and shall be governed by, and construed in accordance with, the laws of England and Wales, exclusive of its choice of law rules.
 
-3. No Free Trial
+3. Trials and Evaluation Restrictions
 
-3.1 No free trial is offered or available for Slicer. Access to and use of the Licensed Software requires a valid, paid license at all times.
+3.1 Supplier may offer a limited Slicer Individual trial from time to time. Any trial is available only to eligible non-competitor users, is subject to these terms, and may be modified, suspended, or withdrawn by Supplier at any time. Except for an active trial or other written authorization from Supplier, access to and use of the Licensed Software requires a valid, paid license at all times.
 
-3.2 Any evaluation use of Slicer may only occur under a separate, written evaluation agreement executed by Supplier in its sole discretion. In the absence of such a written evaluation agreement, you must not use the Licensed Software for any evaluation or trial purposes.
+3.2 Any evaluation use of Slicer may only occur under a separate, written evaluation agreement executed by Supplier in its sole discretion. In the absence of such a written evaluation agreement, you must not use the Licensed Software for any evaluation, trial, benchmarking, comparison, competitive analysis, research, or assessment purpose. A paid license, subscription, order, trial, download, possession of a license key, or other access to the Licensed Software does not grant any right to use the Licensed Software for a restricted purpose or for any activity prohibited by this Agreement.
+
+3.3 Competitor Access Prohibited. You must not access, download, install, execute, inspect, evaluate, test, benchmark, or otherwise use the Licensed Software if you are developing, contributing to, advising, funding, operating, marketing, or planning a product, service, project, or technology that competes or is intended to compete with Slicer or any Supplier product or service. This restriction applies whether the competing solution is open source, source-available, proprietary, commercial, internal, hosted, self-hosted, academic, experimental, or otherwise. This restriction applies to all license tiers, subscriptions, trials, evaluations, and forms of access unless a separate written agreement signed by Supplier expressly states otherwise.
 
 4. Grant of License; Ownership; Restrictions; Feedback
 
@@ -32,19 +34,25 @@ End User License Agreement (EULA) for Slicer
 
 4.3 Ownership. As between the parties, Supplier retains all right, title, and interest in and to the Licensed Software and all related materials, including all intellectual property rights therein, whether now existing or later arising.
 
-4.4 Intellectual Property Rights. Copyright for samples, code, logos, trademarks, diagrams, and documentation rests with Supplier. All pre-existing intellectual property remains the property of the originating party; no intellectual property is transferred from Customer to Supplier under this Agreement.
+4.4 Intellectual Property Rights. Copyright for samples, code, images, kernels, configurations, templates, logs, command output, schemas, protocols, host-to-agent communication patterns, logos, trademarks, diagrams, designs, documentation, website copy, and marketing materials rests with Supplier. All pre-existing intellectual property remains the property of the originating party; no intellectual property is transferred from Customer to Supplier under this Agreement.
 
 4.5 Restrictions. Except to the extent expressly permitted by applicable law and only to the extent Supplier is not permitted by that applicable law to exclude or limit such rights, Customer shall not (and shall not permit any third party to) distribute, display, sublicense, rent, lease, lend, timeshare, use in a service bureau, modify, translate, reverse engineer, decompile, disassemble, create derivative works based on, or copy the Licensed Software or related documentation. Customer shall not remove, alter, or obscure any proprietary notices or labels on the Licensed Software.
 
-4.6 Feedback. Customer may provide feedback to Supplier about the Licensed Software (including suggestions or enhancement requests). Supplier may develop, modify, and improve the Licensed Software based on Customer’s feedback without obligation to Customer, and Customer irrevocably assigns to Supplier all right, title, and interest in such feedback.
+4.6 Prohibited Competitive Use. Customer shall not use the Licensed Software or any knowledge, observations, measurements, outputs, or materials derived from the Licensed Software to design, develop, train, test, improve, market, position, document, price, compare, or validate any competing product, service, project, or technology. Without limitation, Customer shall not copy, imitate, adapt, derive from, or use Supplier's images, kernels, filesystem layouts, configurations, manifests, examples, templates, APIs, SDKs, CLI design, command structure, host-to-agent communication, guest agent behavior, storage or networking design, product flows, UI design, documentation structure, examples, diagrams, website content, or marketing prose for any competing solution. Purchasing, subscribing to, renewing, or otherwise obtaining any license or access to the Licensed Software does not waive, limit, or reduce these restrictions.
+
+4.7 Feedback. Customer may provide feedback to Supplier about the Licensed Software (including suggestions or enhancement requests). Supplier may develop, modify, and improve the Licensed Software based on Customer’s feedback without obligation to Customer, and Customer irrevocably assigns to Supplier all right, title, and interest in such feedback.
 
 5. Licensing and Use Rights
 
-5.1 Personal Use via GitHub Sponsorship. Personal use is permitted through an active GitHub Sponsorship to either @alexellis or @openfaas on GitHub at a minimum of 25 USD per month. Termination, lapse, or downgrade of Sponsorship below this minimum immediately terminates the license. Personal use counts only for installation to privately owned hardware, or rented cloud hosts, which are in no way connected to or operated for or on the behalf of a business. Personal licenses are for a single named individual, non-transferable, and may not be used to provide services to, or on behalf of, any business, organization, or client.
+5.1 Individual Use. Individual use is permitted through an active Slicer Individual subscription associated with a valid Slicer license key. Termination, lapse, refund, chargeback, cancellation, expiry, or downgrade of the Individual subscription immediately terminates the Individual license. Individual licenses are for a single named individual and are non-transferable. An Individual license may be used by that named individual on their own workstations, laptops, homelab machines, rented cloud hosts, WSL2 environments, or Mac devices for personal projects, homelabs, and commercial work performed by that individual as part of their day job.
 
-5.2 Commercial Use. Commercial use requires a paid license per user (seat). A minimum of five (5) seats is required and licenses are paid annually via ACH in USD or SWIFT in GBP. To request a commercial license, email [contact@openfaas.com](mailto:contact@openfaas.com). Contractors, consultants, managed service providers, and any use on infrastructure connected to or operated for or on behalf of a business require a commercial license.
+5.2 Individual License Limitations. An Individual license must not be used for shared deployments or shared infrastructure, including any company appliance, shared server, internal system, customer-facing product, SaaS backend, hosted service, managed service, build platform, automation platform, developer platform, CI/CD system, or infrastructure operated for multiple users, a team, a business, an organization, or customers. Contractors, consultants, managed service providers, and agencies may use an Individual license only on their own device for their own single-user work; use to provide, operate, host, or manage Slicer-backed services or infrastructure for any client, customer, business, organization, or other user requires a Team or Platform license, as applicable.
 
-5.3 Priority of Terms. If there is any conflict between this Section 5 and any Order Form, the Order Form shall prevail solely with respect to the quantities, term, and pricing stated therein.
+5.3 Team Use. Team use requires a paid license per named user (seat). A minimum of five (5) seats is required. Team licenses are for named developers using Slicer on their own device(s), and are not for shared deployments or shared infrastructure. To request a Team license, email [contact@openfaas.com](mailto:contact@openfaas.com), unless self-service checkout is available.
+
+5.4 Platform Use. Platform use is required for Slicer for Linux on shared or remote servers, internal systems, customer-facing products, SaaS backends, company appliances, hosted services, automation infrastructure, developer platforms, CI/CD systems, or any other shared infrastructure. Platform licenses are licensed per running daemon unless an Order Form states otherwise.
+
+5.5 Priority of Terms. If there is any conflict between this Section 5 and any Order Form, the Order Form shall prevail solely with respect to the quantities, term, and pricing stated therein.
 
 6. Termination and Continuing Obligations; Renewal Responsibility
 
@@ -52,11 +60,11 @@ End User License Agreement (EULA) for Slicer
 
 6.2 By Customer. Customer may terminate this Agreement at any time by permanently deleting the Licensed Software, destroying all copies, and ceasing all use.
 
-6.3 By Supplier. Supplier may terminate this Agreement immediately upon written notice if Customer fails to comply with any terms or conditions herein, including use without a valid license (including a lapsed Sponsorship for personal use) or use beyond the scope or term of the license granted.
+6.3 By Supplier. Supplier may terminate this Agreement immediately upon written notice if Customer fails to comply with any terms or conditions herein, including use without a valid license (including a lapsed, cancelled, refunded, charged back, expired, or otherwise inactive Individual subscription) or use beyond the scope or term of the license granted.
 
-6.4 Automatic Termination. This Agreement terminates automatically without notice upon expiry of the license term, failure to renew, or termination of the qualifying GitHub Sponsorship for personal use.
+6.4 Automatic Termination. This Agreement terminates automatically without notice upon expiry of the license term, failure to renew, or termination, lapse, refund, chargeback, cancellation, expiry, or downgrade of the qualifying Individual subscription.
 
-6.5 Effect of Termination. Upon termination, Customer must immediately stop using the Licensed Software, delete all copies in its possession or control, and confirm in writing to Supplier that these actions have been completed. Sections 1, 2, 4, 5, 7, 8, and 9 survive termination.
+6.5 Effect of Termination. Upon termination, Customer must immediately stop using the Licensed Software, delete all copies in its possession or control, and confirm in writing to Supplier that these actions have been completed. Sections 1, 2, 3, 4, 5, 7, 8, and 9 survive termination.
 
 6.6 Renewal Responsibility. It is the sole responsibility of Customer to renew and remit payment for any licenses in a timely manner to maintain uninterrupted access and compliance. Supplier recommends requesting a renewal quote at least thirty (30) days prior to the expiry of the current term. Supplier bears no costs, liabilities, or obligations related to Customer’s failure to renew or remit payment; any interruption due to non-renewal or non-payment does not entitle Customer to any remedies or compensation.
 
@@ -85,4 +93,3 @@ End User License Agreement (EULA) for Slicer
 10. Contact
 
 If you have any questions about these terms or the Licensed Software, contact Supplier at [contact@openfaas.com](mailto:contact@openfaas.com).
-

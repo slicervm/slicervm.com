@@ -3,6 +3,7 @@ title: "Inspect and filter every HTTP request leaving your microVM"
 date: "2026-05-01T10:00:00Z"
 excerpt: "Slicer's new proxy lets you inspect and filter HTTP requests egressing your microVM, and keep secrets away from workloads."
 author: "Alex Ellis"
+image: "/images/filter_egress_background.png"
 tags:
   - "ai"
   - "agents"

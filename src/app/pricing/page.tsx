@@ -25,6 +25,7 @@ import {
   Shield,
   Cpu,
   Infinity,
+  Lock,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -163,6 +164,18 @@ export default function Pricing() {
                       TypeScript SDK
                     </Link>
                     , and CLI
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <Link
+                      href="/egress"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Egress filtering proxy
+                    </Link>{" "}
+                    with Bearer / Basic / OAuth secret injection
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -330,6 +343,18 @@ export default function Pricing() {
                     , and CLI
                   </span>
                 </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <Link
+                      href="/egress"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Egress filtering proxy
+                    </Link>{" "}
+                    with Bearer / Basic / OAuth secret injection
+                  </span>
+                </li>
                 {/* TODO: re-enable when Polar subscription includes Superterm
                 <li className="flex items-start gap-3">
                   <img
@@ -463,6 +488,18 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
+                    <Link
+                      href="/egress"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Egress filtering proxy
+                    </Link>{" "}
+                    with Bearer / Basic / OAuth secret injection
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
                     Licensed per running daemon -- add capacity as you scale.
                     Unlimited VMs per daemon.
                   </span>
@@ -506,7 +543,7 @@ export default function Pricing() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="space-y-3">
                   <h3 className="text-sm font-semibold flex items-center gap-2">
                     <Zap className="h-4 w-4 text-primary" />
@@ -630,6 +667,47 @@ export default function Pricing() {
                         >
                           Slicer docs and examples
                         </Link>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold flex items-center gap-2">
+                    <Lock className="h-4 w-4 text-primary" />
+                    Network Policy
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Default-deny egress with per-host{" "}
+                        <Link
+                          href="/egress"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          allow rules
+                        </Link>{" "}
+                        on method + path
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Bearer / Basic / OAuth secret injection — credentials
+                        stay on the host
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Live policy reload — open during install, narrow at
+                        runtime
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <X className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">
+                        Not available in trial mode
                       </span>
                     </li>
                   </ul>

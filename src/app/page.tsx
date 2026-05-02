@@ -17,6 +17,7 @@ import {
   Gpu,
   Monitor,
   Check,
+  KeyRound,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -237,6 +238,51 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
               </Card>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Slicer Proxy tile */}
+      <section className="border-b border-border/50">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-8 sm:px-6 lg:px-8">
+          <Card className="border-primary/20 bg-card overflow-hidden">
+            <CardContent className="p-5 sm:p-6">
+              <div className="grid gap-4 lg:grid-cols-[1fr_auto] items-center">
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-balance mb-2">
+                    Stop your microVM from leaking secrets.
+                  </h2>
+                  <p className="text-base text-muted-foreground text-pretty mb-3">
+                    Filter every HTTP request leaving your microVM by host,
+                    method, and path. Inject Bearer, Basic, or OAuth
+                    credentials on the wire so the workload never holds the
+                    real token.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+                    <span className="inline-flex items-center gap-1.5">
+                      <Shield className="h-4 w-4 text-primary" />
+                      Default-deny
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <KeyRound className="h-4 w-4 text-primary" />
+                      Bearer / Basic / OAuth injection
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <Layers className="h-4 w-4 text-primary" />
+                      Stage-by-stage policy
+                    </span>
+                  </div>
+                </div>
+                <div className="flex lg:min-w-[200px]">
+                  <Button size="lg" className="font-mono w-full" asChild>
+                    <Link href="/egress">
+                      Learn more
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

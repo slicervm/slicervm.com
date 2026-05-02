@@ -132,6 +132,18 @@ export default function IndividualModal({
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <span>
+                    <Link
+                      href="/egress"
+                      className="underline underline-offset-2 hover:text-primary"
+                    >
+                      Egress filtering &amp; secret injection
+                    </Link>{" "}
+                    via slicer proxy (default-deny, Bearer / Basic / OAuth)
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                   <span>Personal and commercial use on your own device(s)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -203,6 +215,12 @@ export default function IndividualModal({
                     <X className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
                     <span className="text-muted-foreground">
                       No custom images, no ZFS support
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <X className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">
+                      No slicer proxy (egress filtering &amp; secret injection)
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">

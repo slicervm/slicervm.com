@@ -1,9 +1,32 @@
 import Link from "next/link";
 
+const seoLinks: Array<{ href: string; label: string }> = [
+  { href: "/microvms", label: "MicroVMs" },
+  { href: "/egress", label: "Egress Filtering Proxy" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Blog" },
+  { href: "https://docs.slicervm.com", label: "Docs" },
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-border/50 mt-2">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <nav
+          aria-label="Site links"
+          className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground mb-6"
+        >
+          {seoLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="hover:text-foreground transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
         <div className="text-center text-sm text-muted-foreground">
           <p className="font-mono">
             © 2025 OpenFaaS Ltd. Made by the team behind OpenFaaS, Inlets, and

@@ -142,8 +142,8 @@ Slicer separates the nouns. Register a client, register secrets, then bind them 
 ```
 ┌─ client ──────────┐         ┌─ secret ─────────────┐
 │  name             │         │  name                │
-│  token            │         │  type    bearer |    │
-└─────────┬─────────┘         │          basic-auth |│
+│  token            │         │  type    bearer      │
+└─────────┬─────────┘         │          basic-auth  │
           │                   │          oauth       │
           │ owns              │  value               │
           │                   └──────────┬───────────┘

@@ -181,15 +181,15 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Additional Information */}
       <section className="border-t border-border/50 bg-muted/30">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold tracking-tight mb-4">
+        <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-xl font-bold tracking-tight mb-2">
             Got questions about{" "}
             <span className="text-primary font-mono">Slicer</span>?
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-sm text-muted-foreground mb-4">
             Book a call with our team to get your questions answered.
           </p>
-          <Button size="lg" variant="outline" className="font-mono" asChild>
+          <Button variant="outline" className="font-mono" asChild>
             <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSdDdWbzoRFjGmLTuMI7h-OBhybzXewaNL-hoKTnbU8Wbz7bRA/viewform?usp=sharing&ouid=108694999418382910484"
               target="_blank"

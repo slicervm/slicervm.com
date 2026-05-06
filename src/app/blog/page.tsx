@@ -30,8 +30,8 @@ export default async function BlogPage() {
       <section className="border-b border-border/50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
         <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
-        <div className="relative mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold tracking-tight text-balance mb-4">
+        <div className="relative mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-balance mb-3">
             SlicerVM Blog
           </h1>
           <p className="text-lg text-muted-foreground text-pretty">
@@ -41,13 +41,13 @@ export default async function BlogPage() {
       </section>
 
       {/* Blog Posts */}
-      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="space-y-8">
+      <section className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="space-y-3">
           {blogPosts.map((post, i) => (
             <Link key={i} href={`/blog/${post.slug}`} className="block group">
               <Card className="border-border/50 bg-card hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all">
-                <CardContent className="p-8">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="p-4">
+                  <div className="flex flex-wrap gap-2 mb-2">
                     {post.tags.slice(0, 3).map((tag, j) => (
                       <Badge
                         key={j}
@@ -67,17 +67,17 @@ export default async function BlogPage() {
                     )}
                   </div>
 
-                  <h2 className="text-2xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors">
+                  <h2 className="text-lg font-bold tracking-tight mb-1.5 group-hover:text-primary transition-colors">
                     {post.title}
                   </h2>
 
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                     <div className="flex items-center gap-1.5">
-                      <User className="h-4 w-4" />
+                      <User className="h-3.5 w-3.5" />
                       <span>
                         {Array.isArray(post.authors)
                           ? post.authors[0]
@@ -85,7 +85,7 @@ export default async function BlogPage() {
                       </span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="h-4 w-4" />
+                      <Calendar className="h-3.5 w-3.5" />
                       <span>
                         {" "}
                         {new Date(post.date).toLocaleDateString("en-US", {
@@ -97,7 +97,7 @@ export default async function BlogPage() {
                     </div>
                     <div className="ml-auto flex items-center gap-1.5 text-primary font-medium font-mono">
                       <span>Read more</span>
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </CardContent>

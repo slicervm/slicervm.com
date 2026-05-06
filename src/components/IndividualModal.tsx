@@ -139,7 +139,7 @@ export default function IndividualModal({
                     >
                       Egress filtering &amp; secret injection
                     </Link>{" "}
-                    via slicer proxy (default-deny, Bearer / Basic / OAuth)
+                    via slicer proxy (Bearer / Basic / OAuth)
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">

@@ -1023,6 +1023,11 @@ echo "Team/Platform tier, paste your license key into ~/.slicer/LICENSE from Ord
 echo ""
 print_group_access_message
 echo ""
+echo "Next steps"
+echo ""
+echo "Create a config for Slicer and start the API server:"
+echo "  https://docs.slicervm.com/getting-started/walkthrough/"
+echo ""
 echo "Find out more at https://slicervm.com"
 echo ""
 

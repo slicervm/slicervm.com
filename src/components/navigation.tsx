@@ -5,9 +5,15 @@ import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import BackedByModal from "@/components/BackedByModal";
 
-export function Navigation() {
+interface NavigationProps {
+  showBackedBy?: boolean;
+}
+
+export function Navigation({ showBackedBy = false }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [backedByOpen, setBackedByOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -53,7 +59,24 @@ export function Navigation() {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-3">
+            {showBackedBy && (
+              <button
+                type="button"
+                onClick={() => setBackedByOpen(true)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1 text-xs font-mono text-muted-foreground hover:bg-muted/80 hover:text-foreground transition-colors shadow-sm cursor-pointer"
+              >
+                <span>Backed by</span>
+                <Image
+                  src="/images/openfaas-icon.png"
+                  alt=""
+                  width={14}
+                  height={14}
+                  className="h-3.5 w-3.5"
+                />
+                <span className="text-foreground">OpenFaaS</span>
+              </button>
+            )}
             <Button size="sm" variant="outline" asChild>
               <Link href="https://docs.slicervm.com">Read Docs</Link>
             </Button>
@@ -104,6 +127,13 @@ export function Navigation() {
           </div>
         )}
       </div>
+
+      {showBackedBy && (
+        <BackedByModal
+          isOpen={backedByOpen}
+          onClose={() => setBackedByOpen(false)}
+        />
+      )}
     </nav>
   );
 }

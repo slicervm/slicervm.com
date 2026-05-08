@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import BackedByModal from "@/components/BackedByModal";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -20,11 +22,14 @@ import {
   KeyRound,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
+  const [backedByOpen, setBackedByOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <Navigation showBackedBy />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-border/50">
@@ -649,6 +654,11 @@ RUN usermod -aG docker ubuntu`}
       </section>
 
       <Footer />
+
+      <BackedByModal
+        isOpen={backedByOpen}
+        onClose={() => setBackedByOpen(false)}
+      />
     </div>
   );
 }

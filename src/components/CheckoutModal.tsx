@@ -120,8 +120,9 @@ export default function CheckoutModal({
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
                     <span>
-                      Quantity is the number of running Slicer daemons. Each
-                      daemon can launch unlimited VMs.
+                      Quantity is the number of servers. Run as many daemons as
+                      you want on each server. Each daemon launches unlimited
+                      VMs.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -150,15 +151,15 @@ export default function CheckoutModal({
                   ) : (
                     <>
                       <span>1x Prod</span>
-                      <span className="text-right">1x seat</span>
+                      <span className="text-right">1x server</span>
                       <span>1x Non-Prod</span>
-                      <span className="text-right">1x seat</span>
+                      <span className="text-right">1x server</span>
                     </>
                   )}
                   <div className="col-span-2 border-t border-border/50 my-1"></div>
                   <span className="font-semibold text-foreground">Total</span>
                   <span className="text-right font-semibold text-foreground">
-                    {isTeam ? "5x seats" : "2x seats"}
+                    {isTeam ? "5x seats" : "2x servers"}
                   </span>
                 </div>
               </CardContent>
@@ -180,7 +181,7 @@ export default function CheckoutModal({
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center gap-3">
               <Label htmlFor="quantity">
-                {isTeam ? "Number of seats" : "Number of daemons"}
+                {isTeam ? "Number of seats" : "Number of servers"}
               </Label>
               <Input
                 id="quantity"
@@ -209,7 +210,7 @@ export default function CheckoutModal({
                   <p className="text-xs text-muted-foreground mt-1">
                     {isTeam
                       ? "$25 per seat per month"
-                      : "$250 per daemon per month (unlimited VMs)"}
+                      : "$250 per server per month (unlimited daemons & VMs)"}
                   </p>
                 </div>
               </CardContent>

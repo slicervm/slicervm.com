@@ -429,7 +429,7 @@ export default function Pricing() {
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$250</div>
                 <div className="text-muted-foreground">
-                  USD per daemon per month
+                  USD per server per month
                 </div>
               </CardDescription>
             </CardHeader>
@@ -500,8 +500,8 @@ export default function Pricing() {
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
-                    Licensed per running daemon -- add capacity as you scale.
-                    Unlimited VMs per daemon.
+                    Licensed per server -- run as many daemons as you want on
+                    each server. Unlimited VMs per daemon.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

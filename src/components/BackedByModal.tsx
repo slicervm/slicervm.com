@@ -42,7 +42,7 @@ export default function BackedByModal({ isOpen, onClose }: BackedByModalProps) {
             >
               actuated.com
             </a>
-            . Its development is funded by OpenFaaS Ltd — the team behind
+            . Its development is funded by OpenFaaS Ltd, the team behind
             OpenFaaS, Inlets, and Actuated.
           </DialogDescription>
         </DialogHeader>

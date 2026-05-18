@@ -19,6 +19,7 @@ export function Navigation({ showBackedBy = false }: NavigationProps) {
   const closeMenu = () => setIsOpen(false);
 
   const navigationLinks = [
+    { href: "/mac", label: "Mac" },
     { href: "/pricing", label: "Pricing" },
     { href: "/blog", label: "Blog" },
   ];

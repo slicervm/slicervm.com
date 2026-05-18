@@ -59,7 +59,7 @@ export default function DaemonExplainer({
           {/* Example A: Two different machines */}
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Example A — Two different machines
+              Example A: Two different machines
             </p>
             <Card className="border-border/50">
               <CardContent className="p-3">
@@ -96,7 +96,7 @@ export default function DaemonExplainer({
           {/* Example B: Same machine, two daemons */}
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Example B — One machine, two daemons
+              Example B: One machine, two daemons
             </p>
             <Card className="border-border/50">
               <CardContent className="p-3">
@@ -130,7 +130,7 @@ export default function DaemonExplainer({
           {/* Example C: Flexible */}
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Example C — Mix and match
+              Example C: Mix and match
             </p>
             <Card className="border-border/50">
               <CardContent className="p-3">

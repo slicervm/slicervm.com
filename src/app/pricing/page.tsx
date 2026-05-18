@@ -52,7 +52,7 @@ export default function Pricing() {
         <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:32px_32px]" />
         <div className="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 text-center">
           <h1 className="text-5xl font-bold tracking-tight text-balance mb-4">
-            Linux that runs like localhost — because it is.
+            Linux that runs like localhost, because it is.
           </h1>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
             Make development feel like production - for AI sandboxes, native
@@ -693,14 +693,14 @@ export default function Pricing() {
                     <li className="flex items-start gap-2.5">
                       <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm">
-                        Bearer / Basic / OAuth secret injection — credentials
+                        Bearer / Basic / OAuth secret injection: credentials
                         stay on the host
                       </span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm">
-                        Live policy reload — open during install, narrow at
+                        Live policy reload: open during install, narrow at
                         runtime
                       </span>
                     </li>

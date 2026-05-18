@@ -404,7 +404,7 @@ export default function MicroVMsPage() {
                 <p className="text-base sm:text-sm leading-relaxed text-muted-foreground mb-4">
                   Included in the package: supported Kernels and base images, a
                   REST API, powerful guest agent, Go SDK / TypeScript SDK, and built-in firewall
-                  support. Files are shared via VSOCK — not network copies — giving
+                  support. Files are shared via VSOCK, not network copies, giving
                   you the lowest possible I/O latency.
                 </p>
 

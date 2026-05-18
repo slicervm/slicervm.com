@@ -42,7 +42,7 @@ export default function HomePage() {
                 Real Linux, in milliseconds.
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground text-pretty mb-4 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Full VMs with systemd and a dedicated kernel — on your Mac, your
+                Full VMs with systemd and a dedicated kernel. On your Mac, your
                 servers, or your cloud.
               </p>
               <div className="flex flex-row items-center gap-2 sm:gap-4 mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0 flex-wrap justify-center lg:justify-start">
@@ -96,7 +96,7 @@ export default function HomePage() {
                 Isolated compute, ready to ship
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Isolated Linux VMs with the ease of containers — a real kernel, systemd, and full OS. Launch from code, tear down when done.
+                Isolated Linux VMs with the ease of containers: a real kernel, systemd, and full OS. Launch from code, tear down when done.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -147,7 +147,7 @@ export default function HomePage() {
                       Self-hosted. Zero metering.
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      E2B, Modal, and Daytona meter by the second. Slicer runs on your hardware — flat rate, data never leaves your network.
+                      E2B, Modal, and Daytona meter by the second. Slicer runs on your hardware. Flat rate, data never leaves your network.
                     </p>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function HomePage() {
                       Cold boot in under a second
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      ZFS snapshots make every launch instant. Test, throw away, repeat — no waiting for images or provisioning.
+                      ZFS snapshots make every launch instant. Test, throw away, repeat. No waiting for images or provisioning.
                     </p>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function HomePage() {
                       Automate VMs like API calls
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Copy files in, run commands, pull results out. No SSH, no Ansible — just Slicer&apos;s{" "}
+                      Copy files in, run commands, pull results out. No SSH, no Ansible. Just Slicer&apos;s{" "}
                       <a
                         href="https://docs.slicervm.com/getting-started/install/"
                         target="_blank"
@@ -295,17 +295,17 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
       <section className="border-b border-border/50">
         <div className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance mb-3">
-            But it&apos;s not just a sandbox — it&apos;s a full OS.
+            But it&apos;s not just a sandbox. It&apos;s a full OS.
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
             Every microVM runs a real kernel with systemd, package managers, and
             cron. Run Kubernetes clusters, long-lived servers, or replace your
-            entire dev VM stack — one platform.
+            entire dev VM stack. One platform.
           </p>
         </div>
       </section>
 
-      {/* Slicer for Mac — Enterprise Dev Teams */}
+      {/* Slicer for Mac - Enterprise Dev Teams */}
       <section className="border-b border-border/50 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:py-14 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
@@ -318,7 +318,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                 Real Linux on your Mac
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                No cloud access, no VPN, no AWS account. Real Linux with systemd on your laptop — matching production.
+                No cloud access, no VPN, no AWS account. Real Linux with systemd on your laptop, matching production.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -357,7 +357,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       >
                         K3s inside a Slicer VM
                       </a>
-                      . Test Helm charts, validate RBAC, iterate on controllers — on your own machine.
+                      . Test Helm charts, validate RBAC, iterate on controllers, on your own machine.
                     </p>
                   </div>
                 </div>
@@ -378,7 +378,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                       >
                         VirtioFS
                       </a>{" "}
-                      mounts your Mac directory into the VM. Agents, builds, and tests see the same files — no copying, no syncing.
+                      mounts your Mac directory into the VM. Agents, builds, and tests see the same files. No copying, no syncing.
                     </p>
                   </div>
                 </div>
@@ -455,7 +455,7 @@ $ slicer vm cp vm-1:/tmp/REVIEW.md ./REVIEW.md
                 Long-lived microVMs for servers, clusters, and labs
               </h2>
               <p className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-6">
-                Persistent workloads on bare-metal instead of expensive cloud instances. Kubernetes, dev environments, homelabs — full OS with systemd.
+                Persistent workloads on bare-metal instead of expensive cloud instances. Kubernetes, dev environments, homelabs: full OS with systemd.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -609,8 +609,8 @@ RUN usermod -aG docker ubuntu`}
               className="text-muted-foreground hover:text-foreground underline underline-offset-2 font-medium transition-colors"
             >
               3M+ CI minutes on Arm runners for CNCF
-            </a>{" "}
-            — securing the ecosystem before it hit GitHub&apos;s roadmap.
+            </a>
+            , securing the ecosystem before it hit GitHub&apos;s roadmap.
           </p>
         </div>
       </section>
@@ -622,7 +622,7 @@ RUN usermod -aG docker ubuntu`}
             Real Linux, on your hardware, in milliseconds.
           </h2>
           <p className="text-muted-foreground mb-4 max-w-xl mx-auto">
-            Start with a 14-day free trial. Runs on your own hardware — nothing leaves your machine.
+            Start with a 14-day free trial. Runs on your own hardware. Nothing leaves your machine.
           </p>
           <p className="text-sm text-muted-foreground mb-8">
             <span className="font-semibold text-foreground">$25/mo</span>

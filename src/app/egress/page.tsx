@@ -152,7 +152,7 @@ export default async function EgressPage() {
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero — centered, single column; audit-log strip below replaces the
+      {/* Hero - centered, single column; audit-log strip below replaces the
           two-column-with-terminal pattern used elsewhere on the site. */}
       <section className="relative overflow-hidden border-b border-border/50">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
@@ -167,7 +167,7 @@ export default async function EgressPage() {
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground text-pretty mb-8 max-w-3xl mx-auto">
             Default-deny egress. Per-host allow rules with method + path
-            filters. Bearer, Basic, and OAuth secrets injected on the wire —
+            filters. Bearer, Basic, and OAuth secrets injected on the wire,
             never inside the workload.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -180,7 +180,7 @@ export default async function EgressPage() {
           </div>
         </div>
 
-        {/* Live audit-log strip — full-width, demonstrates the product */}
+        {/* Live audit-log strip - full-width, demonstrates the product */}
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-10">
           <div className="rounded-lg border border-primary/20 bg-card/80 backdrop-blur shadow-lg shadow-primary/5">
             <div className="flex items-center gap-2 px-4 py-2 border-b border-border/50">
@@ -241,7 +241,7 @@ export default async function EgressPage() {
                 <p className="text-sm text-muted-foreground">
                   No traffic leaves a VM unless an explicit rule matches host,
                   method, and path. POST-with-body APIs (GraphQL, ElasticSearch)
-                  filtered at the right layer — not just by HTTP verb.
+                  filtered at the right layer, not just by HTTP verb.
                 </p>
               </CardContent>
             </Card>
@@ -275,7 +275,7 @@ export default async function EgressPage() {
                   Open egress wide while{" "}
                   <code className="font-mono text-xs">arkade get</code> pulls
                   dependencies, then tighten to one upstream before the agent
-                  runs. Rules reload live — no VM restart, no daemon bounce.
+                  runs. Rules reload live, no VM restart, no daemon bounce.
                 </p>
               </CardContent>
             </Card>
@@ -319,7 +319,7 @@ export default async function EgressPage() {
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto mb-6">
             Available on every paid plan. Run an agent against an LLM, clone a
-            repo from a stranger, or sandbox a bot — knowing exactly what it
+            repo from a stranger, or sandbox a bot, knowing exactly what it
             can and can&apos;t reach.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">

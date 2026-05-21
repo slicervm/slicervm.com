@@ -1,7 +1,7 @@
 ---
 title: "You get a worktree, everyone gets a worktree"
 date: "2026-05-21T10:00:00Z"
-excerpt: "Prior to 2026, few people were espousing the benefits of Git Worktrees. Now the Internet cannot keep quiet, but do we need them?"
+excerpt: "Prior to 2026, few people were espousing the benefits of git worktrees. Now the Internet cannot keep quiet, but do we need them?"
 author: "Alex Ellis"
 image: "/images/worktree-background.png"
 tags:
@@ -11,7 +11,7 @@ tags:
   - "sandboxes"
 ---
 
-Prior to 2026, few people were espousing the benefits of Git Worktrees. Now the Internet cannot keep quiet, but do we need them?
+Prior to 2026, few people were espousing the benefits of git worktrees. Now the Internet cannot keep quiet, but do we need them?
 
 If we ask why [git's worktree feature](https://git-scm.com/docs/git-worktree) got placed front of mind amongst developers, we're presented with a chicken and egg question. Did worktrees gain popularity because agents saw them as the solution to parallel work, or was it cargo culting - or a mixture of the two?
 

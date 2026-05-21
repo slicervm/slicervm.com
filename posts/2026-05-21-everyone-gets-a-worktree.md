@@ -3,6 +3,7 @@ title: "You get a worktree, everyone gets a worktree"
 date: "2026-05-21T10:00:00Z"
 excerpt: "Prior to 2026, few people were espousing the benefits of Git Worktrees. Now the Internet cannot keep quiet, but do we need them?"
 author: "Alex Ellis"
+image: "/images/worktree-background.png"
 tags:
   - "agents"
   - "worktrees"

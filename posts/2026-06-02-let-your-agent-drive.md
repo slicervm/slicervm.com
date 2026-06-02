@@ -1,7 +1,7 @@
 ---
 title: "Stop driving Slicer by hand - give your agent the wheel"
 date: "2026-06-02"
-excerpt: "Driving Slicer by hand is like using LLMs for tab completion, automate it fully with your agent."
+excerpt: "Driving Slicer by hand is like using LLMs for tab completion. Let your agent automate the workflow end to end."
 author: "Han Verstraete"
 image: "/images/let-your-agent-drive-background.png"
 tags:
@@ -221,9 +221,9 @@ The clone runs inside the VM with `HTTPS_PROXY` pointing at the host proxy. The 
 
 ## Wrapping up
 
-We started off with a premise that agents can drive Slicer quicker and more effectively than we can by hand. The six examples showed this isn't just demoware - a range of development, and deployment tasks were automated without us having to install docs pages or run installation scripts ourselves.
+We started off with a premise that agents can drive Slicer quicker and more effectively than we can by hand. The six examples showed this isn't just demoware - a range of development, and deployment tasks were automated without us having to read docs pages or run installation scripts ourselves.
 
-Skills are a condensed knowledge base, and will have gaps, and we think that's OK. The models available in 2026 have deep reasoning capabilities, and even a smaller model like Qwen 3.6 27B is quite capable of running `--help` or scanning available files to get more context to complete a task.
+Skills are a condensed knowledge base, so they will have gaps, and we think that's OK. The models available in 2026 have deep reasoning capabilities, and even a smaller model like Qwen 3.6 27B is quite capable of running `--help` or scanning available files to get more context to complete a task.
 
 Our docs contain [many more examples](https://docs.slicervm.com) of use-cases and services you can run with Slicer, each written out as step-by-step instructions you can follow yourself or hand to your agent as additional guidance alongside the Slicer agent skills.
 

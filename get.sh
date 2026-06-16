@@ -735,6 +735,8 @@ install_zvol_snapshotter() {
         return 1
     fi
 
+    local created_zpool=false
+
     # Check if zpool exists, create if necessary
     if zpool_exists "$zpool"; then
         echo "Zpool '$zpool' exists."
@@ -759,10 +761,28 @@ install_zvol_snapshotter() {
         # Create the zpool using the specified device
         if zpool create -m none -f "$zpool" "$vm_dev"; then
             echo "Successfully created zpool '$zpool'."
+            created_zpool=true
         else
             # Print an error if creation failed and exit the script entirely
             echo "Error: Failed to create zpool '$zpool' on '$vm_dev'." >&2
             exit 1
+        fi
+    fi
+
+    if [[ "$created_zpool" = true ]]; then
+        echo "Setting zpool '$zpool' cachefile to /etc/zfs/zpool.cache..."
+        if zpool set cachefile=/etc/zfs/zpool.cache "$zpool"; then
+            echo "Configured zpool '$zpool' cachefile."
+        else
+            echo "Error: Failed to set cachefile for zpool '$zpool'." >&2
+            exit 1
+        fi
+    else
+        local cachefile
+        cachefile=$(zpool get -H -o value cachefile "$zpool" 2>/dev/null || true)
+        if [[ "$cachefile" != "/etc/zfs/zpool.cache" ]]; then
+            echo "Warning: existing zpool '$zpool' cachefile is '$cachefile', not /etc/zfs/zpool.cache."
+            echo "         Set it manually if this pool should be imported by zfs-import-cache.service."
         fi
     fi
 

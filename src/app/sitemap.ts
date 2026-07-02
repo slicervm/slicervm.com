@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog";
 import { SITE_URL } from "@/lib/config";
 
+export const dynamic = "force-static";
+
 const staticRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/blog/", changeFrequency: "weekly", priority: 0.8 },

@@ -17,12 +17,33 @@ import {
   Monitor,
 } from "lucide-react";
 import Link from "next/link";
-import { SITE_NAME } from "@/lib/config";
+import { SITE_NAME, SITE_URL } from "@/lib/config";
+
+const title = `Slicer for Mac - Real Linux on your MacBook | ${SITE_NAME}`;
+const description =
+  "Full Linux VMs with systemd on your Mac. Built on Apple's Virtualization framework. No cloud, no VPN, no IT ticket. Edit on Mac, run on Linux.";
+const url = new URL("/mac/", SITE_URL).toString();
 
 export const metadata: Metadata = {
-  title: `Slicer for Mac - Real Linux on your MacBook | ${SITE_NAME}`,
-  description:
-    "Full Linux VMs with systemd on your Mac. Built on Apple's Virtualization framework. No cloud, no VPN, no IT ticket. Edit on Mac, run on Linux.",
+  title,
+  description,
+  alternates: {
+    canonical: url,
+  },
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: "website",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/twitter-image"],
+  },
 };
 
 const videos: Array<{ id: string; title: string; description: string }> = [
@@ -61,9 +82,8 @@ const useCases: UseCase[] = [
         >
           Claude, Codex, and OpenCode
         </a>{" "}
-        in their own VM with root access. Copy out the results when
-        they&apos;re done. No more clicking through permissions for every shell
-        command.
+        in their own VM with root access. Copy out the results when they&apos;re
+        done. No more clicking through permissions for every shell command.
       </>
     ),
   },
@@ -84,8 +104,8 @@ const useCases: UseCase[] = [
         >
           Slicer Proxy
         </Link>
-        . Bearer, Basic, and OAuth credentials inject on the wire, so agents
-        and untrusted workloads never see your secrets. Every request audited.
+        . Bearer, Basic, and OAuth credentials inject on the wire, so agents and
+        untrusted workloads never see your secrets. Every request audited.
       </>
     ),
   },
@@ -94,8 +114,8 @@ const useCases: UseCase[] = [
     title: "Replace Docker Desktop, Colima, Lima, UTM, Multipass, VirtualBox",
     body: (
       <>
-        Ephemeral sandboxes and long-lived VMs in one tool. Responsive, and
-        easy to automate with bash,{" "}
+        Ephemeral sandboxes and long-lived VMs in one tool. Responsive, and easy
+        to automate with bash,{" "}
         <a
           href="https://github.com/slicervm/agent-skills"
           target="_blank"

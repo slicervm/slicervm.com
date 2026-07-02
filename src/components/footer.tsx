@@ -39,7 +39,7 @@ export function Footer() {
               Programmable microVMs with egress filtering.
             </p>
             <a
-              href="https://slicervm.com"
+              href="https://x.com/slicervm"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-block text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"

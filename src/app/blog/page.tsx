@@ -6,11 +6,33 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getAllBlogPosts } from "@/lib/blog";
-import { SITE_NAME } from "@/lib/config";
+import { SITE_NAME, SITE_URL } from "@/lib/config";
+
+const title = `Blog - ${SITE_NAME}`;
+const description =
+  "The latest news, tutorials, case-studies, and announcements.";
+const url = new URL("/blog/", SITE_URL).toString();
 
 export const metadata: Metadata = {
-  title: `Blog - ${SITE_NAME}`,
-  description: "The latest news, tutorials, case-studies, and announcements.",
+  title,
+  description,
+  alternates: {
+    canonical: url,
+  },
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: "website",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/twitter-image"],
+  },
 };
 
 export default async function BlogPage() {

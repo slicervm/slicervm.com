@@ -8,9 +8,9 @@ import Link from "next/link";
 import { getAllBlogPosts } from "@/lib/blog";
 import { SITE_NAME, SITE_URL } from "@/lib/config";
 
-const title = `Blog - ${SITE_NAME}`;
+const title = "SlicerVM Blog | MicroVMs, Sandboxes, and Linux Automation";
 const description =
-  "The latest news, tutorials, case-studies, and announcements.";
+  "Technical posts, product updates, and tutorials for SlicerVM, AI sandboxes, egress filtering, Kubernetes, and real Linux microVM workflows.";
 const url = new URL("/blog/", SITE_URL).toString();
 
 export const metadata: Metadata = {

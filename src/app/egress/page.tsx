@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { codeToHtml } from "shiki";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
@@ -14,6 +15,34 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { CodeTabs } from "./CodeTabs";
+import { SITE_NAME, SITE_URL } from "@/lib/config";
+
+const title = `Programmable Egress Filtering for MicroVMs | ${SITE_NAME}`;
+const description =
+  "Filter outbound HTTP traffic, inject credentials on the wire, and audit requests from AI agents and untrusted workloads running in Slicer microVMs.";
+const url = new URL("/egress/", SITE_URL).toString();
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: url,
+  },
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: "website",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/twitter-image"],
+  },
+};
 
 const BASH_EXAMPLE = `# 1. start the proxy on the host
 slicer proxy up --hostgroup lab --bind 192.168.222.1
@@ -191,10 +220,7 @@ export default async function EgressPage() {
             </div>
             <div className="px-4 py-3 space-y-1.5 font-mono text-xs sm:text-sm">
               {LOG_LINES.map((line, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-2 overflow-x-auto"
-                >
+                <div key={i} className="flex items-start gap-2 overflow-x-auto">
                   {line.verdict === "allow" ? (
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                   ) : (
@@ -256,9 +282,9 @@ export default async function EgressPage() {
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   Register a Bearer, Basic, or OAuth credential once. The proxy
-                  injects it on matching requests and strips the
-                  workload&apos;s placeholder. Your AWS keys, LLM tokens, and
-                  GitHub PATs never touch the VM.
+                  injects it on matching requests and strips the workload&apos;s
+                  placeholder. Your AWS keys, LLM tokens, and GitHub PATs never
+                  touch the VM.
                 </p>
               </CardContent>
             </Card>
@@ -319,8 +345,8 @@ export default async function EgressPage() {
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-pretty max-w-2xl mx-auto mb-6">
             Available on every paid plan. Run an agent against an LLM, clone a
-            repo from a stranger, or sandbox a bot, knowing exactly what it
-            can and can&apos;t reach.
+            repo from a stranger, or sandbox a bot, knowing exactly what it can
+            and can&apos;t reach.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button size="lg" className="font-mono" asChild>

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SITE_NAME, SITE_URL } from "@/lib/config";
 
-const title = "SlicerVM Pricing | Individual, Team, and Platform Plans";
+const title = `MicroVMs for AI Sandboxes and Services | ${SITE_NAME}`;
 const description =
-  "Compare SlicerVM plans for local Linux VMs, team sandboxes, egress filtering, Kubernetes, and platform deployments on your own hardware.";
-const url = new URL("/pricing/", SITE_URL).toString();
+  "Run full Linux microVMs with systemd, dedicated kernels, and API-driven lifecycle management on Mac, Linux, cloud VMs, and bare-metal.";
+const url = new URL("/microvms/", SITE_URL).toString();
 
 export const metadata: Metadata = {
   title,
@@ -29,6 +29,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PricingLayout({ children }: { children: ReactNode }) {
+export default function MicroVMsLayout({ children }: { children: ReactNode }) {
   return children;
 }

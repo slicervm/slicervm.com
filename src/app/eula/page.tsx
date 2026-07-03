@@ -3,10 +3,34 @@ import path from "node:path";
 
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
+import { SITE_NAME, SITE_URL } from "@/lib/config";
 import type { Metadata } from "next";
 
+const title = "SlicerVM End User License Agreement";
+const description =
+  "End User License Agreement for SlicerVM software, subscriptions, trials, support, and platform usage from OpenFaaS Ltd.";
+const url = new URL("/eula/", SITE_URL).toString();
+
 export const metadata: Metadata = {
-  title: "End User License Agreement",
+  title,
+  description,
+  alternates: {
+    canonical: url,
+  },
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: "website",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/twitter-image"],
+  },
 };
 
 export default async function EulaPage() {

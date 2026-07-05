@@ -39,11 +39,11 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="text-center lg:text-left lg:order-1">
               <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-6xl mb-4">
-                Real Linux, in milliseconds.
+                Let your agent drive.
               </h1>
               <p className="text-base sm:text-xl text-muted-foreground text-pretty mb-4 max-w-2xl mx-auto lg:mr-auto lg:mx-0">
-                Full VMs with systemd and a dedicated kernel. On your Mac, your
-                servers, or your cloud.
+                Real Linux, in milliseconds: full VMs your agent can launch,
+                use, and throw away. On your Mac, your servers, or your cloud.
               </p>
               <div className="flex flex-row items-center gap-2 sm:gap-4 mb-6 max-w-2xl mx-auto lg:mr-auto lg:mx-0 flex-wrap justify-center lg:justify-start">
                 <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/5 px-2 sm:px-3 py-1.5 sm:py-2">
@@ -51,18 +51,32 @@ export default function HomePage() {
                     Sandboxes
                   </span>
                   <span className="text-xs text-muted-foreground hidden sm:inline">
-                    Linux machines via API
+                    Disposable, via API
                   </span>
                 </div>
                 <span className="text-muted-foreground text-sm">+</span>
                 <div className="inline-flex items-center gap-2 rounded-md border border-primary/30 bg-primary/5 px-2 sm:px-3 py-1.5 sm:py-2">
                   <span className="text-xs font-mono font-medium text-primary">
-                    Services
+                    Servers
                   </span>
                   <span className="text-xs text-muted-foreground hidden sm:inline">
                     Bare-metal performance
                   </span>
                 </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-6 mb-6 text-sm text-muted-foreground justify-center lg:justify-start">
+                <Link
+                  href="/blog/let-your-agent-drive/"
+                  className="hover:text-foreground underline underline-offset-4 decoration-border transition-colors"
+                >
+                  Agent skills: K3s, Docker, ArgoCD &rarr;
+                </Link>
+                <Link
+                  href="/blog/evolving-our-code-review-bot-with-slicer-sandboxes/"
+                  className="hover:text-foreground underline underline-offset-4 decoration-border transition-colors"
+                >
+                  Every PR we ship is reviewed in a sandbox &rarr;
+                </Link>
               </div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Button size="lg" className="font-mono" asChild>

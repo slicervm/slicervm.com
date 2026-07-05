@@ -21,57 +21,57 @@ const sequence: AgentStep[] = [
   {
     type: "user",
     text: "Test this Helm chart on the mini PC. Install K3s, deploy it, and make sure it starts clean.",
-    delay: 700,
+    delay: 420,
   },
-  { type: "tool", text: "Skill(use-slicer)", delay: 300 },
+  { type: "tool", text: "Skill(use-slicer)", delay: 180 },
   {
     type: "result",
     lines: ["Slicer daemon found on n100 (192.168.1.125)"],
-    delay: 400,
+    delay: 240,
   },
-  { type: "tool", text: "Bash(slicer vm create k3s-test --wait)", delay: 450 },
+  { type: "tool", text: "Bash(slicer vm create k3s-test --wait)", delay: 270 },
   {
     type: "result",
     lines: ["k3s-test ready in 0.61s · 192.168.137.2 · 4GB / 2 vCPU"],
-    delay: 550,
+    delay: 330,
   },
   {
     type: "tool",
     text: "Bash(k3sup install --ip 192.168.137.2 --user ubuntu)",
-    delay: 700,
+    delay: 420,
   },
   {
     type: "result",
     lines: ["K3s v1.33.1+k3s1 installed", "kubeconfig written to ./kubeconfig"],
-    delay: 550,
+    delay: 330,
   },
-  { type: "tool", text: "Bash(helm upgrade --install app ./chart)", delay: 600 },
+  { type: "tool", text: "Bash(helm upgrade --install app ./chart)", delay: 360 },
   {
     type: "result",
     lines: ['Release "app" installed · revision 1'],
-    delay: 500,
+    delay: 300,
   },
-  { type: "tool", text: "Bash(kubectl rollout status deploy/app)", delay: 550 },
+  { type: "tool", text: "Bash(kubectl rollout status deploy/app)", delay: 330 },
   {
     type: "result",
     lines: [
       'deployment "app" successfully rolled out',
       "app-6d9f7b 1/1 Running · 0 restarts · logs clean",
     ],
-    delay: 700,
+    delay: 420,
   },
   {
     type: "agent",
     text: "Chart deploys clean on K3s. The app came up first try with no restarts, and your local kubectl now points at the cluster.",
-    delay: 900,
+    delay: 540,
   },
-  { type: "tool", text: "Bash(slicer vm delete k3s-test)", delay: 400 },
+  { type: "tool", text: "Bash(slicer vm delete k3s-test)", delay: 240 },
   {
     type: "result",
     lines: ["k3s-test removed · host left untouched"],
-    delay: 500,
+    delay: 300,
   },
-  { type: "done", text: "✓ From prompt to pods, and back. No SSH, no clicking.", delay: 7000 },
+  { type: "done", text: "✓ From prompt to pods, and back. No SSH, no clicking.", delay: 15000 },
 ];
 
 export function AgentTerminal({ className = "" }: AgentTerminalProps) {
@@ -101,13 +101,13 @@ export function AgentTerminal({ className = "" }: AgentTerminalProps) {
         if (charIndex < fullText.length) {
           setCurrentText(fullText.slice(0, charIndex + 1));
           charIndex++;
-          timeout = setTimeout(typeChar, 12 + Math.random() * 14);
+          timeout = setTimeout(typeChar, 8 + Math.random() * 9);
         } else {
           timeout = setTimeout(advance, step.delay);
         }
       };
 
-      timeout = setTimeout(typeChar, 400);
+      timeout = setTimeout(typeChar, 250);
     } else {
       timeout = setTimeout(advance, step.delay);
     }

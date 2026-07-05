@@ -8,8 +8,9 @@ interface AgentTerminalProps {
 }
 
 // A mocked agent session: one prompt, then the agent drives Slicer end to end
-// via the agent skills. Every command, hostname, version, and timing shown was
-// captured from a real run on the s9 mini PC (2026-07-05) — nothing invented.
+// via the agent skills. Commands, hostnames, versions, and timings come from a
+// real run on the s9 mini PC (2026-07-05); the launch time shows the min-image
+// figure (~450ms) rather than that run's cold-start on the full image.
 type AgentStep =
   | { type: "user"; text: string; delay: number }
   | { type: "tool"; text: string; delay: number }
@@ -32,7 +33,7 @@ const sequence: AgentStep[] = [
   { type: "tool", text: "Bash(slicer vm add e2e --wait)", delay: 270 },
   {
     type: "result",
-    lines: ["e2e-1 ready in 3.5s · 192.168.132.2 · 4GB / 2 vCPU"],
+    lines: ["e2e-1 ready in 450ms · 192.168.132.2 · 4GB / 2 vCPU"],
     delay: 330,
   },
   {
@@ -81,7 +82,7 @@ const sequence: AgentStep[] = [
     lines: ["e2e-1 deleted · disk removed · 0.5s"],
     delay: 300,
   },
-  { type: "done", text: "✓ Prompt to pods and back: 16s of machine time. No SSH, no clicking.", delay: 15000 },
+  { type: "done", text: "✓ Prompt to pods and back: 13s of machine time. No SSH, no clicking.", delay: 15000 },
 ];
 
 export function AgentTerminal({ className = "" }: AgentTerminalProps) {

@@ -6,7 +6,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SlicerTerminal } from "@/components/slicerTerminal";
+import { AgentTerminal } from "@/components/agentTerminal";
 import {
   ArrowRight,
   Zap,
@@ -91,7 +91,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="lg:order-2">
-              <SlicerTerminal className="w-full" />
+              <AgentTerminal className="w-full" />
             </div>
           </div>
         </div>

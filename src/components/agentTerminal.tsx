@@ -7,9 +7,9 @@ interface AgentTerminalProps {
   className?: string;
 }
 
-// A mocked agent session: the user gives one prompt, the agent drives Slicer
-// end to end via the agent skills. Content mirrors the "let your agent drive"
-// blog post so every action shown is one the skills really perform.
+// A mocked agent session: one prompt, then the agent drives Slicer end to end
+// via the agent skills. Every command, hostname, version, and timing shown was
+// captured from a real run on the s9 mini PC (2026-07-05) — nothing invented.
 type AgentStep =
   | { type: "user"; text: string; delay: number }
   | { type: "tool"; text: string; delay: number }
@@ -26,23 +26,33 @@ const sequence: AgentStep[] = [
   { type: "tool", text: "Skill(use-slicer)", delay: 180 },
   {
     type: "result",
-    lines: ["Slicer daemon found on n100 (192.168.1.125)"],
+    lines: ["Slicer daemon found on s9 · v0.1.179"],
     delay: 240,
   },
-  { type: "tool", text: "Bash(slicer vm create k3s-test --wait)", delay: 270 },
+  { type: "tool", text: "Bash(slicer vm add e2e --wait)", delay: 270 },
   {
     type: "result",
-    lines: ["k3s-test ready in 0.61s · 192.168.137.2 · 4GB / 2 vCPU"],
+    lines: ["e2e-1 ready in 3.5s · 192.168.132.2 · 4GB / 2 vCPU"],
     delay: 330,
   },
   {
     type: "tool",
-    text: "Bash(k3sup install --ip 192.168.137.2 --user ubuntu)",
+    text: "Bash(slicer vm exec e2e-1 -- arkade get k3sup kubectl helm)",
+    delay: 270,
+  },
+  {
+    type: "result",
+    lines: ["3 tools installed in 1.3s"],
+    delay: 300,
+  },
+  {
+    type: "tool",
+    text: "Bash(slicer vm exec e2e-1 -- k3sup install --local)",
     delay: 420,
   },
   {
     type: "result",
-    lines: ["K3s v1.33.1+k3s1 installed", "kubeconfig written to ./kubeconfig"],
+    lines: ["K3s v1.36.2+k3s1 up in 10s · node Ready", "kubeconfig written"],
     delay: 330,
   },
   { type: "tool", text: "Bash(helm upgrade --install app ./chart)", delay: 360 },
@@ -56,22 +66,22 @@ const sequence: AgentStep[] = [
     type: "result",
     lines: [
       'deployment "app" successfully rolled out',
-      "app-6d9f7b 1/1 Running · 0 restarts · logs clean",
+      "app-78868c 1/1 Running · 0 restarts",
     ],
     delay: 420,
   },
   {
     type: "agent",
-    text: "Chart deploys clean on K3s. The app came up first try with no restarts, and your local kubectl now points at the cluster.",
+    text: "Chart deploys clean on K3s. The app came up first try with no restarts, and your kubectl points at the cluster.",
     delay: 540,
   },
-  { type: "tool", text: "Bash(slicer vm delete k3s-test)", delay: 240 },
+  { type: "tool", text: "Bash(slicer vm delete e2e-1)", delay: 240 },
   {
     type: "result",
-    lines: ["k3s-test removed · host left untouched"],
+    lines: ["e2e-1 deleted · disk removed · 0.5s"],
     delay: 300,
   },
-  { type: "done", text: "✓ From prompt to pods, and back. No SSH, no clicking.", delay: 15000 },
+  { type: "done", text: "✓ Prompt to pods and back: 16s of machine time. No SSH, no clicking.", delay: 15000 },
 ];
 
 export function AgentTerminal({ className = "" }: AgentTerminalProps) {

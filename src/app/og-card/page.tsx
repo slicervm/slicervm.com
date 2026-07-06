@@ -37,12 +37,13 @@ export default function OgCardPage() {
 
         {/* Headline */}
         <h1 className="text-[80px] font-bold tracking-tight text-foreground text-center leading-[1.05] mb-6">
-          Real Linux, in milliseconds.
+          Let your agent drive.
         </h1>
 
         {/* Subtext */}
         <p className="text-[28px] text-muted-foreground text-center max-w-[920px] mb-14 leading-relaxed">
-          Full VMs with systemd and a real kernel. On your Mac, your servers, or your cloud.
+          Real Linux, in milliseconds: full VMs your agent can launch, use, and
+          throw away. On your Mac, your servers, or your cloud.
         </p>
 
         {/* Pills - matches hero badges */}
@@ -52,16 +53,16 @@ export default function OgCardPage() {
               Sandboxes
             </span>
             <span className="text-base text-muted-foreground">
-              Linux machines via API
+              Disposable, via API
             </span>
           </div>
           <span className="text-xl text-muted-foreground">+</span>
           <div className="inline-flex items-center gap-3 rounded-md border border-primary/30 bg-primary/5 px-5 py-3">
             <span className="text-lg font-mono font-semibold text-primary">
-              Services
+              Servers
             </span>
             <span className="text-base text-muted-foreground">
-              Datacenter on a diet
+              Bare-metal performance
             </span>
           </div>
         </div>

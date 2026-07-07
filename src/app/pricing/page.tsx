@@ -704,12 +704,6 @@ export default function Pricing() {
                         runtime
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
-                      <X className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
-                      <span className="text-sm text-muted-foreground">
-                        Not available in trial mode
-                      </span>
-                    </li>
                   </ul>
                 </div>
               </div>

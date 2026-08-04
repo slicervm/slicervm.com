@@ -164,6 +164,7 @@ Now fork a runner, clear any inherited allow list, and drop everything else. Sli
 
 ```bash
 RUNNER=$(slicer vm fork "$COMMIT" \
+  --wait \
   --tag role=runner \
   --no-allow \
   --drop 0.0.0.0/0 \
@@ -230,13 +231,13 @@ commitID := commits[0].CommitID
 emptyAllow := []string{}
 dropAll := []string{"0.0.0.0/0"}
 
-runner, err := client.ForkCommittedVMWithOptions(ctx, commitID, slicer.SlicerForkVMOptions{
-	Tags:    []string{"role=runner"},
-	Network: &slicer.SlicerForkVMNetworkPolicy{
+runner, err := client.ForkCommittedVM(ctx, commitID,
+	slicer.WithTags("role=runner"),
+	slicer.WithNetwork(&slicer.SlicerForkVMNetworkPolicy{
 		Allow: &emptyAllow,
 		Drop:  &dropAll,
-	},
-})
+	}),
+)
 if err != nil {
 	log.Fatal(err)
 }

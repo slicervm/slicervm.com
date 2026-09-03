@@ -48,7 +48,7 @@ export default function IndividualModal({
           <div className="mt-2 rounded-xl border border-primary/30 bg-primary/5 p-4">
             <div className="flex items-baseline justify-between">
               <span className="font-mono text-xs uppercase tracking-wider text-primary">
-                From day one
+                Full support from day one
               </span>
               <span className="font-mono text-sm">
                 <span className="text-2xl font-bold text-primary">$25</span>
@@ -132,37 +132,26 @@ export default function IndividualModal({
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="mt-2 text-center text-xs text-muted-foreground">
-              New to Slicer?{" "}
-              <Link
-                href={INSTALL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-primary"
-              >
-                Install it first
-              </Link>
-            </p>
           </div>
 
-          {/* Trial — the quiet escape hatch */}
-          <div className="mt-4 flex items-center gap-3">
-            <span className="h-px flex-1 bg-border" />
-            <span className="text-xs text-muted-foreground">
-              not ready to commit?
-            </span>
-            <span className="h-px flex-1 bg-border" />
-          </div>
-
-          <div className="mt-3 text-center">
-            <p className="text-sm text-muted-foreground">
-              The <span className="font-medium text-foreground">14-day free
-              trial</span> is the same full product, with limited support.
-              Billing starts on day 15, and a card is required.
+          {/* Trial — the route for first-time users */}
+          <div className="mt-3 rounded-xl border border-border bg-muted/30 p-4">
+            <div className="flex items-baseline justify-between">
+              <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                New to Slicer?
+              </span>
+              <span className="font-mono text-sm text-muted-foreground">
+                $0 for 14 days
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Prove it out on your own hardware first. The same full product,
+              with limited support. Card required &mdash; billing starts on day
+              15 unless you cancel.
             </p>
             <Button
-              variant="ghost"
-              className="mt-2 font-mono text-muted-foreground"
+              variant="outline"
+              className="w-full font-mono mt-3"
               asChild
             >
               <Link
@@ -170,10 +159,22 @@ export default function IndividualModal({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Start the 14-day trial
+                Start 14-day free trial
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
+            <p className="mt-2 text-center text-xs text-muted-foreground">
+              Takes minutes to{" "}
+              <Link
+                href={INSTALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-primary"
+              >
+                install Slicer
+              </Link>{" "}
+              &mdash; the trial unlocks it.
+            </p>
           </div>
         </DialogContent>
       </Dialog>

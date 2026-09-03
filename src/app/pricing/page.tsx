@@ -20,7 +20,6 @@ import {
   ArrowRight,
   Info,
   X,
-  Sparkles,
   Zap,
   Shield,
   Cpu,
@@ -96,6 +95,9 @@ export default function Pricing() {
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$25</div>
                 <div className="text-muted-foreground">USD per month</div>
+                <div className="mt-1 text-sm font-medium text-primary">
+                  14-day free trial available
+                </div>
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -104,14 +106,6 @@ export default function Pricing() {
                 or your day job.
               </p>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    <span className="font-medium text-primary">
-                      14-day free trial, then $25/mo
-                    </span>
-                  </span>
-                </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
@@ -272,7 +266,7 @@ export default function Pricing() {
               <CardDescription className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">$125</div>
                 <div className="text-muted-foreground">USD per month</div>
-                <div className="text-xs text-muted-foreground mt-1">
+                <div className="mt-1 text-sm font-medium text-primary">
                   Includes 5x seats
                 </div>
               </CardDescription>
@@ -446,6 +440,26 @@ export default function Pricing() {
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
+                  <Infinity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <span className="font-medium">Unlimited daemons</span> per
+                    server
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Infinity className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    <span className="font-medium">Unlimited VMs</span> per
+                    daemon
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm">
+                    Private Discord channel and email support
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm">
                     Build internal developer platforms and automation
@@ -495,19 +509,6 @@ export default function Pricing() {
                       Egress filtering proxy
                     </Link>{" "}
                     with Bearer / Basic / OAuth secret injection
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Licensed per server -- run as many daemons as you want on
-                    each server. Unlimited VMs per daemon.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm">
-                    Private Discord channel and email support
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

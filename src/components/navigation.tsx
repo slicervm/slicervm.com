@@ -11,7 +11,7 @@ interface NavigationProps {
   showBackedBy?: boolean;
 }
 
-export function Navigation({ showBackedBy = false }: NavigationProps) {
+export function Navigation({ showBackedBy = true }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [backedByOpen, setBackedByOpen] = useState(false);
 

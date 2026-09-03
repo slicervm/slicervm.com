@@ -29,7 +29,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      <Navigation showBackedBy />
+      <Navigation />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-border/50">

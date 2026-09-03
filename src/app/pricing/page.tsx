@@ -84,7 +84,7 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          <Card className="border-border/50 relative">
+          <Card id="individual" className="border-border/50 relative">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <Badge variant="secondary" className="font-mono">
                 Work and side-projects
@@ -532,6 +532,19 @@ export default function Pricing() {
           </Card>
         </div>
 
+        <div className="mt-10 flex justify-center">
+          <div className="inline-flex items-start gap-3 rounded-lg border border-border/50 bg-muted/30 px-4 py-3 text-sm text-muted-foreground">
+            <Info className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+            <span className="text-pretty">
+              <span className="font-medium text-foreground">
+                Considering the Team or Platform tier?
+              </span>{" "}
+              The Individual tier includes a free trial to explore the product
+              before committing.
+            </span>
+          </div>
+        </div>
+
         <div className="mt-12 max-w-5xl mx-auto">
           <Card className="border-border/50">
             <CardHeader>
@@ -539,8 +552,8 @@ export default function Pricing() {
                 Every Plan Includes
               </CardTitle>
               <CardDescription className="text-center">
-                Core capabilities across Individual, Team, and Platform -- no
-                feature gating.
+                Core capabilities across Individual, Team, and Platform - the
+                license governs usage.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -551,20 +564,6 @@ export default function Pricing() {
                     Two Ways to Run MicroVMs
                   </h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-2.5">
-                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm">
-                        <span className="font-medium">Services</span> --
-                        long-lived systemd-based microVMs for servers,
-                        containers, and{" "}
-                        <Link
-                          href="https://docs.slicervm.com/examples/autoscaling-k3s/"
-                          className="underline underline-offset-2 hover:text-primary"
-                        >
-                          autoscaling Kubernetes
-                        </Link>
-                      </span>
-                    </li>
                     <li className="flex items-start gap-2.5">
                       <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm">
@@ -593,6 +592,20 @@ export default function Pricing() {
                         </Link>
                       </span>
                     </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        <span className="font-medium">Services</span> --
+                        long-lived systemd-based microVMs for servers,
+                        containers, and{" "}
+                        <Link
+                          href="https://docs.slicervm.com/examples/autoscaling-k3s/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          autoscaling Kubernetes
+                        </Link>
+                      </span>
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-3">
@@ -616,8 +629,33 @@ export default function Pricing() {
                     <li className="flex items-start gap-2.5">
                       <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm">
-                        Customise microVMs via userdata or custom Docker/OCI
-                        images
+                        <Link
+                          href="/blog/build-once-fork-many/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          Clone existing VMs
+                        </Link>{" "}
+                        to reuse prepared setups instead of rebuilding each
+                        time
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Customise microVMs via{" "}
+                        <Link
+                          href="https://docs.slicervm.com/tasks/userdata/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          userdata
+                        </Link>{" "}
+                        or custom Docker/OCI{" "}
+                        <Link
+                          href="https://docs.slicervm.com/platform/custom-images/"
+                          className="underline underline-offset-2 hover:text-primary"
+                        >
+                          images
+                        </Link>
                       </span>
                     </li>
                     <li className="flex items-start gap-2.5">
@@ -637,37 +675,34 @@ export default function Pricing() {
                     <li className="flex items-start gap-2.5">
                       <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm">
+                        <span className="font-medium">Linux</span> - bare-metal,
+                        mini PCs, Arm SoCs
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        <span className="font-medium">Apple Silicon</span> -
+                        the MacBook you already own
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        <span className="font-medium">Cloud</span> - bare-metal
+                        &amp; nested virtualisation
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm">
                         <Link
                           href="https://docs.slicervm.com/reference/vfio/"
                           className="underline underline-offset-2 hover:text-primary"
                         >
-                          Mount GPUs
+                          Mount GPUs/PCI devices
                         </Link>{" "}
-                        into microVMs for AI and LLM workloads
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm">
-                        Laptops, homelabs, bare-metal servers, and cloud VMs --{" "}
-                        <Link
-                          href="/microvms"
-                          className="underline underline-offset-2 hover:text-primary"
-                        >
-                          see where Slicer runs
-                        </Link>
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm">
-                        Explore more in the{" "}
-                        <Link
-                          href="https://docs.slicervm.com/examples/"
-                          className="underline underline-offset-2 hover:text-primary"
-                        >
-                          Slicer docs and examples
-                        </Link>
+                        into microVMs for AI workloads
                       </span>
                     </li>
                   </ul>
